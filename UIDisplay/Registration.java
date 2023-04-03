@@ -1,22 +1,19 @@
 package UIDisplay;
 
 import javax.swing.*;
-import javax.swing.event.AncestorListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Login {
+public class Registration {
     private JTextField usernameField;
     private JPasswordField passwordField;
-    private JButton loginButton;
     private JButton cancelButton;
     private JButton registerButton;
-
     // Just show a simple login screen
-    public Login() {
+    public Registration() {
         // Create a new JFrame
-        JFrame frame = new JFrame("Login");
+        JFrame frame = new JFrame("Registration");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null);
@@ -37,23 +34,15 @@ public class Login {
         panel1.add(passwordField);
 
         // Add a button to the JFrame
-        loginButton = new JButton("Login");
         JPanel panel2=new JPanel();
         panel2.setLayout(new GridLayout(1,2,5,5));
-        panel2.add(loginButton);
 //        frame.add(button);
-        loginButton.addActionListener(e -> {
-            // When the button is clicked, open the menu
-            new Menu();
-            // Close the login screen
-            frame.dispose();
-        });
         registerButton =new JButton("register");
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Registration();
-                frame.dispose();
+//                new Registration();
+//                frame.dispose();
             }
         });
         panel2.add(registerButton);
