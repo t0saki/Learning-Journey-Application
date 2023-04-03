@@ -1,7 +1,6 @@
 package UIDisplay;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Menu extends JFrame {
     // Just show a simple menu
@@ -13,13 +12,12 @@ public class Menu extends JFrame {
         JList<String> sidebarList = new JList<>(new String[]{"Home", "Profile", "Settings"});
         JScrollPane sidebarScrollPane = new JScrollPane(sidebarList);
 
-        // Create a content panel
-        JPanel contentPanel = new JPanel(new BorderLayout());
-        contentPanel.add(new JLabel("Hello World!"), BorderLayout.CENTER);
+        // Create a content panel from UserInfo
+        UserInfo contentPanel = new UserInfo();
 
-        // Add the sidebar and content panel to the JFrame
-        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarScrollPane, contentPanel);
-        add(splitPane);
+        // Add the sidebar and content panel to this JFrame
+        add(sidebarScrollPane, "West");
+        add(contentPanel, "Center");
 
         // Show the JFrame
         setSize(800, 600);
