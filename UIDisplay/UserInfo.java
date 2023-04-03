@@ -1,15 +1,16 @@
 package UIDisplay;
 
+import FileHandler.UserInfoHandler;
+
 import javax.swing.*;
 
 public class UserInfo extends JPanel {
     // Show a user's information
     public UserInfo() {
-        // Just random data
-        String[] data = new String[]{
-                "Name: John Doe",
-                "Email: johndoe@qmul.ac.uk"
-        };
+        UserInfoHandler userInfo = new UserInfoHandler("Data\\UserInfo.csv");
+        userInfo.open("Li Hua");
+        String[] data = userInfo.getData();
+
 
         JLabel[] labels = new JLabel[data.length];
         for (int i = 0; i < data.length; i++) {
