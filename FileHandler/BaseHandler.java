@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class BaseHandler {
     private final String path;
-    private FileReader file;
+    private FileReader fileReader;
     private Map<String, Integer> headerMap = new HashMap<>();
     private String[][] fileData;
     private boolean isOpen = false;
@@ -19,42 +19,34 @@ public class BaseHandler {
         this.path = path;
     }
 
-    public int open(boolean readonly, String name) {
-        // Open the file
+    // open a file by its path
+    public int open(String name) {
         if (isOpen) {
+            System.out.println("Another file is already opened, close it before open another one.");
             return 0;
         }
+
         try {
-            // Create a new file object
-            File f = new File(path);
-            // Create a new file reader
-            file = new FileReader(f);
+            fileReader = new FileReader(new File(path));
             isOpen = true;
         } catch (Exception e) {
-            // If there is an error, return null
             System.console().printf("Error opening file");
             return 1;
         }
 
-        // Set the file to open
         CSVHandler();
         getID(name);
         return 0;
     }
 
-    public int open(String name) {
-        // Open the file
-        return open(true, name);
-    }
-
-    private int CSVHandler(){
+    private int CSVHandler() {
         if (!isOpen) {
             System.console().printf("File is not open");
             return 1;
         }
 
         // Create a new buffered reader
-        BufferedReader reader = new BufferedReader(file);
+        BufferedReader reader = new BufferedReader(fileReader);
 
         // Get the header line
         String headerLine = null;
@@ -71,6 +63,7 @@ public class BaseHandler {
         // Get the rest of the lines
         String line;
         int lineCount = 0;
+        // buffer with maximum data rows of 1024
         fileData = new String[1024][headers.length];
         while (true) {
             try {
@@ -87,7 +80,6 @@ public class BaseHandler {
             }
             lineCount++;
         }
-
 
         return 0;
     }
@@ -111,7 +103,7 @@ public class BaseHandler {
             return 0;
         }
         try {
-            file.close();
+            fileReader.close();
         } catch (IOException e) {
             System.console().printf("Error closing file");
             return 1;

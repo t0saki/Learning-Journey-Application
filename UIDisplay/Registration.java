@@ -1,53 +1,67 @@
 package UIDisplay;
 
 import javax.swing.*;
+
+import Base.Student;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Registration {
     private JTextField usernameField;
+    private JTextField studentIdField;
     private JPasswordField passwordField;
-    private JButton cancelButton;
     private JButton registerButton;
+
     // Just show a simple login screen
     public Registration() {
         // Create a new JFrame
-        JFrame frame = new JFrame("Registration");
+        JFrame frame = new JFrame("Login");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        JPanel panel1=new JPanel();
-        panel1.setLayout(new GridLayout(3,2,5,5));
-        // Add the UI components to the panel
-        JLabel usernameLabel = new JLabel("Username:");
-        panel1.add(usernameLabel);
 
+        /// panel 1
+        JPanel panel1 = new JPanel();
+        panel1.setLayout(new GridLayout(3, 2, 5, 5));
+
+        JLabel usernameLabel = new JLabel("Username:");
         usernameField = new JTextField();
+        panel1.add(usernameLabel);
         panel1.add(usernameField);
 
-        JLabel passwordLabel = new JLabel("Password:");
-        panel1.add(passwordLabel);
+        JLabel studentIdLabel = new JLabel("Student Id:");
+        studentIdField = new JTextField();
+        panel1.add(studentIdLabel);
+        panel1.add(studentIdField);
 
+        JLabel passwordLabel = new JLabel("Password:");
         passwordField = new JPasswordField();
+        panel1.add(passwordLabel);
         panel1.add(passwordField);
 
-        // Add a button to the JFrame
-        JPanel panel2=new JPanel();
-        panel2.setLayout(new GridLayout(1,2,5,5));
-//        frame.add(button);
-        registerButton =new JButton("register");
+        /// panel 2
+        JPanel panel2 = new JPanel();
+        panel2.setLayout(new GridLayout(1, 2, 5, 5));
+
+        registerButton = new JButton("Register");
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                new Registration();
-//                frame.dispose();
+                Student newStudent = new Student(studentIdField.getText(), usernameField.getText(),
+                        String.valueOf(passwordField.getPassword()));
+
+                System.out.println(newStudent);
+                // new Registration();
+                // frame.dispose();
             }
         });
         panel2.add(registerButton);
-        frame.getContentPane().add(panel1, BorderLayout.CENTER);
-        frame.getContentPane().add(panel2,BorderLayout.SOUTH);
+
+        frame.getContentPane().add(panel1, BorderLayout.NORTH);
+        frame.getContentPane().add(panel2, BorderLayout.SOUTH);
         frame.setVisible(true);
     }
 }
