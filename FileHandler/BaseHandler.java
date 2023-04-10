@@ -14,6 +14,7 @@ public class BaseHandler {
     private String[][] fileData;
     private boolean isOpen = false;
     private int ID = -1;
+    private String[] headers=new String[1024];
 
     public BaseHandler(String path) {
         this.path = path;
@@ -63,7 +64,7 @@ public class BaseHandler {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        String[] headers = headerLine.split(",");
+        headers = headerLine.split(",");
         for (int i = 0; i < headers.length; i++) {
             headerMap.put(headers[i], i);
         }
@@ -132,5 +133,12 @@ public class BaseHandler {
             return null;
         }
         return fileData[ID];
+    }
+
+    public String[] getHeaders() {
+        if (!isOpen) {
+            return null;
+        }
+        return headers;
     }
 }
