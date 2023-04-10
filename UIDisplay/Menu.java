@@ -1,6 +1,7 @@
 package UIDisplay;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Menu extends JFrame {
     // Just show a simple menu

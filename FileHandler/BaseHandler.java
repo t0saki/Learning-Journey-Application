@@ -12,6 +12,9 @@ public class BaseHandler {
     private FileReader fileReader;
     private Map<String, Integer> headerMap;
     private String[][] fileData;
+    private boolean isOpen = false;
+    private int ID = -1;
+    private String[] headers=new String[1024];
 
     public BaseHandler() {
         fileReader = null;
@@ -69,10 +72,12 @@ public class BaseHandler {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        headers = headerLine.split(",");
 
         // recreate header map for the current file
-        headerMap = new HashMap<>();
-        String[] headers = headerLine.split(",");
+        //headerMap = new HashMap<>();
+        //String[] headers = headerLine.split(",");
+
         for (int i = 0; i < headers.length; i++) {
             headerMap.put(headers[i], i);
         }
@@ -144,5 +149,12 @@ public class BaseHandler {
         }
 
         return fileData[rowIndex];
+    }
+
+    public String[] getHeaders() {
+        if (!isOpen) {
+            return null;
+        }
+        return headers;
     }
 }
