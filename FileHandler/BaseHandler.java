@@ -8,59 +8,76 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BaseHandler {
-    private final String path;
+    private String path;
     private FileReader fileReader;
-    private Map<String, Integer> headerMap = new HashMap<>();
+    private Map<String, Integer> headerMap;
     private String[][] fileData;
-    private boolean isOpen = false;
-    private int ID = -1;
 
-    public BaseHandler(String path) {
-        this.path = path;
+    public BaseHandler() {
+        fileReader = null;
+        headerMap = null;
     }
 
     // open a file by its path
-    public int open(String name) {
-        if (isOpen) {
+    public int open(String csvPath) {
+        if (fileReader != null) {
             System.out.println("Another file is already opened, close it before open another one.");
             return 0;
         }
-
         try {
-            fileReader = new FileReader(new File(path));
-            isOpen = true;
+            fileReader = new FileReader(new File(csvPath));
         } catch (Exception e) {
-            System.console().printf("Error opening file");
+            System.out.println("Error opening file");
             return 1;
         }
 
-        CSVHandler();
-        getID(name);
+        loadAllCsvData();
         return 0;
     }
 
-    private int CSVHandler() {
-        if (!isOpen) {
-            System.console().printf("File is not open");
+    // close the current file
+    public int close() {
+        if (fileReader == null) {
+            System.out.println("close(): No file is opened, closing operation is invalid.");
+            return 0;
+        }
+        try {
+            fileReader.close();
+            fileReader = null;
+        } catch (IOException e) {
+            System.out.println("close(): Error closing file.");
+            return 1;
+        }
+
+        return 0;
+    }
+
+    // need to be called every time loading a file, or when the current file is
+    // changed
+    public int loadAllCsvData() {
+        if (fileReader == null) {
+            System.out.println("loadAllCsvData(): Open a file before reading from it.");
             return 1;
         }
 
         // Create a new buffered reader
         BufferedReader reader = new BufferedReader(fileReader);
 
-        // Get the header line
         String headerLine = null;
         try {
             headerLine = reader.readLine();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        // recreate header map for the current file
+        headerMap = new HashMap<>();
         String[] headers = headerLine.split(",");
         for (int i = 0; i < headers.length; i++) {
             headerMap.put(headers[i], i);
         }
 
-        // Get the rest of the lines
+        // get the rest of the lines
         String line;
         int lineCount = 0;
         // buffer with maximum data rows of 1024
@@ -84,45 +101,48 @@ public class BaseHandler {
         return 0;
     }
 
-    public int getID(String name) {
-        if (!isOpen) {
+    // -1: not found
+    public int getFirstRowIndexByHeaderAndVal(String header, String val) {
+        if (fileReader == null) {
+            System.out.println("getFirstRowIndexByHeaderAndVal(): Open a file before reading from it.");
             return -1;
         }
-        int index = headerMap.get("Name");
-        for (int i = 0; i < fileData.length; i++) {
-            if (fileData[i][index].equals(name)) {
-                ID = i;
-                return i;
+
+        int columnIndex = headerMap.get(header);
+        for (int rowIndex = 0; rowIndex < fileData.length; rowIndex++) {
+            if (fileData[rowIndex][columnIndex].equals(val)) {
+                return rowIndex;
             }
         }
+
         return -1;
     }
 
-    public int close() {
-        if (!isOpen) {
-            return 0;
-        }
-        try {
-            fileReader.close();
-        } catch (IOException e) {
-            System.console().printf("Error closing file");
-            return 1;
-        }
-        return 0;
-    }
-
-    public String getData(String column) {
-        if (!isOpen) {
+    public String getElement(String header, int rowIndex) {
+        if (fileReader == null) {
+            System.out.println("getElement(): Open a file before reading from it.");
             return null;
         }
-        int index = headerMap.get(column);
-        return fileData[ID][index];
+
+        int columnIndex = headerMap.get(header);
+        return fileData[rowIndex][columnIndex];
     }
 
-    public String[] getData() {
-        if (!isOpen) {
+    public String getElement(int columnIndex, int rowIndex) {
+        if (fileReader == null) {
+            System.out.println("getElement(): Open a file before reading from it.");
             return null;
         }
-        return fileData[ID];
+
+        return fileData[rowIndex][columnIndex];
+    }
+
+    public String[] getRow(int rowIndex) {
+        if (fileReader == null) {
+            System.out.println("getRow(): Open a file before reading from it.");
+            return null;
+        }
+
+        return fileData[rowIndex];
     }
 }
