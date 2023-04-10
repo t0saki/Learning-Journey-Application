@@ -3,6 +3,7 @@ package UIDisplay;
 import javax.swing.*;
 
 import Base.Student;
+import FileHandler.BaseHandler;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -54,8 +55,19 @@ public class Registration {
                         String.valueOf(passwordField.getPassword()));
 
                 System.out.println(newStudent);
-                // new Registration();
-                // frame.dispose();
+                BaseHandler baseHandler = new BaseHandler();
+                baseHandler.open("Data\\UserInfo.csv");
+
+                // TODO: ADD A POP-UP WINDOW
+                // same student id exists in the database
+                if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
+                    System.out.println("Registration failed: the same student id is found in the database!");
+                }
+                // registration succeeds
+                else {
+                    baseHandler.append(newStudent.toCSVRow());
+                }
+                baseHandler.close();
             }
         });
         panel2.add(registerButton);

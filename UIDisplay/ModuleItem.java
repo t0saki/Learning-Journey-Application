@@ -8,14 +8,17 @@ import java.awt.*;
 public class ModuleItem extends JPanel {
     private UserInfoHandler userInfoHandler;
     private int num;
-    public ModuleItem(int col,String name) {
-        userInfoHandler=getUserInfo("Data/Modules&Marks.csv");
-        JLabel label1=new JLabel();
-        JLabel label2=new JLabel();
-        String ModuleName=getModuleName(col,name);
-        int Mark=getModuleMark(name,ModuleName);
+
+    public ModuleItem(int col, String name) {
+        userInfoHandler = getUserInfo();
+        userInfoHandler.open("Data/Modules&Marks.csv");
+
+        JLabel label1 = new JLabel();
+        JLabel label2 = new JLabel();
+        String ModuleName = getModuleName(col);
+        int Mark = getModuleMark(name, ModuleName);
         this.setLayout(null);
-        this.setSize(200,150);
+        this.setSize(200, 150);
         this.setBackground(Color.LIGHT_GRAY);
         label1.setText(ModuleName);
         label2.setText(String.valueOf(Mark));
@@ -24,28 +27,29 @@ public class ModuleItem extends JPanel {
         label2.setFont(font);
         this.add(label1);
         this.add(label2);
-        label1.setBounds(10,0,100,70);
-        label2.setBounds(10,75,100,70);
+        label1.setBounds(10, 0, 100, 70);
+        label2.setBounds(10, 75, 100, 70);
         this.setVisible(true);
     }
-    public String getModuleName(int col,String name){
-        userInfoHandler.open(name);
-        String[] data = userInfoHandler.getHeaders();
-        return data[col];
+
+    public String getModuleName(int col) {
+        return userInfoHandler.getHeaders()[col];
     }
-    public int getModuleMark(String name,String module){
-        userInfoHandler.open(name);
-        String ModuleMark=userInfoHandler.getData(module);
-        return Integer.parseInt(ModuleMark);
+
+    public int getModuleMark(String name, String module) {
+        int rowIndex = userInfoHandler.getFirstRowIndexByHeaderAndVal("Name", name);
+        return Integer.parseInt(userInfoHandler.getElement(module, rowIndex));
     }
-    public UserInfoHandler getUserInfo(String file){
-        return new UserInfoHandler(file);
+
+    public UserInfoHandler getUserInfo() {
+        return new UserInfoHandler();
     }
 
     public int getNum() {
-        num=userInfoHandler.getHeaders().length-1;
+        num = userInfoHandler.getHeaders().length - 1;
         return num;
     }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

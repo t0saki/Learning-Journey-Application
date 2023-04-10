@@ -1,30 +1,30 @@
 package Base;
 
 public class Student {
-   private String sid;
-   private String name;
+   private String studentId;
+   private String userName;
    private String password;
 
    public Student(String sid, String name, String password) {
-      this.sid = sid;
-      this.name = name;
+      this.studentId = sid;
+      this.userName = name;
       this.password = password;
    }
 
-   public void setSid(String sid) {
-      this.sid = sid;
+   public void setStudentId(String sid) {
+      this.studentId = sid;
    }
 
-   public String getSid() {
-      return sid;
+   public String getStudentId() {
+      return studentId;
    }
 
-   public void setName(String name) {
-      this.name = name;
+   public void setUserName(String name) {
+      this.userName = name;
    }
 
-   public String getName() {
-      return name;
+   public String getUserName() {
+      return userName;
    }
 
    public void setPassword(String password) {
@@ -36,6 +36,10 @@ public class Student {
    }
 
    public String toString() {
-      return "Student Id: " + sid + "\nName: " + name + "\nPassword: " + password;
+      return "User Name: " + userName + "\nStudent Id: " + studentId + "\nPassword: " + password;
+   }
+
+   public String toCSVRow() {
+      return userName + "," + studentId + "," + password;
    }
 }
