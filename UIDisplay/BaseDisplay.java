@@ -14,8 +14,7 @@ public class BaseDisplay extends JPanel{
         // Clear and add
         removeAll();
         add(logo);
-        setSize(300,100);
-        contentPanel.setSize(800, 600);
+//        setSize(300,100);
     }
 
     public JPanel getSideItemPanel() {
@@ -23,6 +22,11 @@ public class BaseDisplay extends JPanel{
     }
 
     public JPanel getContentPanel() {
+        // Print panel size
+        System.out.println(contentPanel.getSize());
+
+        contentPanel.setSize(800, 600);
+
         return contentPanel;
     }
 }

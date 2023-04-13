@@ -1,16 +1,17 @@
 package UIDisplay;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Menu{
+public class Menu {
     JFrame frame = new JFrame("Menu");
     // Create a sidebar
     JPanel sidebarPanel = new JPanel();
     // Create a content panel
     JPanel contentPanel = new JPanel();
+//    JPanel contentPanel = new UserInfo();
+
     public Menu() {
         // Create a new JFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,19 +19,15 @@ public class Menu{
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-
         // Set the sidebar layout
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
 
-        // Add the sidebar and content panel to the frame
-        contentPanel.setSize(800, 600);
-        frame.getContentPane().add(sidebarPanel, BorderLayout.WEST);
-        frame.getContentPane().add(contentPanel, BorderLayout.CENTER);
-//        int sidebarWidth = frame.getWidth() / 3;
-//        sidebarPanel.setPreferredSize(new Dimension(sidebarWidth, frame.getHeight()));
-//        contentPanel.setPreferredSize(new Dimension(frame.getWidth() - sidebarWidth, frame.getHeight()));
+        // Add the sidebar and content panel to a split pane
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
+        splitPane.setDividerLocation(150);
+        frame.getContentPane().add(splitPane);
 
-        addDisplay(new UserInfo());
+        addDisplay(new UserInfoPanel());
         addDisplay(new TestPanel());
     }
 
@@ -43,8 +40,11 @@ public class Menu{
             public void mouseClicked(MouseEvent e) {
                 // Remove any existing content from the content panel
                 contentPanel.removeAll();
-                // Add the clicked item's panel to the content panel
-                contentPanel.add(display.getContentPanel());
+
+                JPanel panel = display.getContentPanel();
+                panel.setMinimumSize(contentPanel.getSize());
+                contentPanel.add(panel);
+
                 // Repaint the content panel to reflect the change
                 contentPanel.revalidate();
                 contentPanel.repaint();
