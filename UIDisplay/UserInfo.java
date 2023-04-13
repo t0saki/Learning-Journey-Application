@@ -5,16 +5,19 @@ import FileHandler.UserInfoHandler;
 import javax.swing.*;
 import java.awt.*;
 
-public class UserInfo extends JPanel {
+public class UserInfo extends BaseDisplay {
+    String displayType = "User Info";
+
     // Show a user's information
     public UserInfo() {
+        super("User Info");
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("Username", "Li Hua");
         String[] data = userInfo.getRow(rowIndex);
         JPanel userPanel = new JPanel();
         userPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        this.setLayout(new BorderLayout());
+        contentPanel.setLayout(new BorderLayout());
 
         JLabel[] labels = new JLabel[data.length];
         for (int i = 0; i < data.length; i++) {
@@ -25,7 +28,7 @@ public class UserInfo extends JPanel {
         for (JLabel label : labels) {
             userPanel.add(label);
         }
-        add(userPanel, "North");
+        contentPanel.add(userPanel, "North");
 
         JPanel ItemPanel = new JPanel();
         ModuleItem firstModule = new ModuleItem(1, "Li Hua");
@@ -38,7 +41,6 @@ public class UserInfo extends JPanel {
             ItemPanel.add(moduleItem[i]);
         }
         ItemPanel.setSize(600, 550);
-        add(ItemPanel, "Center");
-
+        contentPanel.add(ItemPanel, "Center");
     }
 }
