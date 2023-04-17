@@ -2,33 +2,66 @@ package UIDisplay;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class Menu extends JFrame {
-    // Just show a simple menu
+public class Menu {
+    JFrame frame = new JFrame("Menu");
+    // Create a sidebar
+    JPanel sidebarPanel = new JPanel();
+    // Create a content panel
+    JScrollPane contentPanel = new JScrollPane();
+    JSplitPane splitPane;
+//    JPanel contentPanel = new UserInfo();
+
     public Menu() {
         // Create a new JFrame
-        setTitle("My Application");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1200, 900);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
 
-        // Create a sidebar
-        JList<String> sidebarList = new JList<>(new String[]{"Home", "Profile", "Settings"});
-        JScrollPane sidebarScrollPane = new JScrollPane(sidebarList);
+        // Set the sidebar layout
+        sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
 
-        // Create a content panel from UserInfo
-        UserInfo contentPanel = new UserInfo();
-        JScrollPane UserInfoPanel=new JScrollPane(contentPanel);
-        UserInfoPanel.setPreferredSize(new Dimension(700, 600));
-        UserInfoPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        // Add the sidebar and content panel to a split pane
+        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
+        splitPane.setDividerLocation(150);
+        frame.getContentPane().add(splitPane);
 
-        // Add the sidebar and content panel to this JFrame
-        add(sidebarScrollPane, "West");
-        add(UserInfoPanel, "Center");
+        addDisplay(new UserInfoPanel());
+        addDisplay(new TestPanel());
+    }
 
-        // Show the JFrame
-        setSize(800, 600);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.pack();
-        setVisible(true);
+    public void addDisplay(BaseDisplay display) {
+        // Add the sidebar item to the sidebar
+        sidebarPanel.add(display.getSideItemPanel());
 
+        // Add the listener
+        display.getSideItemPanel().addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                // Remove content panel from split pane
+                splitPane.remove(contentPanel);
+                // Set the new content panel
+                contentPanel = new JScrollPane(display.getContentPanel());
+                contentPanel.setPreferredSize(new Dimension(700, 600));
+                contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                // Add the new content panel to the split pane
+                splitPane.add(contentPanel);
+
+                // Refresh the split pane
+                splitPane.revalidate();
+                splitPane.repaint();
+                // Refresh the frame
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
+
+        // Refresh the sidebar
+        sidebarPanel.revalidate();
+        sidebarPanel.repaint();
+        frame.revalidate();
+        frame.repaint();
     }
 }
