@@ -1,19 +1,19 @@
 package UIDisplay;
 
-import javax.swing.*;
-
+import Base.PasswordHandler;
 import Base.Student;
 import FileHandler.BaseHandler;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Registration {
-    private JTextField usernameField;
-    private JTextField studentIdField;
-    private JPasswordField passwordField;
-    private JButton registerButton;
+    private final JTextField usernameField;
+    private final JTextField studentIdField;
+    private final JPasswordField passwordField;
+    private final JButton registerButton;
 
     // Just show a simple login screen
     public Registration() {
@@ -51,17 +51,17 @@ public class Registration {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Student newStudent = new Student(studentIdField.getText(), usernameField.getText(),
-                        String.valueOf(passwordField.getPassword()));
+                PasswordHandler ph = new PasswordHandler();
+                Student newStudent = new Student(studentIdField.getText(), usernameField.getText(), PasswordHandler.hashPassword(passwordField.getText()));
 
                 System.out.println(newStudent);
                 BaseHandler baseHandler = new BaseHandler();
                 baseHandler.open("Data\\UserInfo.csv");
 
                 // same student id exists in the database
-                JOptionPane.showMessageDialog(frame, "Registration failed: the same student id is found in the database!", "Warning", JOptionPane.PLAIN_MESSAGE);
                 if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
                     System.out.println("Registration failed: the same student id is found in the database!");
+                    JOptionPane.showMessageDialog(frame, "Registration failed: the same student id is found in the database!", "Warning", JOptionPane.PLAIN_MESSAGE);
                 }
                 // registration succeeds
                 else {

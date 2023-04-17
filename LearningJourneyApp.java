@@ -22,9 +22,9 @@ public class LearningJourneyApp {
 //        frame.getContentPane().add(new UserInfoPanel().getContentPanel());
 
         // debug password
-//        String hashedPassword = PasswordHandler.hashPassword("Bn8GubBL");
-//        System.out.println(hashedPassword);
-//        System.out.println(PasswordHandler.checkPassword("Bn8GubBL", hashedPassword));
+        String hashedPassword = PasswordHandler.hashPassword("3");
+        System.out.println(hashedPassword);
+        System.out.println(PasswordHandler.checkPassword("3", hashedPassword));
 
 
         // Initialize the user interface
