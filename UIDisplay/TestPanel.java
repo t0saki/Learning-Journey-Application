@@ -3,7 +3,7 @@ package UIDisplay;
 import javax.swing.*;
 import java.awt.*;
 
-public class TestPanel extends BaseDisplay{
+public class TestPanel extends BaseDisplay {
     public TestPanel() {
         super("Test Panel");
         // Add something to contentPanel

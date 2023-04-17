@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import FileHandler.BaseHandler;
 
 public class Login {
     private JTextField usernameField;
@@ -41,10 +42,29 @@ public class Login {
         loginButton = new JButton("Login");
         panel2.add(loginButton);
         loginButton.addActionListener(e -> {
-            // When the button is clicked, open the menu
-            new Menu();
+            BaseHandler baseHandler = new BaseHandler();
+            baseHandler.open("Data\\UserInfo.csv");
+
+            int rowId = baseHandler.getFirstRowIndexByHeaderAndVal("Username", usernameField.getText());
+            if (rowId != -1) {
+                // right password
+                if (String.valueOf(passwordField.getPassword()).equals(baseHandler.getElement("Password", rowId))) {
+                    String studentID = baseHandler.getElement("StudentId", rowId);
+                    System.out.println("Student ID: " + studentID);
+                    frame.dispose();
+                    new Menu(studentID);
+                }
+                // bad password
+                else {
+                    JOptionPane.showMessageDialog(frame, "BAD PASSWORD", "Warning", JOptionPane.PLAIN_MESSAGE);
+                    System.out.println("BAD PASSWORD");
+                }
+            } else {
+                JOptionPane.showMessageDialog(frame, "USER NAME NOT FOUND", "Warning", JOptionPane.PLAIN_MESSAGE);
+                System.out.print("USER NAME NOT FOUND");
+            }
+
             // Close the login screen
-            frame.dispose();
         });
 
         registerButton = new JButton("Register");

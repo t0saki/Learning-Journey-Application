@@ -58,8 +58,8 @@ public class Registration {
                 BaseHandler baseHandler = new BaseHandler();
                 baseHandler.open("Data\\UserInfo.csv");
 
-                // TODO: ADD A POP-UP WINDOW
                 // same student id exists in the database
+                JOptionPane.showMessageDialog(frame, "Registration failed: the same student id is found in the database!", "Warning", JOptionPane.PLAIN_MESSAGE);
                 if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
                     System.out.println("Registration failed: the same student id is found in the database!");
                 }

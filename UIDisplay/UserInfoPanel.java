@@ -1,17 +1,14 @@
 package UIDisplay;
 
-import FileHandler.UserInfoHandler;
-
-import javax.swing.*;
 import java.awt.*;
 
 public class UserInfoPanel extends BaseDisplay {
     String displayType = "User Info";
 
     // Show a user's information
-    public UserInfoPanel() {
+    public UserInfoPanel(String studentID) {
         super("User Info");
-        contentPanel = new UserInfo();
+        contentPanel = new UserInfo(studentID);
         // Set background color
         setBackground(Color.GREEN);
     }

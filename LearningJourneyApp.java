@@ -1,6 +1,5 @@
 import Base.PasswordHandler;
 import UIDisplay.Login;
-import UIDisplay.UserInfoPanel;
 
 import javax.swing.*;
 
@@ -26,6 +25,7 @@ public class LearningJourneyApp {
 //        String hashedPassword = PasswordHandler.hashPassword("Bn8GubBL");
 //        System.out.println(hashedPassword);
 //        System.out.println(PasswordHandler.checkPassword("Bn8GubBL", hashedPassword));
+
 
         // Initialize the user interface
         new Login();

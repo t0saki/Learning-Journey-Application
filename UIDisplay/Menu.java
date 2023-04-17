@@ -12,9 +12,12 @@ public class Menu {
     // Create a content panel
     JScrollPane contentPanel = new JScrollPane();
     JSplitPane splitPane;
-//    JPanel contentPanel = new UserInfo();
+    // JPanel contentPanel = new UserInfo();
+    private String studentID;
 
-    public Menu() {
+    public Menu(String sID) {
+        studentID = sID;
+
         // Create a new JFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1200, 900);
@@ -29,7 +32,7 @@ public class Menu {
         splitPane.setDividerLocation(150);
         frame.getContentPane().add(splitPane);
 
-        addDisplay(new UserInfoPanel());
+        addDisplay(new UserInfoPanel(studentID));
         addDisplay(new TestPanel());
     }
 
@@ -46,6 +49,8 @@ public class Menu {
                 contentPanel = new JScrollPane(display.getContentPanel());
                 contentPanel.setPreferredSize(new Dimension(700, 600));
                 contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                contentPanel.setWheelScrollingEnabled(true);
+                contentPanel.getVerticalScrollBar().setUnitIncrement(50);
                 // Add the new content panel to the split pane
                 splitPane.add(contentPanel);
 
