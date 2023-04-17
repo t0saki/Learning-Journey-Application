@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import Base.PasswordHandler;
 import FileHandler.BaseHandler;
 
 public class Login {
@@ -48,7 +50,8 @@ public class Login {
             int rowId = baseHandler.getFirstRowIndexByHeaderAndVal("Username", usernameField.getText());
             if (rowId != -1) {
                 // right password
-                if (String.valueOf(passwordField.getPassword()).equals(baseHandler.getElement("Password", rowId))) {
+                PasswordHandler ph = new PasswordHandler();
+                if (ph.checkPassword(passwordField.getText(), baseHandler.getElement("Password", rowId))) {
                     String studentID = baseHandler.getElement("StudentId", rowId);
                     System.out.println("Student ID: " + studentID);
                     frame.dispose();
