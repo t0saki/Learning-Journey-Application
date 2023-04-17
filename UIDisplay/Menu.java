@@ -1,6 +1,7 @@
 package UIDisplay;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -9,7 +10,8 @@ public class Menu {
     // Create a sidebar
     JPanel sidebarPanel = new JPanel();
     // Create a content panel
-    JPanel contentPanel = new JPanel();
+    JScrollPane contentPanel = new JScrollPane();
+    JSplitPane splitPane;
 //    JPanel contentPanel = new UserInfo();
 
     public Menu() {
@@ -23,7 +25,7 @@ public class Menu {
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
 
         // Add the sidebar and content panel to a split pane
-        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
+        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
         splitPane.setDividerLocation(150);
         frame.getContentPane().add(splitPane);
 
@@ -38,16 +40,21 @@ public class Menu {
         // Add the listener
         display.getSideItemPanel().addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                // Remove any existing content from the content panel
-                contentPanel.removeAll();
+                // Remove content panel from split pane
+                splitPane.remove(contentPanel);
+                // Set the new content panel
+                contentPanel = new JScrollPane(display.getContentPanel());
+                contentPanel.setPreferredSize(new Dimension(700, 600));
+                contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                // Add the new content panel to the split pane
+                splitPane.add(contentPanel);
 
-                JPanel panel = display.getContentPanel();
-                panel.setMinimumSize(contentPanel.getSize());
-                contentPanel.add(panel);
-
-                // Repaint the content panel to reflect the change
-                contentPanel.revalidate();
-                contentPanel.repaint();
+                // Refresh the split pane
+                splitPane.revalidate();
+                splitPane.repaint();
+                // Refresh the frame
+                frame.revalidate();
+                frame.repaint();
             }
         });
 

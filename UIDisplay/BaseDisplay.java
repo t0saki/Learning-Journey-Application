@@ -14,7 +14,8 @@ public class BaseDisplay extends JPanel{
         // Clear and add
         removeAll();
         add(logo);
-//        setSize(300,100);
+        // Set background color
+        setBackground(Color.GRAY);
     }
 
     public JPanel getSideItemPanel() {

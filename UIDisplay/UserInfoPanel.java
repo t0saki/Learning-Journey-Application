@@ -12,5 +12,7 @@ public class UserInfoPanel extends BaseDisplay {
     public UserInfoPanel() {
         super("User Info");
         contentPanel = new UserInfo();
+        // Set background color
+        setBackground(Color.GREEN);
     }
 }
