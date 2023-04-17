@@ -46,6 +46,8 @@ public class Menu {
                 contentPanel = new JScrollPane(display.getContentPanel());
                 contentPanel.setPreferredSize(new Dimension(700, 600));
                 contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                contentPanel.setWheelScrollingEnabled(true);
+                contentPanel.getVerticalScrollBar().setUnitIncrement(50);
                 // Add the new content panel to the split pane
                 splitPane.add(contentPanel);
 
