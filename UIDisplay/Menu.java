@@ -15,15 +15,20 @@ public class Menu extends JFrame {
 
         // Create a content panel from UserInfo
         UserInfo contentPanel = new UserInfo();
+        JScrollPane UserInfoPanel=new JScrollPane(contentPanel);
+        UserInfoPanel.setPreferredSize(new Dimension(700, 600));
+        UserInfoPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
         // Add the sidebar and content panel to this JFrame
         add(sidebarScrollPane, "West");
-        add(contentPanel, "Center");
+        add(UserInfoPanel, "Center");
 
         // Show the JFrame
         setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
         setVisible(true);
+
     }
 }
