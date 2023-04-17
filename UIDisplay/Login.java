@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import FileHandler.BaseHandler;
 
 public class Login {
     private JTextField usernameField;
@@ -41,6 +42,13 @@ public class Login {
         loginButton = new JButton("Login");
         panel2.add(loginButton);
         loginButton.addActionListener(e -> {
+            BaseHandler baseHandler = new BaseHandler();
+            baseHandler.open("Data\\UserInfo.csv");
+            
+            // if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
+
+            // }
+
             // When the button is clicked, open the menu
             new Menu();
             // Close the login screen

@@ -19,7 +19,7 @@ public class ModuleItem extends JPanel {
         int Mark = getModuleMark(name, ModuleName);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(150, 100));
-//        this.setSize(150, 100);
+        // this.setSize(150, 100);
         this.setBackground(Color.LIGHT_GRAY);
         label1.setText(ModuleName);
         label2.setText(String.valueOf(Mark));
@@ -31,8 +31,8 @@ public class ModuleItem extends JPanel {
         this.add(Box.createVerticalStrut(10));
         this.add(label2);
         this.add(Box.createVerticalGlue());
-//        label1.setSize( 150, 45);
-//        label2.setSize(150, 45);
+        // label1.setSize( 150, 45);
+        // label2.setSize(150, 45);
         label1.setAlignmentX(Component.CENTER_ALIGNMENT);
         label2.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.setVisible(true);

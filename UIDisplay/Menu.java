@@ -12,7 +12,7 @@ public class Menu {
     // Create a content panel
     JScrollPane contentPanel = new JScrollPane();
     JSplitPane splitPane;
-//    JPanel contentPanel = new UserInfo();
+    // JPanel contentPanel = new UserInfo();
 
     public Menu() {
         // Create a new JFrame

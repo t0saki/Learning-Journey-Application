@@ -15,8 +15,8 @@ public class UserInfo extends JPanel {
         JPanel userPanel = new JPanel();
         userPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.setLayout(new BorderLayout());
-//        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-//        this.setMinimumSize(new Dimension(600, 550));
+        // this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        // this.setMinimumSize(new Dimension(600, 550));
 
         JLabel[] labels = new JLabel[data.length];
         for (int i = 0; i < data.length; i++) {
@@ -33,7 +33,8 @@ public class UserInfo extends JPanel {
         ModuleItem firstModule = new ModuleItem(1, "Li Hua");
         ModuleItem[] moduleItem = new ModuleItem[firstModule.getNum()];
         moduleItem[0] = firstModule;
-//        ItemPanel.setLayout(new GridLayout((firstModule.getNum() / 2) + 1, 2, 10, 10));
+        // ItemPanel.setLayout(new GridLayout((firstModule.getNum() / 2) + 1, 2, 10,
+        // 10));
         ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
         ItemPanel.setMinimumSize(new Dimension(600, 550));
         ItemPanel.add(firstModule);
@@ -41,7 +42,7 @@ public class UserInfo extends JPanel {
             moduleItem[i] = new ModuleItem(i + 1, "Li Hua");
             ItemPanel.add(moduleItem[i]);
         }
-//        ItemPanel.setSize(600, 550);
+        // ItemPanel.setSize(600, 550);
         add(ItemPanel, "Center");
 
     }
