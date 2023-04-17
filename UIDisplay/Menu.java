@@ -13,8 +13,11 @@ public class Menu {
     JScrollPane contentPanel = new JScrollPane();
     JSplitPane splitPane;
     // JPanel contentPanel = new UserInfo();
+    private String studentID;
 
-    public Menu() {
+    public Menu(String sID) {
+        studentID = sID;
+
         // Create a new JFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1200, 900);
@@ -29,7 +32,7 @@ public class Menu {
         splitPane.setDividerLocation(150);
         frame.getContentPane().add(splitPane);
 
-        addDisplay(new UserInfoPanel());
+        addDisplay(new UserInfoPanel(studentID));
         addDisplay(new TestPanel());
     }
 

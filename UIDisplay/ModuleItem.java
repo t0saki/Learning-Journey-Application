@@ -9,19 +9,19 @@ public class ModuleItem extends JPanel {
     private UserInfoHandler userInfoHandler;
     private int num;
 
-    public ModuleItem(int col, String name) {
+    public ModuleItem(int col, String studentID) {
         userInfoHandler = getUserInfo();
         userInfoHandler.open("Data/Modules&Marks.csv");
 
         JLabel label1 = new JLabel();
         JLabel label2 = new JLabel();
-        String ModuleName = getModuleName(col);
-        int Mark = getModuleMark(name, ModuleName);
+        String moduleName = getModuleName(col);
+        int Mark = getModuleMark(studentID, moduleName);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(150, 100));
         // this.setSize(150, 100);
         this.setBackground(Color.LIGHT_GRAY);
-        label1.setText(ModuleName);
+        label1.setText(moduleName);
         label2.setText(String.valueOf(Mark));
         Font font = new Font("Arial", Font.BOLD, 16);
         label1.setFont(font);
@@ -42,9 +42,9 @@ public class ModuleItem extends JPanel {
         return userInfoHandler.getHeaders()[col];
     }
 
-    public int getModuleMark(String name, String module) {
-        int rowIndex = userInfoHandler.getFirstRowIndexByHeaderAndVal("Name", name);
-        return Integer.parseInt(userInfoHandler.getElement(module, rowIndex));
+    public int getModuleMark(String studentID, String moduleName) {
+        int rowIndex = userInfoHandler.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
+        return Integer.parseInt(userInfoHandler.getElement(moduleName, rowIndex));
     }
 
     public UserInfoHandler getUserInfo() {

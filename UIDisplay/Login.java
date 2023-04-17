@@ -49,8 +49,10 @@ public class Login {
             if (rowId != -1) {
                 // right password
                 if (String.valueOf(passwordField.getPassword()).equals(baseHandler.getElement("Password", rowId))) {
-                    new Menu();
+                    String studentID = baseHandler.getElement("StudentId", rowId);
+                    System.out.println("Student ID: " + studentID);
                     frame.dispose();
+                    new Menu(studentID);
                 }
                 // bad password
                 else {
