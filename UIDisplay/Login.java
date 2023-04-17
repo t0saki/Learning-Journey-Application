@@ -44,15 +44,25 @@ public class Login {
         loginButton.addActionListener(e -> {
             BaseHandler baseHandler = new BaseHandler();
             baseHandler.open("Data\\UserInfo.csv");
-            
-            // if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
 
-            // }
+            int rowId = baseHandler.getFirstRowIndexByHeaderAndVal("Username", usernameField.getText());
+            if (rowId != -1) {
+                // right password
+                if (String.valueOf(passwordField.getPassword()).equals(baseHandler.getElement("Password", rowId))) {
+                    new Menu();
+                    frame.dispose();
+                }
+                // bad password
+                else {
+                    JOptionPane.showMessageDialog(frame, "BAD PASSWORD", "Warning", JOptionPane.PLAIN_MESSAGE);
+                    System.out.println("BAD PASSWORD");
+                }
+            } else {
+                JOptionPane.showMessageDialog(frame, "USER NAME NOT FOUND", "Warning", JOptionPane.PLAIN_MESSAGE);
+                System.out.print("USER NAME NOT FOUND");
+            }
 
-            // When the button is clicked, open the menu
-            new Menu();
             // Close the login screen
-            frame.dispose();
         });
 
         registerButton = new JButton("Register");
