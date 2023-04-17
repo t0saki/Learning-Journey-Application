@@ -1,3 +1,4 @@
+import Base.PasswordHandler;
 import UIDisplay.Login;
 import UIDisplay.UserInfoPanel;
 
@@ -21,6 +22,10 @@ public class LearningJourneyApp {
 //        frame.setVisible(true);
 //        frame.getContentPane().add(new UserInfoPanel().getContentPanel());
 
+        // debug password
+//        String hashedPassword = PasswordHandler.hashPassword("Bn8GubBL");
+//        System.out.println(hashedPassword);
+//        System.out.println(PasswordHandler.checkPassword("Bn8GubBL", hashedPassword));
 
         // Initialize the user interface
         new Login();
