@@ -18,8 +18,8 @@ public class UserInfo extends JPanel {
         // this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         // this.setMinimumSize(new Dimension(600, 550));
 
-        JLabel[] labels = new JLabel[data.length];
-        for (int i = 0; i < data.length; i++) {
+        JLabel[] labels = new JLabel[data.length-1];
+        for (int i = 0; i < data.length-1; i++) {
             labels[i] = new JLabel(data[i]);
         }
 
