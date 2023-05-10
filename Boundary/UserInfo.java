@@ -1,6 +1,7 @@
-package UIDisplay;
+package Boundary;
 
-import FileHandler.UserInfoHandler;
+import Control.UserInfoHandler;
+import Entity.ModuleItem;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,6 @@
-package UIDisplay;
+package Entity;
 
-import FileHandler.UserInfoHandler;
+import Control.UserInfoHandler;
 
 import javax.swing.*;
 import java.awt.*;

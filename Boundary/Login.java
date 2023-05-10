@@ -1,12 +1,12 @@
-package UIDisplay;
+package Boundary;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Base.PasswordHandler;
-import FileHandler.BaseHandler;
+import Control.PasswordHandler;
+import Control.BaseHandler;
 
 public class Login {
     private JTextField usernameField;

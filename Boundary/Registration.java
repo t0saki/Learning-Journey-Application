@@ -1,8 +1,8 @@
-package UIDisplay;
+package Boundary;
 
-import Base.PasswordHandler;
-import Base.Student;
-import FileHandler.BaseHandler;
+import Control.PasswordHandler;
+import Entity.Student;
+import Control.BaseHandler;
 
 import javax.swing.*;
 import java.awt.*;

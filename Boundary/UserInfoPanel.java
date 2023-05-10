@@ -1,4 +1,4 @@
-package UIDisplay;
+package Boundary;
 
 import java.awt.*;
 

@@ -1,5 +1,5 @@
-import Base.PasswordHandler;
-import UIDisplay.Login;
+import Control.PasswordHandler;
+import Boundary.Login;
 
 import javax.swing.*;
 

@@ -1,4 +1,4 @@
-package Base;
+package Entity;
 
 public class Student {
    private String studentId;
