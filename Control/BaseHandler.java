@@ -182,4 +182,15 @@ public class BaseHandler {
 
         return headers;
     }
+
+    public int getLineCount() {
+        int linecount = 0;
+        for (int i = 0; i < 1024; i++) {
+            if (fileData == null || fileData[i][0] == null || fileData[i][0].equals("null") || fileData[i][0].equals("")) {
+                break;
+            }
+            linecount++;
+        }
+        return linecount;
+    }
 }

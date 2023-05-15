@@ -33,7 +33,7 @@ public class Menu {
         frame.getContentPane().add(splitPane);
 
         addDisplay(new UserInfoPanel(studentID));
-        addDisplay(new TestPanel());
+        addDisplay(new AchievementPanel(studentID));
     }
 
     public void addDisplay(BaseDisplay display) {
