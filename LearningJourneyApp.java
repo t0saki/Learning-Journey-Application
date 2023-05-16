@@ -28,6 +28,9 @@ public class LearningJourneyApp {
 
 
         // Initialize the user interface
-        new Login();
+        SwingUtilities.invokeLater(() -> {
+            new Login();
+        });
     }
+
 }

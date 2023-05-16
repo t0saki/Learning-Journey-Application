@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Registration {
+public class Registration extends JFrame implements ActionListener {
     private final JTextField usernameField;
     private final JTextField studentIdField;
     private final JPasswordField passwordField;
@@ -17,41 +17,80 @@ public class Registration {
 
     // Just show a simple login screen
     public Registration() {
-        // Create a new JFrame
-        JFrame frame = new JFrame("Login");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        setTitle("Register");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        /// panel 1
-        JPanel panel1 = new JPanel();
-        panel1.setLayout(new GridLayout(3, 2, 5, 5));
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        panel.setLayout(new GridBagLayout());
+
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(10, 0, 10, 0);
+
+        JLabel titleLabel = new JLabel("Register");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
 
         JLabel usernameLabel = new JLabel("Username:");
-        usernameField = new JTextField();
-        panel1.add(usernameLabel);
-        panel1.add(usernameField);
+        usernameField = new JTextField(20);
 
-        JLabel studentIdLabel = new JLabel("Student Id:");
-        studentIdField = new JTextField();
-        panel1.add(studentIdLabel);
-        panel1.add(studentIdField);
+        JLabel studentIDLabel = new JLabel("Student ID:");
+        studentIdField = new JTextField(20);
 
         JLabel passwordLabel = new JLabel("Password:");
-        passwordField = new JPasswordField();
-        panel1.add(passwordLabel);
-        panel1.add(passwordField);
-
-        /// panel 2
-        JPanel panel2 = new JPanel();
-        panel2.setLayout(new GridLayout(1, 2, 5, 5));
+        passwordField = new JPasswordField(20);
 
         registerButton = new JButton("Register");
-        registerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                PasswordHandler ph = new PasswordHandler();
+        registerButton.addActionListener(this);
+
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 2;
+        panel.add(titleLabel, constraints);
+
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        panel.add(usernameLabel, constraints);
+
+        constraints.gridy = 2;
+        panel.add(passwordLabel, constraints);
+
+        constraints.gridy = 3;
+        panel.add(studentIDLabel, constraints);
+
+        constraints.gridx = 1;
+        constraints.gridy = 1;
+        constraints.weightx = 1.0;
+        panel.add(usernameField, constraints);
+
+        constraints.gridy = 2;
+        panel.add(passwordField, constraints);
+
+        constraints.gridy = 3;
+        panel.add(studentIdField, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 4;
+        constraints.gridwidth = 2;
+        constraints.weightx = 0.0;
+        panel.add(registerButton, constraints);
+
+        add(panel, BorderLayout.CENTER);
+        pack();
+        setLocationRelativeTo(null);
+
+        setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == registerButton) {
+            String username = usernameField.getText();
+            String password = new String(passwordField.getPassword());
+            String studentID = studentIdField.getText();
+
+            // 在这里可以添加注册逻辑
+            // ...
+            PasswordHandler ph = new PasswordHandler();
                 Student newStudent = new Student(studentIdField.getText(), usernameField.getText(), PasswordHandler.hashPassword(passwordField.getText()));
 
                 System.out.println(newStudent);
@@ -61,7 +100,7 @@ public class Registration {
                 // same student id exists in the database
                 if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
                     System.out.println("Registration failed: the same student id is found in the database!");
-                    JOptionPane.showMessageDialog(frame, "Registration failed: the same student id is found in the database!", "Warning", JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Registration failed: the same student id is found in the database!", "Warning", JOptionPane.PLAIN_MESSAGE);
                 }
                 // registration succeeds
                 else {
@@ -69,11 +108,44 @@ public class Registration {
                 }
                 baseHandler.close();
             }
-        });
-        panel2.add(registerButton);
+            // 注册成功后的操作
+            JOptionPane.showMessageDialog(this, "Registration successful!");
+            dispose();
+            new Login();// 可以在这里打开登录窗口
+        }
+    
+        /// panel 2
+//        JPanel panel2 = new JPanel();
+//        panel2.setLayout(new GridLayout(1, 2, 5, 5));
+//
+//        registerButton = new JButton("Register");
+//        registerButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                PasswordHandler ph = new PasswordHandler();
+//                Student newStudent = new Student(studentIdField.getText(), usernameField.getText(), PasswordHandler.hashPassword(passwordField.getText()));
+//
+//                System.out.println(newStudent);
+//                BaseHandler baseHandler = new BaseHandler();
+//                baseHandler.open("Data\\UserInfo.csv");
+//
+//                // same student id exists in the database
+//                if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
+//                    System.out.println("Registration failed: the same student id is found in the database!");
+//                    JOptionPane.showMessageDialog(frame, "Registration failed: the same student id is found in the database!", "Warning", JOptionPane.PLAIN_MESSAGE);
+//                }
+//                // registration succeeds
+//                else {
+//                    baseHandler.append(newStudent.toCSVRow());
+//                }
+//                baseHandler.close();
+//            }
+//        });
+//        panel2.add(registerButton);
+//
+//        frame.getContentPane().add(panel1, BorderLayout.NORTH);
+//        frame.getContentPane().add(panel2, BorderLayout.SOUTH);
+//        frame.setVisible(true);
+//    }
 
-        frame.getContentPane().add(panel1, BorderLayout.NORTH);
-        frame.getContentPane().add(panel2, BorderLayout.SOUTH);
-        frame.setVisible(true);
-    }
 }
