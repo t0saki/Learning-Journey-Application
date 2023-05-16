@@ -5,13 +5,13 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
-public class AchievementItem extends JPanel {
+public class ActivityItem extends JPanel {
     BaseHandler baseHandler;
-    public AchievementItem(String studentID,int index){
+    public ActivityItem(String studentID,int index){
         baseHandler=new BaseHandler();
-        baseHandler.open("Data/Achievements/"+studentID+".csv");
+        baseHandler.open("Data/activity/"+studentID+".csv");
         JLabel content=new JLabel();
-        String str=baseHandler.getElement("Achievements",index);
+        String str=baseHandler.getElement("Activity",index);
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));

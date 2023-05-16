@@ -34,6 +34,10 @@ public class Menu {
 
         addDisplay(new UserInfoPanel(studentID));
         addDisplay(new AchievementPanel(studentID));
+        addDisplay(new skillPanel(studentID));
+        addDisplay(new ActivityPanel(studentID));
+        addDisplay(new PortfoliosPanel(studentID));
+        addDisplay(new RolePanel(studentID));
     }
 
     public void addDisplay(BaseDisplay display) {
