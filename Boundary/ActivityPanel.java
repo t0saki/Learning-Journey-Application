@@ -8,6 +8,6 @@ public class ActivityPanel extends BaseDisplay{
         super("Activity Panel");
         contentPanel = new ActivityInfo(studentID);
         // Set background color
-        setBackground(Color.blue);
+        setBackground(Color.white);
     }
 }

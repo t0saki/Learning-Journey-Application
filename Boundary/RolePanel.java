@@ -8,6 +8,6 @@ public class RolePanel extends BaseDisplay{
         super("Role Panel");
         contentPanel = new RoleInfo(studentID);
         // Set background color
-        setBackground(Color.orange);
+        setBackground(Color.white);
     }
 }

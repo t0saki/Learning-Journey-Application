@@ -8,6 +8,6 @@ public class PortfoliosPanel extends BaseDisplay{
         super("Portfolios Panel");
         contentPanel = new PortfoliosInfo(studentID);
         // Set background color
-        setBackground(Color.pink);
+        setBackground(Color.white);
     }
 }

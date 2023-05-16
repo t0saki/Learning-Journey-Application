@@ -10,6 +10,6 @@ public class UserInfoPanel extends BaseDisplay {
         super("User Info");
         contentPanel = new UserInfo(studentID);
         // Set background color
-        setBackground(Color.GREEN);
+        setBackground(Color.white);
     }
 }

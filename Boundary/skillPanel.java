@@ -8,6 +8,6 @@ public class skillPanel extends BaseDisplay{
         super("Skill Panel");
         contentPanel = new SkillInfo(studentID);
         // Set background color
-        setBackground(Color.yellow);
+        setBackground(Color.white);
     }
 }

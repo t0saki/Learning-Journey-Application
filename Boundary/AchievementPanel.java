@@ -8,6 +8,6 @@ public class AchievementPanel extends BaseDisplay {
         super("Achievement Panel");
         contentPanel = new Achievement(studentID);
         // Set background color
-        setBackground(Color.RED);
+        setBackground(Color.white);
     }
 }

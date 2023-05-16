@@ -113,7 +113,7 @@ public class Registration extends JFrame implements ActionListener {
             dispose();
             new Login();// 可以在这里打开登录窗口
         }
-    
+
         /// panel 2
 //        JPanel panel2 = new JPanel();
 //        panel2.setLayout(new GridLayout(1, 2, 5, 5));
