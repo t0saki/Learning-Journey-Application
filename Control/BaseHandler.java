@@ -40,6 +40,22 @@ public class BaseHandler {
         return 0;
     }
 
+    public int create(String csvPath) {
+//        if (fileReader != null) {
+//            System.out.println("Another file is already opened, close it before open another one.");
+//            return 0;
+//        }
+        FileWriter fileWriter;
+        try {
+            fileWriter = new FileWriter(new File(csvPath), true);
+        } catch (Exception e) {
+            System.out.println("Error creating file");
+            return 1;
+        }
+
+        return 0;
+    }
+
     // close the current file
     public int close() {
         if (fileReader == null) {

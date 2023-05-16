@@ -30,7 +30,7 @@ public class Achievement extends JPanel {
 
         JPanel ItemPanel = new JPanel();
         BaseHandler baseHandler=new BaseHandler();
-        baseHandler.open("Data/Achievements/"+studentID+".csv");
+        baseHandler.open("Data/achievements/" +studentID+".csv");
         int linecount=baseHandler.getLineCount();
         AchievementItem[] Achievements = new AchievementItem[linecount];
         // ItemPanel.setLayout(new GridLayout((firstModule.getNum() / 2) + 1, 2, 10,

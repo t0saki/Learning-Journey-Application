@@ -9,9 +9,9 @@ public class AchievementItem extends JPanel {
     BaseHandler baseHandler;
     public AchievementItem(String studentID,int index){
         baseHandler=new BaseHandler();
-        baseHandler.open("Data/Achievements/"+studentID+".csv");
+        baseHandler.open("Data/achievements/" +studentID+".csv");
         JLabel content=new JLabel();
-        String str=baseHandler.getElement("Achievements",index);
+        String str=baseHandler.getElement("achievements",index);
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));

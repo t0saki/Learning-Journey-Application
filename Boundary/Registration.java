@@ -105,6 +105,13 @@ public class Registration extends JFrame implements ActionListener {
                 // registration succeeds
                 else {
                     baseHandler.append(newStudent.toCSVRow());
+
+                    // create new file for the student
+                    baseHandler.create("Data\\achievements\\" + newStudent.getStudentId() + ".csv");
+                    baseHandler.create("Data\\activity\\" + newStudent.getStudentId() + ".csv");
+                    baseHandler.create("Data\\portfolios\\" + newStudent.getStudentId() + ".csv");
+                    baseHandler.create("Data\\roles\\" + newStudent.getStudentId() + ".csv");
+                    baseHandler.create("Data\\skills\\" + newStudent.getStudentId() + ".csv");
                 }
                 baseHandler.close();
             }
