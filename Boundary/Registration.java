@@ -88,6 +88,12 @@ public class Registration extends JFrame implements ActionListener {
             String password = new String(passwordField.getPassword());
             String studentID = studentIdField.getText();
 
+            // if empty
+            if (username.equals("") || password.equals("") || studentID.equals("")) {
+                JOptionPane.showMessageDialog(this, "Please fill in all the fields!", "Warning", JOptionPane.PLAIN_MESSAGE);
+                return;
+            }
+
             // 在这里可以添加注册逻辑
             // ...
             PasswordHandler ph = new PasswordHandler();
