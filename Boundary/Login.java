@@ -86,6 +86,12 @@ public class Login extends JFrame implements ActionListener{
             String username = usernameField.getText();
             String password = new String(passwordField.getPassword());
 
+            // check empty
+            if (username.equals("") || password.equals("")) {
+                JOptionPane.showMessageDialog(this, "Username or password cannot be empty!", "Warning", JOptionPane.PLAIN_MESSAGE);
+                return;
+            }
+
             // 在这里可以添加登录验证逻辑
             // ...
             BaseHandler baseHandler = new BaseHandler();
