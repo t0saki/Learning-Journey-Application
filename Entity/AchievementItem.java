@@ -11,7 +11,7 @@ public class AchievementItem extends JPanel {
         baseHandler=new BaseHandler();
         baseHandler.open("Data/achievements/" +studentID+".csv");
         JLabel content=new JLabel();
-        String str=baseHandler.getElement("achievements",index);
+        String str=baseHandler.getElement("Achievements",index);
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));
