@@ -101,5 +101,40 @@ public class Operate {
             return 0.0;
         }
     }
+
+    public static int addItem(String ID,String header,String val){
+        BaseHandler baseHandler=new BaseHandler();
+        baseHandler.open("Data/"+header+"/"+ID+".csv");
+        baseHandler.append(val+",");
+        baseHandler.close();
+        return 0;
+    }
+
+    public static int deleteItem(String ID,String header,String val){
+        BaseHandler baseHandler=new BaseHandler();
+        baseHandler.open("Data/"+header+"/"+ID+".csv");
+        int row=baseHandler.CheckExist(val);
+        if(row<0){
+            System.out.println("Item not exist!");
+            return 1;
+        }
+        baseHandler.DeleteLine(val,"Data/"+header+"/"+ID+".csv");
+        baseHandler.close();
+        return 0;
+    }
+    public static int changeItem(String ID,String header,String target,String val){
+        ItemFileHandler itemFileHandler=new ItemFileHandler();
+        itemFileHandler.open("Data/"+header+"/"+ID+".csv");
+        int row=itemFileHandler.CheckExist(target);
+        if(row<0){
+            System.out.println("Item not exist!");
+            return 1;
+        }
+        //baseHandler.DeleteLine(val,"Data/"+header+"/"+ID+".csv");
+        itemFileHandler.ChangeItem(header,target,val,"Data/"+header+"/"+ID+".csv");
+        itemFileHandler.close();
+        return 0;
+    }
+
 }
 

@@ -9,7 +9,7 @@ public class ActivityItem extends JPanel {
     BaseHandler baseHandler;
     public ActivityItem(String studentID,int index){
         baseHandler=new BaseHandler();
-        baseHandler.open("Data/activity/"+studentID+".csv");
+        baseHandler.open("Data/Activity/" +studentID+".csv");
         JLabel content=new JLabel();
         String str=baseHandler.getElement("Activity",index);
         content.setText(str);

@@ -9,7 +9,7 @@ public class SkillItem extends JPanel {
     BaseHandler baseHandler;
     public SkillItem(String studentID,int index){
         baseHandler=new BaseHandler();
-        baseHandler.open("Data/skills/"+studentID+".csv");
+        baseHandler.open("Data/Skills/" +studentID+".csv");
         JLabel content=new JLabel();
         String str=baseHandler.getElement("Skills",index);
         content.setText(str);

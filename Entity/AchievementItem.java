@@ -9,7 +9,7 @@ public class AchievementItem extends JPanel {
     BaseHandler baseHandler;
     public AchievementItem(String studentID,int index){
         baseHandler=new BaseHandler();
-        baseHandler.open("Data/achievements/" +studentID+".csv");
+        baseHandler.open("Data/Achievements/" +studentID+".csv");
         JLabel content=new JLabel();
         String str=baseHandler.getElement("Achievements",index);
         content.setText(str);

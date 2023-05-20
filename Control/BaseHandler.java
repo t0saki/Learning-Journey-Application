@@ -1,11 +1,9 @@
 package Control;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class BaseHandler {
@@ -20,6 +18,14 @@ public class BaseHandler {
         fileReader = null;
         headerMap = null;
         lineCount = 0;
+    }
+
+    public Map<String, Integer> getHeaderMap() {
+        return headerMap;
+    }
+
+    public String[][] getFileData() {
+        return fileData;
     }
 
     // You should open a file by its path
@@ -202,11 +208,129 @@ public class BaseHandler {
     public int getLineCount() {
         int linecount = 0;
         for (int i = 0; i < 1024; i++) {
-            if (fileData == null || fileData[i][0] == null || fileData[i][0].equals("null") || fileData[i][0].equals("")) {
+            if (fileData == null || fileData[i][0] == null || fileData[i][0].length()==0 || fileData[i][0].equals("")) {
                 break;
             }
             linecount++;
         }
         return linecount;
+    }
+
+    public int CheckExist(String str) {
+        if (fileReader == null) {
+            System.out.println("you should open a file first!");
+            return -2;
+        }
+        for (int i = 0; i < fileData.length; i++) {
+            if (str.equals(fileData[i][0])) {
+                // System.out.println("Already exist!");
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int DeleteLine(String entity, String path) {
+        try {
+            File file = new File(path);
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            List<String> lines = new ArrayList<>();
+
+            // 将文件中的所有行读取到列表中
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+            reader.close();
+
+            // 检查要删除的行是否存在
+            int row = CheckExist(entity);
+            if (row < 0) {
+                System.out.println("Item does not exist!");
+                return 1;
+            }
+
+            // 从列表中移除要删除的行
+            lines.remove(row+1);
+
+            // 将更新后的行重新写入文件
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
+            for (String updatedLine : lines) {
+                writer.write(updatedLine);
+                writer.newLine();
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 1;
+        }
+
+        return 0;
+    }
+
+    public int ChangeItem(String header, String entity, String content, String path) {
+        int val = 0;
+        int row = CheckExist(entity);
+        if (row == -1 || row == -2) {
+            System.out.println("item not exist!");
+            return 1;
+        }
+        long rowoffset = String.join(",", fileData[row]).length();
+        val = this.headerMap.get(header);
+        fileData[row][val] = content;
+        int line_num = 0;
+        for (String[] s : fileData) {
+            if (s[0] == null) {
+                break;
+            }
+            line_num++;
+        }
+        String line = String.join(",", fileData[row]);
+        long offset = line.getBytes().length - rowoffset;
+        RandomAccessFile file = null;
+        try {
+            file = new RandomAccessFile(path, "rw");
+            long pos = file.getFilePointer();
+            String lineToUpdate;
+            while ((lineToUpdate = file.readLine()) != null) {
+                String[] parts = lineToUpdate.split(",");
+                if (parts[0].equals(entity)) {
+                    file.seek(pos);
+                    long position = pos;
+                    int length = lineToUpdate.length();
+                    StringBuilder stringBuilder = new StringBuilder();
+                        for (int i = 0; i < length; i++) {
+                            stringBuilder.append(" ");
+                        }
+                    String blank = stringBuilder.toString();
+                    file.writeBytes(blank);
+                    file.seek(position);
+                    file.writeBytes(line);
+                    if (offset > 0) {
+                        for (int i = row; i < line_num; i++) {
+                            if (i + 1 == line_num) {
+                                file.writeBytes("\n");
+                                break;
+                            }
+                            pos = file.getFilePointer();
+                            file.seek(pos);
+                            file.writeBytes("\n");
+                            file.writeBytes(String.join(",", fileData[i + 1]));
+                        }
+                    }
+                    break;
+                }
+                pos = file.getFilePointer();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                file.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
     }
 }

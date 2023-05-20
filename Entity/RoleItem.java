@@ -9,7 +9,7 @@ public class RoleItem extends JPanel {
     BaseHandler baseHandler;
     public RoleItem(String studentID,int index){
         baseHandler=new BaseHandler();
-        baseHandler.open("Data/roles/"+studentID+".csv");
+        baseHandler.open("Data/Roles/" +studentID+".csv");
         JLabel content=new JLabel();
         String str=baseHandler.getElement("Roles",index);
         content.setText(str);

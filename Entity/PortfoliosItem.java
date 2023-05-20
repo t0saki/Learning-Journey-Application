@@ -9,7 +9,7 @@ public class PortfoliosItem extends JPanel {
     BaseHandler baseHandler;
     public PortfoliosItem(String studentID,int index){
         baseHandler=new BaseHandler();
-        baseHandler.open("Data/portfolios/"+studentID+".csv");
+        baseHandler.open("Data/Portfolios/" +studentID+".csv");
         JLabel content=new JLabel();
         String str=baseHandler.getElement("Portfolios",index);
         content.setText(str);
