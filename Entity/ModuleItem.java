@@ -22,7 +22,18 @@ public class ModuleItem extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(150, 100));
         // this.setSize(150, 100);
-        this.setBackground(Color.red);
+        if(Mark<60){
+            this.setBackground(Color.red);
+        } else if(Mark>60&&Mark<=70){
+            this.setBackground(Color.orange);
+        } else if (Mark>70&&Mark<=80) {
+            this.setBackground(Color.yellow);
+        } else if(Mark>80&&Mark<=90){
+            this.setBackground(Color.CYAN);
+        }else{
+            this.setBackground(Color.GREEN);
+        }
+
         label1.setText("<html><center>" + moduleName + "<br>" + String.valueOf(Mark) + "</center></html>");
         label1.setHorizontalAlignment(SwingConstants.CENTER);
         //label2.setText(String.valueOf(Mark));
@@ -30,16 +41,16 @@ public class ModuleItem extends JPanel {
 //        repaint();
         Font font = new Font("Arial", Font.BOLD, 16);
         label1.setFont(font);
-        label1.setOpaque(true);
+        //label1.setOpaque(true);
         int padding = 1;
         Border customBorder = BorderFactory.createEmptyBorder(padding, padding, padding, padding);
         label1.setBorder(customBorder);
         //label2.setFont(font);
 
-        int fillWidth = Mark / 100*getWidth();
-        JPanel fillPanel = new JPanel();
-        fillPanel.setBackground(Color.BLUE);
-        fillPanel.setPreferredSize(new Dimension(fillWidth, getHeight() - 2 * padding));
+//        int fillWidth = Mark / 100*getWidth();
+//        JPanel fillPanel = new JPanel();
+//        fillPanel.setBackground(Color.BLUE);
+//        fillPanel.setPreferredSize(new Dimension(fillWidth, getHeight() - 2 * padding));
 
         this.add(Box.createVerticalGlue());
         this.add(label1);
