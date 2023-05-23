@@ -3,38 +3,54 @@ package Entity;
 import Control.UserInfoHandler;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class ModuleItem extends JPanel {
     private UserInfoHandler userInfoHandler;
     private int num;
+    private int gradientWidth;
 
     public ModuleItem(int col, String studentID) {
         userInfoHandler = getUserInfo();
         userInfoHandler.open("Data/Modules&Marks.csv");
 
         JLabel label1 = new JLabel();
-        JLabel label2 = new JLabel();
+        //JLabel label2 = new JLabel();
         String moduleName = getModuleName(col);
         int Mark = getModuleMark(studentID, moduleName);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(150, 100));
         // this.setSize(150, 100);
-        this.setBackground(Color.LIGHT_GRAY);
-        label1.setText(moduleName);
-        label2.setText(String.valueOf(Mark));
+        this.setBackground(Color.red);
+        label1.setText("<html><center>" + moduleName + "<br>" + String.valueOf(Mark) + "</center></html>");
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
+        //label2.setText(String.valueOf(Mark));
+//        setGradientWidth(Mark);
+//        repaint();
         Font font = new Font("Arial", Font.BOLD, 16);
         label1.setFont(font);
-        label2.setFont(font);
+        label1.setOpaque(true);
+        int padding = 1;
+        Border customBorder = BorderFactory.createEmptyBorder(padding, padding, padding, padding);
+        label1.setBorder(customBorder);
+        //label2.setFont(font);
+
+        int fillWidth = Mark / 100*getWidth();
+        JPanel fillPanel = new JPanel();
+        fillPanel.setBackground(Color.BLUE);
+        fillPanel.setPreferredSize(new Dimension(fillWidth, getHeight() - 2 * padding));
+
         this.add(Box.createVerticalGlue());
         this.add(label1);
         this.add(Box.createVerticalStrut(10));
-        this.add(label2);
+        //this.add(label2);
+        //add(fillPanel);
         this.add(Box.createVerticalGlue());
         // label1.setSize( 150, 45);
         // label2.setSize(150, 45);
-        label1.setAlignmentX(Component.CENTER_ALIGNMENT);
-        label2.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //label1.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //label2.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.setVisible(true);
     }
 
@@ -55,25 +71,34 @@ public class ModuleItem extends JPanel {
         num = userInfoHandler.getHeaders().length - 1;
         return num;
     }
+//    @Override
+//    public void repaint(){
+//
+//    }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // Create a gradient paint
-        GradientPaint gradient = new GradientPaint(
-                0, 0, Color.PINK, getWidth(), getHeight(), Color.orange);
-
-        // Create a graphics2D object from the graphics object
-        Graphics2D g2d = (Graphics2D) g;
-
-        // Set the paint to be the gradient
-        g2d.setPaint(gradient);
-
-        // Draw a rectangle filled with the gradient
-        g2d.fillRect(0, 0, getWidth(), getHeight());
+//        // Create a gradient paint
+////        GradientPaint gradient = new GradientPaint(
+////                0, 0, Color.PINK, getWidth(), getHeight(), Color.orange);
+//        GradientPaint gradient = new GradientPaint(
+//                0, 0, Color.BLUE, getWidth(), getHeight(), Color.CYAN);
+//        // Create a graphics2D object from the graphics object
+//        Graphics2D g2d = (Graphics2D) g;
+//
+//        // Set the paint to be the gradient
+//        g2d.setPaint(gradient);
+//
+//        // Draw a rectangle filled with the gradient
+//        g2d.fillRect(0, 0, getWidth(), getHeight());
 
         // Draw a border around the panel
         g.setColor(Color.BLACK);
         g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+    }
+    public void setGradientWidth(int width) {
+        gradientWidth = width/100;
+        repaint();
     }
 }
