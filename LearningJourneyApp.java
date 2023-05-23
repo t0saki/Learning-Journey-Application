@@ -2,6 +2,7 @@ import Control.PasswordHandler;
 import Boundary.Login;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class LearningJourneyApp {
     public static void main(String[] args) {
@@ -10,6 +11,12 @@ public class LearningJourneyApp {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        // Overall Default Font
+        String[] font_names = {"Label", "CheckBox", "PopupMenu", "MenuItem", "CheckBoxMenuItem", "JRadioButtonMenuItem", "ComboBox", "Button", "Tree", "ScrollPane", "TabbedPane", "EditorPane", "TitledBorder", "Menu", "TextArea", "OptionPane", "MenuBar", "ToolBar", "ToggleButton", "ToolTip", "ProgressBar", "TableHeader", "Panel", "List", "ColorChooser", "PasswordField", "TextField", "Table", "Label", "Viewport", "RadioButtonMenuItem", "RadioButton", "DesktopPane", "InternalFrame"};
+        for (String font_name : font_names) {
+            UIManager.put(font_name + ".font", new Font("Cascadia Mono", Font.PLAIN, 16));
         }
 
         // debug
@@ -22,9 +29,9 @@ public class LearningJourneyApp {
 //        frame.getContentPane().add(new UserInfoPanel().getContentPanel());
 
         // debug password
-        String hashedPassword = PasswordHandler.hashPassword("3");
-        System.out.println(hashedPassword);
-        System.out.println(PasswordHandler.checkPassword("3", hashedPassword));
+//        String hashedPassword = PasswordHandler.hashPassword("3");
+//        System.out.println(hashedPassword);
+//        System.out.println(PasswordHandler.checkPassword("3", hashedPassword));
 
 
         // Initialize the user interface

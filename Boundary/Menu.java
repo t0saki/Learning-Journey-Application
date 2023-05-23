@@ -43,6 +43,7 @@ public class Menu {
         addDisplay(new ActivityPanel(studentID));
         addDisplay(new PortfoliosPanel(studentID));
         addDisplay(new RolePanel(studentID));
+        addDisplay(new CourseSchedulePanel(studentID));
     }
 
 //    public void addDisplay(BaseDisplay display) {
