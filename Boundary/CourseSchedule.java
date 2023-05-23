@@ -1,14 +1,26 @@
 package Boundary;
 
+import Control.BaseHandler;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CourseSchedule extends JPanel {
 
     private static final String[] DAYS_OF_WEEK = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
     private static final String[] TIME_SLOTS = {"Morning", "Noon", "Afternoon", "Evening"};
 
-    public CourseSchedule() {
+    private String studentID;
+
+    public CourseSchedule(String studentID) {
+        this.studentID = studentID;
+        refresh();
+    }
+
+    public void refresh() {
+        this.removeAll();
         setLayout(new GridLayout(TIME_SLOTS.length + 1, DAYS_OF_WEEK.length + 1));
 
         // Create empty top-left cell
@@ -38,12 +50,25 @@ public class CourseSchedule extends JPanel {
             add(dayLabelArray[i]);
         }
 
+        BaseHandler baseHandler = new BaseHandler();
+        baseHandler.open("Data/Schedule/" + studentID + ".csv");
+        String[][] schedule = baseHandler.getFileData();
+        baseHandler.close();
+        HashMap<String, String> scheduleMap = new HashMap<>();
+        for (int i = 0; i < schedule.length; i++) {
+            scheduleMap.put(schedule[i][1] + " " + schedule[i][2], schedule[i][0]);
+        }
+
         // Add time labels to the left column and empty cells to the rest
         for (int i = 0; i < TIME_SLOTS.length; i++) {
             add(timeLabelArray[i]);
             for (int j = 0; j < DAYS_OF_WEEK.length; j++) {
                 JPanel cellPanel = new JPanel();
                 cellPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+                if (scheduleMap.containsKey(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])) {
+                    cellPanel.add(new JLabel(scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i]), SwingConstants.CENTER));
+                    cellPanel.setBackground(Color.GREEN);
+                }
                 add(cellPanel);
             }
         }
