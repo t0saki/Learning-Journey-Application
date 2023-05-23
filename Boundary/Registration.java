@@ -118,13 +118,14 @@ public class Registration extends JFrame implements ActionListener {
                     baseHandler.create("Data\\portfolios\\" + newStudent.getStudentId() + ".csv");
                     baseHandler.create("Data\\roles\\" + newStudent.getStudentId() + ".csv");
                     baseHandler.create("Data\\skills\\" + newStudent.getStudentId() + ".csv");
+                    JOptionPane.showMessageDialog(this, "Registration successful!");
+                    dispose();
+                    new Login();
                 }
                 baseHandler.close();
             }
             // 注册成功后的操作
-            JOptionPane.showMessageDialog(this, "Registration successful!");
-            dispose();
-            new Login();// 可以在这里打开登录窗口
+            // 可以在这里打开登录窗口
         }
 
         /// panel 2
