@@ -14,7 +14,7 @@ public class LearningJourneyApp {
         }
 
         // Overall Default Font
-        String font_names[] = {"Label", "CheckBox", "PopupMenu", "MenuItem", "CheckBoxMenuItem", "JRadioButtonMenuItem", "ComboBox", "Button", "Tree", "ScrollPane", "TabbedPane", "EditorPane", "TitledBorder", "Menu", "TextArea", "OptionPane", "MenuBar", "ToolBar", "ToggleButton", "ToolTip", "ProgressBar", "TableHeader", "Panel", "List", "ColorChooser", "PasswordField", "TextField", "Table", "Label", "Viewport", "RadioButtonMenuItem", "RadioButton", "DesktopPane", "InternalFrame"};
+        String[] font_names = {"Label", "CheckBox", "PopupMenu", "MenuItem", "CheckBoxMenuItem", "JRadioButtonMenuItem", "ComboBox", "Button", "Tree", "ScrollPane", "TabbedPane", "EditorPane", "TitledBorder", "Menu", "TextArea", "OptionPane", "MenuBar", "ToolBar", "ToggleButton", "ToolTip", "ProgressBar", "TableHeader", "Panel", "List", "ColorChooser", "PasswordField", "TextField", "Table", "Label", "Viewport", "RadioButtonMenuItem", "RadioButton", "DesktopPane", "InternalFrame"};
         for (String font_name : font_names) {
             UIManager.put(font_name + ".font", new Font("Cascadia Mono", Font.PLAIN, 16));
         }
