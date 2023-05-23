@@ -10,7 +10,7 @@ import java.util.Map;
 public class CourseSchedule extends JPanel {
 
     private static final String[] DAYS_OF_WEEK = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    private static final String[] TIME_SLOTS = {"Morning", "Noon", "Afternoon", "Evening"};
+    private static final String[] TIME_SLOTS = {"Morning", "Late Morning", "Noon", "Afternoon", "Late Afternoon", "Evening"};
 
     private String studentID;
 
