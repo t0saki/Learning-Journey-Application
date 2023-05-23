@@ -37,6 +37,8 @@ public class Achievement extends JPanel {
         titlepanel.setLayout(new GridLayout(2,1,5,5));
 
         JButton add=new JButton("Add");
+        ImageIcon addIcon = createImageIcon();
+        add.setIcon(addIcon);
         JButton delete=new JButton("Delete");
         JButton change=new JButton("Change");
         operatepanel.add(add);
@@ -231,6 +233,16 @@ public class Achievement extends JPanel {
         }
 
     }
-
+    private ImageIcon createImageIcon() {
+        // 获取图像文件的URL
+        java.net.URL imgURL = getClass().getResource("add.png");
+        if (imgURL != null) {
+            // 创建并返回ImageIcon对象
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + "add.png");
+            return null;
+        }
+    }
 
 }
