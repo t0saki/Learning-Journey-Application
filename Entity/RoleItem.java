@@ -32,7 +32,7 @@ public class RoleItem extends ClickableItem {
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, new Color(128, 0, 128), getWidth(), getHeight(), Color.white);
+                0, 0, new Color(171, 126, 252), getWidth(), getHeight(), Color.white);
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;

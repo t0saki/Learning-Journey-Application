@@ -74,14 +74,10 @@ public class Achievement extends JPanel {
 
         // Show on this JPanel
         StringBuilder stringBuilder=new StringBuilder();
-        stringBuilder.append("<html><center>");
-        for(int i = 0; i < data.length-1; i++){
-            if(i==data.length-2){
-                stringBuilder.append(str[i]+ "</center></html>");
-            }else{
-                stringBuilder.append(str[i]+"<br>");
-            }
-        }
+        stringBuilder.append("<html><center>Name: "+str[0]+"<br>");
+        stringBuilder.append("Student ID:"+str[1]+"<br>");
+        stringBuilder.append("Major: "+str[2]+"<br>");
+        stringBuilder.append("Entrance year: "+str[3]+"</center></html>");
 
         JLabel titlelable=new JLabel(stringBuilder.toString());
         titlelable.setFont(new Font("",Font.PLAIN,30));

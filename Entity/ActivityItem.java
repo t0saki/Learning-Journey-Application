@@ -32,7 +32,7 @@ public class ActivityItem extends ClickableItem {
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, Color.GREEN, getWidth(), getHeight(), Color.white);
+                0, 0, new Color(144,238,144), getWidth(), getHeight(), Color.white);
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;
