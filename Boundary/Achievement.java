@@ -249,7 +249,10 @@ public class Achievement extends JPanel {
             e.printStackTrace();
         }
 
-        return new ImageIcon(img);
+        // Resize the icon
+        Image newimg = img.getScaledInstance(32, 32,  java.awt.Image.SCALE_SMOOTH);
+
+        return new ImageIcon(newimg);
     }
 
 }
