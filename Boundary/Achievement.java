@@ -5,10 +5,17 @@ import Control.Operate;
 import Control.UserInfoHandler;
 import Entity.AchievementItem;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+//import static javax.crypto.JceSecurity.getCodeBase;
 
 public class Achievement extends JPanel {
     String header="Achievements";
@@ -234,15 +241,15 @@ public class Achievement extends JPanel {
 
     }
     private ImageIcon createImageIcon() {
-        // 获取图像文件的URL
-        java.net.URL imgURL = getClass().getResource("add.png");
-        if (imgURL != null) {
-            // 创建并返回ImageIcon对象
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + "add.png");
-            return null;
+        // from file add.png
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("add.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        return new ImageIcon(img);
     }
 
 }
