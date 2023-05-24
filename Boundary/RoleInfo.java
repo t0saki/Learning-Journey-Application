@@ -145,6 +145,7 @@ public class RoleInfo extends JPanel {
                         JOptionPane.showMessageDialog(frame,"Add Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });
@@ -181,11 +182,13 @@ public class RoleInfo extends JPanel {
                         JOptionPane.showMessageDialog(frame,"delete Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }else{
                         JOptionPane.showMessageDialog(frame,"Item not exist!","Warning",JOptionPane.PLAIN_MESSAGE);
                         RoleInfo.deleteItem deleteItem=new RoleInfo.deleteItem();
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });
@@ -235,11 +238,13 @@ public class RoleInfo extends JPanel {
                         JOptionPane.showMessageDialog(frame,"change Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }else{
                         JOptionPane.showMessageDialog(frame,"Item not exist!","Warning",JOptionPane.PLAIN_MESSAGE);
                         RoleInfo.changeItem changeItem=new RoleInfo.changeItem();
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });

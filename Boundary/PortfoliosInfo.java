@@ -145,6 +145,7 @@ public class PortfoliosInfo extends JPanel {
                         JOptionPane.showMessageDialog(frame,"Add Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });
@@ -181,11 +182,13 @@ public class PortfoliosInfo extends JPanel {
                         JOptionPane.showMessageDialog(frame,"delete Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }else{
                         JOptionPane.showMessageDialog(frame,"Item not exist!","Warning",JOptionPane.PLAIN_MESSAGE);
                         PortfoliosInfo.deleteItem deleteItem=new PortfoliosInfo.deleteItem();
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });
@@ -235,11 +238,13 @@ public class PortfoliosInfo extends JPanel {
                         JOptionPane.showMessageDialog(frame,"change Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }else{
                         JOptionPane.showMessageDialog(frame,"Item not exist!","Warning",JOptionPane.PLAIN_MESSAGE);
                         PortfoliosInfo.changeItem changeItem=new PortfoliosInfo.changeItem();
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });

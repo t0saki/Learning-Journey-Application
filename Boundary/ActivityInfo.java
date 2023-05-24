@@ -146,6 +146,7 @@ public class ActivityInfo extends JPanel {
                         JOptionPane.showMessageDialog(frame,"Add Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });
@@ -182,11 +183,13 @@ public class ActivityInfo extends JPanel {
                         JOptionPane.showMessageDialog(frame,"delete Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }else{
                         JOptionPane.showMessageDialog(frame,"Item not exist!","Warning",JOptionPane.PLAIN_MESSAGE);
                         ActivityInfo.deleteItem deleteItem=new ActivityInfo.deleteItem();
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });
@@ -236,11 +239,13 @@ public class ActivityInfo extends JPanel {
                         JOptionPane.showMessageDialog(frame,"change Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }else{
                         JOptionPane.showMessageDialog(frame,"Item not exist!","Warning",JOptionPane.PLAIN_MESSAGE);
                         ActivityInfo.changeItem changeItem=new ActivityInfo.changeItem();
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });

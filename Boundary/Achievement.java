@@ -108,6 +108,7 @@ public class Achievement extends JPanel {
         }
         this.add(ItemPanel, "Center");
         this.setVisible(true);
+        userInfo.close();
         baseHandler.close();
         add.addActionListener(new ActionListener() {
             @Override
@@ -163,6 +164,7 @@ public class Achievement extends JPanel {
                         JOptionPane.showMessageDialog(frame,"Add Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });
@@ -199,11 +201,13 @@ public class Achievement extends JPanel {
                         JOptionPane.showMessageDialog(frame,"delete Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }else{
                         JOptionPane.showMessageDialog(frame,"Item not exist!","Warning",JOptionPane.PLAIN_MESSAGE);
                         deleteItem deleteItem=new deleteItem();
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });
@@ -253,11 +257,13 @@ public class Achievement extends JPanel {
                         JOptionPane.showMessageDialog(frame,"change Success","Notice",JOptionPane.PLAIN_MESSAGE);
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }else{
                         JOptionPane.showMessageDialog(frame,"Item not exist!","Warning",JOptionPane.PLAIN_MESSAGE);
                         changeItem changeItem=new changeItem();
                         frame.dispose();
                         refresh(studentID);
+                        revalidate();
                     }
                 }
             });

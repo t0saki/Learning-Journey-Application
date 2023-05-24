@@ -1,13 +1,14 @@
 package Control;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Operate {
-    public static double GPAhandler(String syudentID,int type){
+    public static double GPAhandler(String studentID,int type){
         BaseHandler baseHandler=new BaseHandler();
         baseHandler.open("Data/Modules&Marks.csv");
-        int index= baseHandler.getFirstRowIndexByHeaderAndVal("StudentId",syudentID);
+        int index= baseHandler.getFirstRowIndexByHeaderAndVal("StudentId",studentID);
         int headerlen=baseHandler.getHeaders().length;
         BaseHandler baseHandler1=new BaseHandler();
         baseHandler1.open("Data/credits.csv");
@@ -135,6 +136,135 @@ public class Operate {
         itemFileHandler.close();
         return 0;
     }
+    public static HashMap<String,Integer> getHighestMark(String studentID){
+        HashMap<String,Integer> map=new HashMap<String,Integer>();
+        BaseHandler baseHandler=new BaseHandler();
+        baseHandler.open("Data/Modules&Marks.csv");
+        int row=baseHandler.CheckExist(studentID);
+        if(row<0){
+            return null;
+        }
+        String marks[]= baseHandler.getFileData()[row];
+        int mark=0;
+        for(int i=1;i<marks.length;i++){
+            if(i==1){
+                mark=Integer.parseInt(marks[i]);
+                continue;
+            }else mark = mark < Integer.parseInt(marks[i]) ? Integer.parseInt(marks[i]) : mark;
+        }
+        for(int i=1;i<marks.length;i++){
+            if(Integer.parseInt(marks[i])==mark){
+                map.put(baseHandler.getHeaders()[i],mark);
+            }
+        }
+        baseHandler.close();
+        return map;
+    }
+    public static int failedExam(String studentID){
+        BaseHandler baseHandler=new BaseHandler();
+        baseHandler.open("Data/Modules&Marks.csv");
+        int row=baseHandler.CheckExist(studentID);
+        if(row<0){
+            return -1;
+        }
+        int count=0;
+        for(int i=1;i<baseHandler.getFileData()[row].length;i++){
+            if(Integer.parseInt(baseHandler.getFileData()[row][i])<60){
+                count++;
+            }
+        }
+        baseHandler.close();
+        return count;
+    }
+    public static ArrayList<String> getgoodmarks(String studentID){
+        BaseHandler baseHandler=new BaseHandler();
+        baseHandler.open("Data/Modules&Marks.csv");
+        int row=baseHandler.CheckExist(studentID);
+        if(row<0){
+            return null;
+        }
+        ArrayList<String> modules=new ArrayList<>();
+        for(int i=1;i<baseHandler.getHeaders().length;i++){
+            if(Integer.parseInt(baseHandler.getFileData()[row][i])>=85){
+                modules.add(baseHandler.getHeaders()[i]);
+            }
+        }
+        baseHandler.close();
+        return modules;
 
+    }
+    public static int Analyse(String studentID){
+        boolean choice1=false;
+        boolean choice2=false;
+        BaseHandler baseHandler=new BaseHandler();
+        baseHandler.open("Data/Modules&Marks.csv");
+        int row=baseHandler.CheckExist(studentID);
+        if(row<0){
+            return -1;
+        }
+        BaseHandler analyser=new BaseHandler();
+        analyser.open("Data/Analyse.csv");
+        ArrayList<String> modules=Operate.getgoodmarks(studentID);
+        int goodModulesnum=modules.size();
+        for (String module : modules) {
+            if (analyser.getElement(1, analyser.CheckExist(module)).equals("1")) {
+                choice1 = true;
+            } else if (analyser.getElement(1, analyser.CheckExist(module)).equals("2")) {
+                choice2 = true;
+            }
+        }
+        baseHandler.close();
+        analyser.close();
+        if(Operate.failedExam(studentID)>0){
+            return 5;//worst situation
+        }else{
+            if(choice1 && choice2){
+                return 1;//Both way works
+            }else if(choice1 && !choice2){
+                return 2;//1 works
+            }else if(!choice1 && choice2){
+                return 3;//2 works
+            }else {
+                return 4;//keep working
+            }
+        }
+    }
+    public static String getComment(int type){
+        String type1= "";
+        String type2= "";
+        String type3= "";
+        String type4= "";
+        String type5= "";
+        type1="Your scores in programming-related courses and basic subjects are high enough " +
+                "for you to consider trying an internship and putting in work, " +
+                "or to consider continuing your education for graduate and doctoral studies. " +
+                "We suggest you to try more and prepare for both and grab more opportunities.";
+
+        type2="Your scores in basic subjects are high, but your scores in other programming-related " +
+                "subjects are not outstanding, and you may want to consider continuing your education for graduate studies. " +
+                "This can help you prompt your level and get a better job position.";
+
+        type3="You have high scores in programming-related courses, but not in other basic subjects. " +
+                "You may consider applying for internships and putting in work, " +
+                "where your programming skills can help you get better job opportunities. " +
+                "At the same time, you need to continue to improve your abilities to get better opportunities.";
+
+        type4="Your scores in both basic subjects and programming-related courses are not outstanding," +
+                " but you can still improve your grades further. I hope you will continue to work hard to get higher grades " +
+                "and improve your strengths.";
+
+        type5="You have failed a subject, which is a case of failing a course, and you need to give this situation enough attention. " +
+                "Failing a subject may affect your graduation and even your future employment, " +
+                "so focus on your studies and try to avoid failing a subject.";
+
+        ArrayList<String> stringArrayList=new ArrayList<>();
+        stringArrayList.add(type1);
+        stringArrayList.add(type2);
+        stringArrayList.add(type3);
+        stringArrayList.add(type4);
+        stringArrayList.add(type5);
+        return stringArrayList.get(type-1);
+
+    }
 }
 
