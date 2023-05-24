@@ -10,7 +10,7 @@ public class AchievementItem extends ClickableItem {
     public AchievementItem(String studentID,int index){
         // call super constructor
         super();
-
+        details = "Achievement Details";
         baseHandler=new BaseHandler();
         baseHandler.open("Data/Achievements/" +studentID+".csv");
         JLabel content=new JLabel();
