@@ -6,12 +6,13 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class ModuleItem extends JPanel {
+public class ModuleItem extends ClickableItem {
     private UserInfoHandler userInfoHandler;
     private int num;
     private int gradientWidth;
 
     public ModuleItem(int col, String studentID) {
+        super();
         userInfoHandler = getUserInfo();
         userInfoHandler.open("Data/Modules&Marks.csv");
 

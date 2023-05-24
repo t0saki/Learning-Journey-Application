@@ -5,9 +5,12 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
-public class AchievementItem extends JPanel {
+public class AchievementItem extends ClickableItem {
     BaseHandler baseHandler;
     public AchievementItem(String studentID,int index){
+        // call super constructor
+        super();
+
         baseHandler=new BaseHandler();
         baseHandler.open("Data/Achievements/" +studentID+".csv");
         JLabel content=new JLabel();

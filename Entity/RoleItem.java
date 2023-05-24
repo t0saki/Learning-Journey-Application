@@ -5,9 +5,10 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
-public class RoleItem extends JPanel {
+public class RoleItem extends ClickableItem {
     BaseHandler baseHandler;
     public RoleItem(String studentID,int index){
+        super();
         baseHandler=new BaseHandler();
         baseHandler.open("Data/Roles/" +studentID+".csv");
         JLabel content=new JLabel();

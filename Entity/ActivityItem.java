@@ -5,9 +5,10 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
-public class ActivityItem extends JPanel {
+public class ActivityItem extends ClickableItem {
     BaseHandler baseHandler;
     public ActivityItem(String studentID,int index){
+        super();
         baseHandler=new BaseHandler();
         baseHandler.open("Data/Activity/" +studentID+".csv");
         JLabel content=new JLabel();

@@ -5,9 +5,10 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
-public class PortfoliosItem extends JPanel {
+public class PortfoliosItem extends ClickableItem {
     BaseHandler baseHandler;
     public PortfoliosItem(String studentID,int index){
+        super();
         baseHandler=new BaseHandler();
         baseHandler.open("Data/Portfolios/" +studentID+".csv");
         JLabel content=new JLabel();

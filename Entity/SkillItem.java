@@ -5,9 +5,10 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
-public class SkillItem extends JPanel {
+public class SkillItem extends ClickableItem {
     BaseHandler baseHandler;
     public SkillItem(String studentID,int index){
+        super();
         baseHandler=new BaseHandler();
         baseHandler.open("Data/Skills/" +studentID+".csv");
         JLabel content=new JLabel();
