@@ -46,14 +46,29 @@ public class ActivityInfo extends JPanel {
 
         this.setLayout(new BorderLayout());
 
-        JLabel[] labels = new JLabel[data.length-1];
+        String[] str = new String[data.length - 1];
         for (int i = 0; i < data.length-1; i++) {
-            labels[i] = new JLabel(data[i]);
+            if(i>=2){
+                str[i]=data[i+1];
+            }else{
+                str[i]=data[i];
+            }
         }
 
-        for (JLabel label : labels) {
-            userPanel.add(label);
+        // Show on this JPanel
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("<html><center>");
+        for(int i = 0; i < data.length-1; i++){
+            if(i==data.length-2){
+                stringBuilder.append(str[i]+ "</center></html>");
+            }else{
+                stringBuilder.append(str[i]+"<br>");
+            }
         }
+
+        JLabel titlelable=new JLabel(stringBuilder.toString());
+        titlelable.setFont(new Font("",Font.PLAIN,30));
+        userPanel.add(titlelable);
 
         titlepanel.add(userPanel);
         titlepanel.add(operatepanel);

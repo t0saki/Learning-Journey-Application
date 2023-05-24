@@ -72,15 +72,29 @@ public class UserInfo extends JPanel {
 
         this.setLayout(new BorderLayout());
 
-        JLabel[] labels = new JLabel[data.length - 1];
-        for (int i = 0; i < data.length - 1; i++) {
-            labels[i] = new JLabel(data[i]);
+        String[] str = new String[data.length - 1];
+        for (int i = 0; i < data.length-1; i++) {
+            if(i>=2){
+                str[i]=data[i+1];
+            }else{
+                str[i]=data[i];
+            }
         }
 
         // Show on this JPanel
-        for (JLabel label : labels) {
-            title.add(label);
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("<html><center>");
+        for(int i = 0; i < data.length-1; i++){
+            if(i==data.length-2){
+                stringBuilder.append(str[i]+ "</center></html>");
+            }else{
+                stringBuilder.append(str[i]+"<br>");
+            }
         }
+
+        JLabel titlelable=new JLabel(stringBuilder.toString());
+        titlelable.setFont(new Font("",Font.PLAIN,30));
+        title.add(titlelable);
         userPanel.add(title);
         userPanel.add(GPApanel);
         userPanel.add(buttonpanel);
@@ -98,9 +112,9 @@ public class UserInfo extends JPanel {
             moduleItem[i] = new ModuleItem(i + 1, studentID);
             ItemPanel.add(moduleItem[i]);
         }
-        JScrollPane scrollPane = new JScrollPane(ItemPanel);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        add(scrollPane, "Center");
+//        JScrollPane scrollPane = new JScrollPane(ItemPanel);
+//        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        add(ItemPanel, "Center");
     }
 
     private void showGPA(double GPA, JPanel GPAscorePanel, int type) {

@@ -32,7 +32,7 @@ public class PortfoliosItem extends ClickableItem {
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, Color.PINK, getWidth(), getHeight(), Color.orange);
+                0, 0, Color.BLUE, getWidth(), getHeight(), Color.white);
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;

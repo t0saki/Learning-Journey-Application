@@ -19,8 +19,8 @@ public class AchievementItem extends ClickableItem {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));
         this.setBackground(Color.LIGHT_GRAY);
-        Font font = new Font("Arial", Font.BOLD, 16);
-        content.setFont(font);
+//        Font font = new Font("Arial", Font.BOLD, 16);
+//        content.setFont(font);
         content.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.add(Box.createVerticalGlue());
         this.add(content);
@@ -34,7 +34,7 @@ public class AchievementItem extends ClickableItem {
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, Color.PINK, getWidth(), getHeight(), Color.orange);
+                0, 0, Color.PINK, getWidth(), getHeight(), Color.white);
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;

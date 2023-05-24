@@ -40,8 +40,8 @@ public class ModuleItem extends ClickableItem {
         //label2.setText(String.valueOf(Mark));
 //        setGradientWidth(Mark);
 //        repaint();
-        Font font = new Font("Arial", Font.BOLD, 16);
-        label1.setFont(font);
+        //Font font = new Font("Arial", Font.BOLD, 16);
+        //label1.setFont(font);
         //label1.setOpaque(true);
         int padding = 1;
         Border customBorder = BorderFactory.createEmptyBorder(padding, padding, padding, padding);
