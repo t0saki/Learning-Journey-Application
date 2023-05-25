@@ -47,10 +47,11 @@ public class BaseHandler {
     }
 
     public int create(String csvPath) {
-//        if (fileReader != null) {
-//            System.out.println("Another file is already opened, close it before open another one.");
-//            return 0;
-//        }
+        // if (fileReader != null) {
+        // System.out.println("Another file is already opened, close it before open
+        // another one.");
+        // return 0;
+        // }
         FileWriter fileWriter;
         try {
             fileWriter = new FileWriter(new File(csvPath), true);
@@ -208,7 +209,8 @@ public class BaseHandler {
     public int getLineCount() {
         int linecount = 0;
         for (int i = 0; i < 1024; i++) {
-            if (fileData == null || fileData[i][0] == null || fileData[i][0].length()==0 || fileData[i][0].equals("")) {
+            if (fileData == null || fileData[i][0] == null || fileData[i][0].length() == 0
+                    || fileData[i][0].equals("")) {
                 break;
             }
             linecount++;
@@ -251,7 +253,7 @@ public class BaseHandler {
             }
 
             // 从列表中移除要删除的行
-            lines.remove(row+1);
+            lines.remove(row + 1);
 
             // 将更新后的行重新写入文件
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
@@ -299,9 +301,9 @@ public class BaseHandler {
                     long position = pos;
                     int length = lineToUpdate.length();
                     StringBuilder stringBuilder = new StringBuilder();
-                        for (int i = 0; i < length; i++) {
-                            stringBuilder.append(" ");
-                        }
+                    for (int i = 0; i < length; i++) {
+                        stringBuilder.append(" ");
+                    }
                     String blank = stringBuilder.toString();
                     file.writeBytes(blank);
                     file.seek(position);

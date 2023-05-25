@@ -82,6 +82,7 @@ public class Registration extends JFrame implements ActionListener {
 
         setVisible(true);
     }
+
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerButton) {
             String username = usernameField.getText();
@@ -90,77 +91,45 @@ public class Registration extends JFrame implements ActionListener {
 
             // if empty
             if (username.equals("") || password.equals("") || studentID.equals("")) {
-                JOptionPane.showMessageDialog(this, "Please fill in all the fields!", "Warning", JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please fill in all the fields!", "Warning",
+                        JOptionPane.PLAIN_MESSAGE);
                 return;
             }
 
             // 在这里可以添加注册逻辑
             // ...
-            PasswordHandler ph = new PasswordHandler();
-                Student newStudent = new Student(studentIdField.getText(), usernameField.getText(), PasswordHandler.hashPassword(passwordField.getText()));
+            Student newStudent = new Student(studentIdField.getText(), usernameField.getText(),
+                    PasswordHandler.hashPassword(String.valueOf(passwordField.getPassword())));
 
-                System.out.println(newStudent);
-                BaseHandler baseHandler = new BaseHandler();
-                baseHandler.open("Data\\UserInfo.csv");
+            System.out.println(newStudent);
+            BaseHandler baseHandler = new BaseHandler();
+            baseHandler.open("Data\\UserInfo.csv");
 
-                // same student id exists in the database
-                if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
-                    System.out.println("Registration failed: the same student id is found in the database!");
-                    JOptionPane.showMessageDialog(this, "Registration failed: the same student id is found in the database!", "Warning", JOptionPane.PLAIN_MESSAGE);
-                }
-                // registration succeeds
-                else {
-                    baseHandler.append(newStudent.toCSVRow());
-
-                    // create new file for the student
-                    baseHandler.create("Data\\achievements\\" + newStudent.getStudentId() + ".csv");
-                    baseHandler.create("Data\\activity\\" + newStudent.getStudentId() + ".csv");
-                    baseHandler.create("Data\\portfolios\\" + newStudent.getStudentId() + ".csv");
-                    baseHandler.create("Data\\roles\\" + newStudent.getStudentId() + ".csv");
-                    baseHandler.create("Data\\skills\\" + newStudent.getStudentId() + ".csv");
-                    baseHandler.create("Data\\Schedule\\" + newStudent.getStudentId() + ".csv");
-                    JOptionPane.showMessageDialog(this, "Registration successful!");
-                    dispose();
-                    new Login();
-                }
-                baseHandler.close();
+            // same student id exists in the database
+            if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
+                System.out.println("Registration failed: the same student id is found in the database!");
+                JOptionPane.showMessageDialog(this,
+                        "Registration failed: the same student id is found in the database!", "Warning",
+                        JOptionPane.PLAIN_MESSAGE);
             }
-            // 注册成功后的操作
-            // 可以在这里打开登录窗口
+            // registration succeeds
+            else {
+                baseHandler.append(newStudent.toCSVRow());
+
+                // create new file for the student
+                baseHandler.create("Data\\achievements\\" + newStudent.getStudentId() + ".csv");
+                baseHandler.create("Data\\activity\\" + newStudent.getStudentId() + ".csv");
+                baseHandler.create("Data\\portfolios\\" + newStudent.getStudentId() + ".csv");
+                baseHandler.create("Data\\roles\\" + newStudent.getStudentId() + ".csv");
+                baseHandler.create("Data\\skills\\" + newStudent.getStudentId() + ".csv");
+                baseHandler.create("Data\\Schedule\\" + newStudent.getStudentId() + ".csv");
+                JOptionPane.showMessageDialog(this, "Registration successful!");
+                dispose();
+                new Login();
+            }
+            baseHandler.close();
         }
-
-        /// panel 2
-//        JPanel panel2 = new JPanel();
-//        panel2.setLayout(new GridLayout(1, 2, 5, 5));
-//
-//        registerButton = new JButton("Register");
-//        registerButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                PasswordHandler ph = new PasswordHandler();
-//                Student newStudent = new Student(studentIdField.getText(), usernameField.getText(), PasswordHandler.hashPassword(passwordField.getText()));
-//
-//                System.out.println(newStudent);
-//                BaseHandler baseHandler = new BaseHandler();
-//                baseHandler.open("Data\\UserInfo.csv");
-//
-//                // same student id exists in the database
-//                if (baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", newStudent.getStudentId()) != -1) {
-//                    System.out.println("Registration failed: the same student id is found in the database!");
-//                    JOptionPane.showMessageDialog(frame, "Registration failed: the same student id is found in the database!", "Warning", JOptionPane.PLAIN_MESSAGE);
-//                }
-//                // registration succeeds
-//                else {
-//                    baseHandler.append(newStudent.toCSVRow());
-//                }
-//                baseHandler.close();
-//            }
-//        });
-//        panel2.add(registerButton);
-//
-//        frame.getContentPane().add(panel1, BorderLayout.NORTH);
-//        frame.getContentPane().add(panel2, BorderLayout.SOUTH);
-//        frame.setVisible(true);
-//    }
-
+        // 注册成功后的操作
+        // 可以在这里打开登录窗口
+    }
 }

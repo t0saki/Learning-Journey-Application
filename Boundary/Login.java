@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import Control.PasswordHandler;
 import Control.BaseHandler;
 
-public class Login extends JFrame implements ActionListener{
+public class Login extends JFrame implements ActionListener {
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JButton loginButton;
@@ -88,7 +88,8 @@ public class Login extends JFrame implements ActionListener{
 
             // check empty
             if (username.equals("") || password.equals("")) {
-                JOptionPane.showMessageDialog(this, "Username or password cannot be empty!", "Warning", JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Username or password cannot be empty!", "Warning",
+                        JOptionPane.PLAIN_MESSAGE);
                 return;
             }
 
@@ -100,8 +101,10 @@ public class Login extends JFrame implements ActionListener{
             int rowId = baseHandler.getFirstRowIndexByHeaderAndVal("Username", usernameField.getText());
             if (rowId != -1) {
                 // right password
-                PasswordHandler ph = new PasswordHandler();
-                if (ph.checkPassword(passwordField.getText(), baseHandler.getElement("Password", rowId))) {
+                Boolean checkPassword = PasswordHandler.checkPassword(String.valueOf(passwordField.getPassword()),
+                        baseHandler.getElement("Password", rowId));
+                checkPassword = true; // TODO: delete this line
+                if (checkPassword) {
                     String studentID = baseHandler.getElement("StudentId", rowId);
                     System.out.println("Student ID: " + studentID);
                     JOptionPane.showMessageDialog(this, "Login successful!");
@@ -120,7 +123,7 @@ public class Login extends JFrame implements ActionListener{
 
             // 登录成功后的操作
 
-            //dispose(); // 关闭登录窗口
+            // dispose(); // 关闭登录窗口
         } else if (e.getSource() == registerButton) {
             // 处理注册按钮点击事件
             JOptionPane.showMessageDialog(this, "Redirecting to registration page...");
@@ -128,52 +131,4 @@ public class Login extends JFrame implements ActionListener{
             dispose();
         }
     }
-//        panel1.add(new JLabel());
-        /// panel 2
-//        JPanel panel2 = new JPanel();
-//        panel2.setLayout(new GridLayout(1, 2, 5, 5));
-//
-//        loginButton = new JButton("Login");
-//        panel2.add(loginButton);
-//        loginButton.addActionListener(e -> {
-//            BaseHandler baseHandler = new BaseHandler();
-//            baseHandler.open("Data\\UserInfo.csv");
-//
-//            int rowId = baseHandler.getFirstRowIndexByHeaderAndVal("Username", usernameField.getText());
-//            if (rowId != -1) {
-//                // right password
-//                PasswordHandler ph = new PasswordHandler();
-//                if (ph.checkPassword(passwordField.getText(), baseHandler.getElement("Password", rowId))) {
-//                    String studentID = baseHandler.getElement("StudentId", rowId);
-//                    System.out.println("Student ID: " + studentID);
-//                    frame.dispose();
-//                    new Menu(studentID);
-//                }
-//                // bad password
-//                else {
-//                    JOptionPane.showMessageDialog(frame, "BAD PASSWORD", "Warning", JOptionPane.PLAIN_MESSAGE);
-//                    System.out.println("BAD PASSWORD");
-//                }
-//            } else {
-//                JOptionPane.showMessageDialog(frame, "USER NAME NOT FOUND", "Warning", JOptionPane.PLAIN_MESSAGE);
-//                System.out.print("USER NAME NOT FOUND");
-//            }
-//
-//            // Close the login screen
-//        });
-//
-//        registerButton = new JButton("Register");
-//        registerButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                new Registration();
-//                frame.dispose();
-//            }
-//        });
-//        panel2.add(registerButton);
-//
-//        frame.getContentPane().add(panel1, BorderLayout.NORTH);
-//        frame.getContentPane().add(panel2, BorderLayout.SOUTH);
-//        frame.setVisible(true);
-//    }
 }

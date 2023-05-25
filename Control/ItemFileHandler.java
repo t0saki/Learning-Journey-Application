@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemFileHandler extends BaseHandler{
+public class ItemFileHandler extends BaseHandler {
 
     @Override
     public int ChangeItem(String header, String entity, String content, String path) {
@@ -20,17 +20,16 @@ public class ItemFileHandler extends BaseHandler{
 
             // 将文件中的所有行读取到列表中
             String line;
-            int count=0;
+            int count = 0;
             while ((line = reader.readLine()) != null) {
-                if(count==row+1){
-                    lines.add(content+",");
-                }else{
+                if (count == row + 1) {
+                    lines.add(content + ",");
+                } else {
                     lines.add(line);
                 }
                 count++;
             }
             reader.close();
-
 
             // 将更新后的行重新写入文件
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
@@ -45,5 +44,5 @@ public class ItemFileHandler extends BaseHandler{
         }
 
         return 0;
-        }
+    }
 }
