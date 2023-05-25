@@ -124,11 +124,16 @@ public class UserInfo extends JPanel {
         ModuleItem firstModule = new ModuleItem(1, studentID);
         ModuleItem[] moduleItem = new ModuleItem[firstModule.getNum()];
         moduleItem[0] = firstModule;
+        int[] marks = new int[firstModule.getNum()];
+        int markslen = marks.length;
         ItemPanel.add(firstModule);
         for (int i = 1; i < firstModule.getNum(); i++) {
             moduleItem[i] = new ModuleItem(i + 1, studentID);
             ItemPanel.add(moduleItem[i]);
+            marks[i] = moduleItem[i].getMark();
         }
+
+        new Histogram(marks,10);
         // JScrollPane scrollPane = new JScrollPane(ItemPanel);
         // scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(ItemPanel, "Center");

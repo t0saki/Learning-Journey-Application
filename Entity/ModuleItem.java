@@ -16,6 +16,7 @@ import java.awt.*;
 public class ModuleItem extends ClickableItem {
     private UserInfoHandler userInfoHandler;
     private int num;
+    private int Mark;
     private int gradientWidth;
 
     public ModuleItem(int col, String studentID) {
@@ -26,7 +27,7 @@ public class ModuleItem extends ClickableItem {
         JLabel label1 = new JLabel();
         //JLabel label2 = new JLabel();
         String moduleName = getModuleName(col);
-        int Mark = getModuleMark(studentID, moduleName);
+        Mark = getModuleMark(studentID, moduleName);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(150, 100));
         // this.setSize(150, 100);
@@ -122,5 +123,9 @@ public class ModuleItem extends ClickableItem {
     public void setGradientWidth(int width) {
         gradientWidth = width/100;
         repaint();
+    }
+
+    public int getMark(){
+        return Mark;
     }
 }
