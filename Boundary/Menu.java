@@ -47,6 +47,15 @@ public class Menu {
         addDisplay(new RolePanel(studentID));
         addDisplay(new PlanPanel(studentID));
         addDisplay(new CourseSchedulePanel(studentID));
+        BackPanel backPanel = new BackPanel();
+        backPanel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                frame.dispose();
+                new Login();
+            }
+        });
+
+        addDisplay(backPanel);
 
         // Set default content panel
         splitPane.remove(contentPanel);
