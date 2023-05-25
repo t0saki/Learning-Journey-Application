@@ -3,7 +3,9 @@ package Boundary;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 
 import Control.PasswordHandler;
 import Control.BaseHandler;
@@ -34,9 +36,20 @@ public class Login extends JFrame implements ActionListener {
 
         JLabel usernameLabel = new JLabel("Username:");
         usernameField = new JTextField(20);
-
         JLabel passwordLabel = new JLabel("Password:");
         passwordField = new JPasswordField(20);
+
+        // We can also press enter to login
+        KeyAdapter keyAdapter = new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    loginButton.doClick();
+                }
+            }
+        };
+        usernameField.addKeyListener(keyAdapter);
+        passwordField.addKeyListener(keyAdapter);
 
         loginButton = new JButton("Login");
         loginButton.addActionListener(this);
@@ -107,7 +120,7 @@ public class Login extends JFrame implements ActionListener {
                 if (checkPassword) {
                     String studentID = baseHandler.getElement("StudentId", rowId);
                     System.out.println("Student ID: " + studentID);
-                    JOptionPane.showMessageDialog(this, "Login successful!");
+                    // JOptionPane.showMessageDialog(this, "Login successful!");
                     dispose();
                     new Menu(studentID);
                 }
@@ -126,7 +139,7 @@ public class Login extends JFrame implements ActionListener {
             // dispose(); // 关闭登录窗口
         } else if (e.getSource() == registerButton) {
             // 处理注册按钮点击事件
-            JOptionPane.showMessageDialog(this, "Redirecting to registration page...");
+            // JOptionPane.showMessageDialog(this, "Redirecting to registration page...");
             new Registration();
             dispose();
         }

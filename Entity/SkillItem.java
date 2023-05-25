@@ -7,12 +7,13 @@ import java.awt.*;
 
 public class SkillItem extends ClickableItem {
     BaseHandler baseHandler;
-    public SkillItem(String studentID,int index){
+
+    public SkillItem(String studentID, int index) {
         super();
-        baseHandler=new BaseHandler();
-        baseHandler.open("Data/Skills/" +studentID+".csv");
-        JLabel content=new JLabel();
-        String str=baseHandler.getElement("Skills",index);
+        baseHandler = new BaseHandler();
+        baseHandler.open("Data/Skills/" + studentID + ".csv");
+        JLabel content = new JLabel();
+        String str = baseHandler.getElement("Skills", index);
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));
@@ -32,7 +33,7 @@ public class SkillItem extends ClickableItem {
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, new Color(255,255,192), getWidth(), getHeight(), Color.white);
+                0, 0, new Color(255, 255, 192), getWidth(), getHeight(), Color.white);
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;
