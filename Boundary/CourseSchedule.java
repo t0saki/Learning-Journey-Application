@@ -7,6 +7,11 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Zhengxiao Wu
+ * @date 2023/05/25
+ *     the Course Schedule panel, used to display the course schedule of a student
+ */
 public class CourseSchedule extends JPanel {
 
     private static final String[] DAYS_OF_WEEK = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};

@@ -9,6 +9,14 @@ import java.awt.geom.*;
 
 import Control.GlobalColors;
 
+/**
+ * @author Zhengxiao Wu
+ * @author Ruitian Yang
+ * @date 2023/05/25
+ *     the base class for all panels
+ *     contains a sidebar and a content panel
+ */
+
 public class BaseDisplay extends JPanel {
 
     public Boolean enableRoundedCorner = false;

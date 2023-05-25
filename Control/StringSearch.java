@@ -4,6 +4,12 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Zhengxiao Wu
+ * @date 2023/05/25
+ *     the string search handler, used to search string
+ */
+
 public class StringSearch {
     private List<String> entries;
 

@@ -6,6 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Zhengxiao Wu
+ * @author Ruitian Yang
+ * @author Xiangzhe Kong
+ * @date 2023/05/25
+ *     the file handler class, used to read and write csv files
+ */
+
+
 public class BaseHandler {
     private FileReader fileReader;
     private FileWriter fileWriter;

@@ -4,6 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 
+/**
+ * @author Zhengxiao Wu
+ * @date 2023/05/25
+ *     the Histogram panel, used to display the histogram of a student's marks
+ */
+
 public class Histogram extends JPanel {
     private int[] data;
     private int step;

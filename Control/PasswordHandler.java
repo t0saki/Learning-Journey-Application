@@ -3,6 +3,12 @@ package Control;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * @author Zhengxiao Wu
+ * @date 2023/05/25
+ *     the password handler, used to hash and check password
+ */
+
 public class PasswordHandler {
 
     public static String hashPassword(String password) {

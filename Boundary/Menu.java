@@ -7,6 +7,14 @@ import java.awt.event.MouseEvent;
 
 import Control.GlobalColors;
 
+/**
+ * @author Zhengxiao Wu
+ * @author Ruitian Yang
+ * @date 2023/05/25
+ *     the menu panel, containing sidebar and content panel
+ *     can be used to switch between different panels
+ */
+
 public class Menu {
     JFrame frame = new JFrame("Menu");
     // Create a sidebar
