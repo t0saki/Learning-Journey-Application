@@ -17,6 +17,8 @@ public class ModuleItem extends ClickableItem {
     private UserInfoHandler userInfoHandler;
     private int num;
     private int Mark;
+
+    private String moduleName;
     private int gradientWidth;
 
     public ModuleItem(int col, String studentID) {
@@ -26,7 +28,7 @@ public class ModuleItem extends ClickableItem {
 
         JLabel label1 = new JLabel();
         //JLabel label2 = new JLabel();
-        String moduleName = getModuleName(col);
+        moduleName = getModuleName(col);
         Mark = getModuleMark(studentID, moduleName);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(150, 100));
@@ -127,5 +129,9 @@ public class ModuleItem extends ClickableItem {
 
     public int getMark(){
         return Mark;
+    }
+
+    public String getModuleName(){
+        return moduleName;
     }
 }

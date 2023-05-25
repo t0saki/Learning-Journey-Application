@@ -1,6 +1,7 @@
 package Boundary;
 
 import Control.Operate;
+import Control.StringSearch;
 import Control.UserInfoHandler;
 import Entity.ModuleItem;
 
@@ -31,6 +32,8 @@ public class UserInfo extends JPanel {
         GPApanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         JPanel buttonpanel = new JPanel();
         buttonpanel.setLayout(new GridLayout(1, 3, 5, 5));
+
+        StringSearch stringSearch = new StringSearch();
 
         JLabel GPAlabel = new JLabel("GPA: ");
         JPanel GPAcontainer = new JPanel();
@@ -127,16 +130,21 @@ public class UserInfo extends JPanel {
         int[] marks = new int[firstModule.getNum()];
         int markslen = marks.length;
         ItemPanel.add(firstModule);
+        marks[0] = firstModule.getMark();
+        stringSearch.addEntry(firstModule.getModuleName());
         for (int i = 1; i < firstModule.getNum(); i++) {
             moduleItem[i] = new ModuleItem(i + 1, studentID);
             ItemPanel.add(moduleItem[i]);
             marks[i] = moduleItem[i].getMark();
+            stringSearch.addEntry(moduleItem[i].getModuleName());
         }
 
         histogramPanel.update(new Histogram(marks, 10));
         // JScrollPane scrollPane = new JScrollPane(ItemPanel);
         // scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(ItemPanel, "Center");
+
+        stringSearch.searchKeyword();
     }
 
     private void showGPA(double GPA, JPanel GPAscorePanel, int type) {
