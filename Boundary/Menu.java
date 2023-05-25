@@ -47,6 +47,11 @@ public class Menu {
         addDisplay(new RolePanel(studentID));
         addDisplay(new PlanPanel(studentID));
         addDisplay(new CourseSchedulePanel(studentID));
+
+        // Set default content panel
+        splitPane.remove(contentPanel);
+        contentPanel = new JScrollPane(new UserInfoPanel(studentID).getContentPanel());
+        splitPane.add(contentPanel);
     }
 
     // Add target display to the sidebar, set for its listeners
