@@ -47,41 +47,10 @@ public class Menu {
         addDisplay(new CourseSchedulePanel(studentID));
     }
 
-    // public void addDisplay(BaseDisplay display) {
-    // // Add the sidebar item to the sidebar
-    // sidebarPanel.add(display.getSideItemPanel());
-
-    // Add the listener
-    // display.getSideItemPanel().addMouseListener(new MouseAdapter() {
-    // public void mouseClicked(MouseEvent e) {
-    // // Remove content panel from split pane
-    // splitPane.remove(contentPanel);
-    // // Set the new content panel
-    // contentPanel = new JScrollPane(display.getContentPanel());
-    // contentPanel.setPreferredSize(new Dimension(700, 600));
-    // contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-    // contentPanel.setWheelScrollingEnabled(true);
-    // contentPanel.getVerticalScrollBar().setUnitIncrement(50);
-    // // Add the new content panel to the split pane
-    // splitPane.add(contentPanel);
-    //
-    // // Refresh the split pane
-    // splitPane.revalidate();
-    // splitPane.repaint();
-    // // Refresh the frame
-    // frame.revalidate();
-    // frame.repaint();
-    // }
-    // });
-    //
-    // // Refresh the sidebar
-    // sidebarPanel.revalidate();
-    // sidebarPanel.repaint();
-    // frame.revalidate();
-    // frame.repaint();
-    // }
+    // Add target display to the sidebar, set for its listeners
     public void addDisplay(BaseDisplay display) {
-        JPanel sideItemPanel = display.getSideItemPanel();
+        JPanel sideItemPanel = display;
+
         sideItemPanel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 // Remove content panel from split pane
@@ -98,21 +67,22 @@ public class Menu {
                 // Refresh the split pane
                 splitPane.revalidate();
                 splitPane.repaint();
+
                 // Refresh the frame
                 frame.revalidate();
                 frame.repaint();
             }
 
             public void mouseEntered(MouseEvent e) {
-                sideItemPanel.setBackground(new Color(220, 220, 220));
+                sideItemPanel.setBackground(BaseDisplay.selectedColor);
             }
 
             public void mouseExited(MouseEvent e) {
-                sideItemPanel.setBackground(Color.WHITE);
+                sideItemPanel.setBackground(BaseDisplay.unselectedColor);
             }
         });
 
-        display.getSideItemPanel().addMouseListener(new MouseAdapter() {
+        display.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 // Remove content panel from split pane
                 splitPane.remove(contentPanel);

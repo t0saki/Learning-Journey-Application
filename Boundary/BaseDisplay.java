@@ -1,9 +1,14 @@
 package Boundary;
 
 import javax.swing.*;
+
+import Entity.FontManager;
 import java.awt.*;
 
 public class BaseDisplay extends JPanel {
+    public static Color unselectedColor = new Color(134, 91, 154);
+    public static Color selectedColor = new Color(74, 46, 104);
+
     JPanel contentPanel = new JPanel();
     String displayType = "Base";
 
@@ -11,21 +16,14 @@ public class BaseDisplay extends JPanel {
         displayType = type;
         // Create a sidebar logo with JLabel
         JLabel logo = new JLabel(displayType);
-        logo.setFont(new Font("Arial", Font.BOLD, 20));
-        // create a blue border for logo
-        logo.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+        logo.setFont(FontManager.getLatoRegular(16));
+        logo.setForeground(Color.WHITE);
 
-        // add logo, set it to vertical center and horizontal center of the sidebar
+        // this layout allows the logo to be centered
         setLayout(new GridBagLayout());
-
         add(logo);
 
-        // Set background color
-        setBackground(Color.GRAY);
-    }
-
-    public JPanel getSideItemPanel() {
-        return this;
+        setBackground(unselectedColor);
     }
 
     public JPanel getContentPanel() {
