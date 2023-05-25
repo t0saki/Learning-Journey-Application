@@ -1,4 +1,5 @@
 import Boundary.Login;
+import Boundary.*;
 
 import javax.swing.*;
 import java.awt.*;
