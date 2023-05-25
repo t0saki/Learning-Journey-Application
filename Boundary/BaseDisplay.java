@@ -7,7 +7,7 @@ import java.awt.*;
 import javax.swing.border.*;
 import java.awt.geom.*;
 
-import Control.GlobalColors;
+import Control.*;
 
 public class BaseDisplay extends JPanel {
 
