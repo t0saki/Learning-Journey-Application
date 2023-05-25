@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
  */
 public class UserInfo extends JPanel {
     // Show a user's information
-    public UserInfo(String studentID) {
+    public UserInfo(String studentID,HistogramPanel histogramPanel) {
         setPreferredSize(new Dimension(680, 1600));
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
@@ -133,7 +133,7 @@ public class UserInfo extends JPanel {
             marks[i] = moduleItem[i].getMark();
         }
 
-        new Histogram(marks,10);
+        histogramPanel.update(new Histogram(marks, 10));
         // JScrollPane scrollPane = new JScrollPane(ItemPanel);
         // scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(ItemPanel, "Center");

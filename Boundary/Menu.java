@@ -49,7 +49,12 @@ public class Menu {
 
         frame.getContentPane().add(splitPane2);
 
-        addDisplay(new UserInfoPanel(studentID));
+
+        HistogramPanel histogramPanel = new HistogramPanel();
+        UserInfoPanel userInfoPanel = new UserInfoPanel(studentID,histogramPanel);
+
+        addDisplay(userInfoPanel);
+        addDisplay(histogramPanel);
         addDisplay(new AchievementPanel(studentID));
         addDisplay(new skillPanel(studentID));
         addDisplay(new CurriculumPanel(studentID));
@@ -69,7 +74,7 @@ public class Menu {
 
         // Set default content panel
         splitPane1.remove(contentPanel);
-        contentPanel = new JScrollPane(new UserInfoPanel(studentID).getContentPanel());
+        contentPanel = new JScrollPane(userInfoPanel.getContentPanel());
         splitPane1.add(contentPanel);
     }
 

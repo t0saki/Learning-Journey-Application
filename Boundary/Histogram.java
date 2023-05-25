@@ -15,12 +15,12 @@ public class Histogram extends JPanel {
         // Set outer border
         setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
 
-        JFrame frame = new JFrame("Histogram");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(1200, 900);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.add(this);
+//        JFrame frame = new JFrame("Histogram");
+//        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        frame.setSize(1200, 900);
+//        frame.setLocationRelativeTo(null);
+//        frame.setVisible(true);
+//        frame.add(this);
     }
 
     @Override
