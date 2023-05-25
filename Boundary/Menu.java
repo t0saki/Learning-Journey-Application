@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import Entity.*;
+
+import Control.GlobalColors;
 
 public class Menu {
     JFrame frame = new JFrame("Menu");
