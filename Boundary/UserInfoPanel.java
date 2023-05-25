@@ -5,7 +5,7 @@ public class UserInfoPanel extends BaseDisplay {
 
     // Show a user's information
     public UserInfoPanel(String studentID) {
-        super("User Info");
+        super("Course Mark Info");
         contentPanel = new UserInfo(studentID);
     }
 }

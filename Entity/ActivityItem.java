@@ -16,9 +16,9 @@ public class ActivityItem extends ClickableItem {
     public ActivityItem(String studentID,int index){
         super();
         baseHandler=new BaseHandler();
-        baseHandler.open("Data/Activity/" +studentID+".csv");
+        baseHandler.open("Data/Curriculum/" +studentID+".csv");
         JLabel content=new JLabel();
-        String str=baseHandler.getElement("Activity",index);
+        String str=baseHandler.getElement("Curriculum",index);
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));

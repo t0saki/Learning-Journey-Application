@@ -45,9 +45,10 @@ public class UserInfo extends JPanel {
         JScrollPane GPAscroller = new JScrollPane(GPAcontainer);
 
         // three different methods calculating GPA
-        JButton btn1 = new JButton("Standard calculation method");
-        JButton btn2 = new JButton("Simple 4-point scale algorithm");
-        JButton btn3 = new JButton("Peking University GPA Algorithm");
+        JButton btn1 = new JButton("<html><center>Standard<br>calculation<br>method</center></html>");
+        JButton btn2 = new JButton("<html><center>Simple 4-point scale <br> algorithm</center></html>");
+        JButton btn3 = new JButton("<html><center>Peking University <br> GPA Algorithm</center></html>");
+
 
         btn1.addActionListener(new ActionListener() {
             @Override

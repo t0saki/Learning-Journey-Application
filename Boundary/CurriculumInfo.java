@@ -13,17 +13,17 @@ import java.awt.event.ActionListener;
 /**
  * @author XiangzheKong
  * @date 2023/05/25
- *       the detailed panel showcasing user's activities
+ *       the detailed panel showcasing user's curriculums
  */
-public class ActivityInfo extends JPanel {
-    String header = "Activity";
+public class CurriculumInfo extends JPanel {
+    String header = "Curriculum";
     String studentID;
 
     public String getHeader() {
         return header;
     }
 
-    public ActivityInfo(String studentID) {
+    public CurriculumInfo(String studentID) {
         setPreferredSize(new Dimension(680, 900));
         this.studentID = studentID;
         refresh(this.studentID);
@@ -75,7 +75,7 @@ public class ActivityInfo extends JPanel {
         stringBuilder.append("p { font-size: 20px; }");
         stringBuilder.append("</style>");
         stringBuilder.append("</head><body>");
-        stringBuilder.append("<h1>Personal Activity</h1>");
+        stringBuilder.append("<h1>Personal Curriculum</h1>");
         stringBuilder.append("<p><strong>Name:</strong> " + str[0] + "</p>");
         stringBuilder.append("<p><strong>Student ID:</strong> " + str[1] + "</p>");
         stringBuilder.append("<p><strong>Major:</strong> " + str[2] + "</p>");
@@ -92,7 +92,7 @@ public class ActivityInfo extends JPanel {
 
         JPanel ItemPanel = new JPanel();
         BaseHandler baseHandler = new BaseHandler();
-        baseHandler.open("Data/Activity/" + studentID + ".csv");
+        baseHandler.open("Data/Curriculum/" + studentID + ".csv");
         int linecount = baseHandler.getLineCount();
         ActivityItem[] Activitys = new ActivityItem[linecount];
         ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
@@ -111,7 +111,7 @@ public class ActivityInfo extends JPanel {
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ActivityInfo.addItem additem = new ActivityInfo.addItem();
+                CurriculumInfo.addItem additem = new CurriculumInfo.addItem();
                 refresh(studentID);
 
             }
@@ -119,14 +119,14 @@ public class ActivityInfo extends JPanel {
         change.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ActivityInfo.changeItem changeItem = new ActivityInfo.changeItem();
+                CurriculumInfo.changeItem changeItem = new CurriculumInfo.changeItem();
                 refresh(studentID);
             }
         });
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ActivityInfo.deleteItem deleteItem = new ActivityInfo.deleteItem();
+                CurriculumInfo.deleteItem deleteItem = new CurriculumInfo.deleteItem();
                 refresh(studentID);
             }
         });
@@ -218,7 +218,7 @@ public class ActivityInfo extends JPanel {
                         revalidate();
                     } else {
                         JOptionPane.showMessageDialog(frame, "Item not exist!", "Warning", JOptionPane.PLAIN_MESSAGE);
-                        ActivityInfo.deleteItem deleteItem = new ActivityInfo.deleteItem();
+                        CurriculumInfo.deleteItem deleteItem = new CurriculumInfo.deleteItem();
                         frame.dispose();
                         refresh(studentID);
                         revalidate();
@@ -282,7 +282,7 @@ public class ActivityInfo extends JPanel {
                         revalidate();
                     } else {
                         JOptionPane.showMessageDialog(frame, "Item not exist!", "Warning", JOptionPane.PLAIN_MESSAGE);
-                        ActivityInfo.changeItem changeItem = new ActivityInfo.changeItem();
+                        CurriculumInfo.changeItem changeItem = new CurriculumInfo.changeItem();
                         frame.dispose();
                         refresh(studentID);
                         revalidate();

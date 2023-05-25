@@ -42,7 +42,7 @@ public class Menu {
         addDisplay(new UserInfoPanel(studentID));
         addDisplay(new AchievementPanel(studentID));
         addDisplay(new skillPanel(studentID));
-        addDisplay(new ActivityPanel(studentID));
+        addDisplay(new CurriculumPanel(studentID));
         addDisplay(new PortfoliosPanel(studentID));
         addDisplay(new RolePanel(studentID));
         addDisplay(new PlanPanel(studentID));
@@ -85,10 +85,10 @@ public class Menu {
                 // Set the new content panel
                 contentPanel = new JScrollPane(display.getContentPanel());
 
-                // contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-                // contentPanel.setWheelScrollingEnabled(true);
-                // contentPanel.getVerticalScrollBar().setUnitIncrement(50);
-                // Add the new content panel to the split pane
+//                 contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+//                 contentPanel.setWheelScrollingEnabled(true);
+//                 contentPanel.getVerticalScrollBar().setUnitIncrement(50);
+//                 Add the new content panel to the split pane
                 
                 splitPane.add(contentPanel);
             }

@@ -31,7 +31,7 @@ public class Achievement extends JPanel {
     }
 
     public Achievement(String studentID) {
-        setPreferredSize(new Dimension(680, 900));
+        setPreferredSize(new Dimension(680, 1000));
         this.studentID = studentID;
         refresh(this.studentID);
     }

@@ -74,9 +74,9 @@ public class Plan extends JPanel {
         // Display number of Activities
         JPanel activitypanel = new JPanel();
         activitypanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        baseHandler.open("Data/Activity/" + studentID + ".csv");
+        baseHandler.open("Data/Curriculum/" + studentID + ".csv");
         num = baseHandler.getLineCount();
-        JLabel activitynum = new JLabel("Number of Activity: " + num);
+        JLabel activitynum = new JLabel("Number of Curriculum: " + num);
         activitypanel.add(activitynum);
         baseHandler.close();
 
@@ -98,9 +98,11 @@ public class Plan extends JPanel {
         // suggestionlabel.setText("Suggestion: "+suggestion);
         textArea.setText("Suggestion: " + suggestion);
         suggestionpanel.add(textArea);
-        textArea.setColumns(60);
+        textArea.setColumns(65);
         textArea.setWrapStyleWord(true);
         textArea.setLineWrap(true);
+        textArea.setEditable(false);
+        textArea.setOpaque(false);
 
         this.setLayout(new GridLayout(7, 1, 5, 10));
         this.add(namepanel);
