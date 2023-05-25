@@ -3,7 +3,7 @@ package Boundary;
 import Control.BaseHandler;
 import Control.Operate;
 import Control.UserInfoHandler;
-import Entity.ActivityItem;
+import Entity.CurriculumItem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -94,11 +94,11 @@ public class CurriculumInfo extends JPanel {
         BaseHandler baseHandler = new BaseHandler();
         baseHandler.open("Data/Curriculum/" + studentID + ".csv");
         int linecount = baseHandler.getLineCount();
-        ActivityItem[] Activitys = new ActivityItem[linecount];
+        CurriculumItem[] Activitys = new CurriculumItem[linecount];
         ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
         ItemPanel.setMinimumSize(new Dimension(600, 550));
         for (int i = 0; i < linecount; i++) {
-            Activitys[i] = new ActivityItem(studentID, i);
+            Activitys[i] = new CurriculumItem(studentID, i);
             JPanel Activitypanel = new JPanel();
             Activitypanel.setSize(this.getWidth(), 200);
             Activitypanel.setLayout(new GridLayout(1, 1));
