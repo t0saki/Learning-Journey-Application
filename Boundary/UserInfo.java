@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 public class UserInfo extends JPanel {
     // Show a user's information
     public UserInfo(String studentID) {
-        setPreferredSize(new Dimension(680, 900));
+        setPreferredSize(new Dimension(680, 1600));
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
