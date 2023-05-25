@@ -5,13 +5,15 @@ import java.awt.*;
 
 import Control.*;
 import java.io.*;
-import java.util.*;
 
 /**
  * @author RuitianYang
  * @date 2023/05/25
  *       the personal information panel
  */
+// attribution of beautiful avatar images:
+// href="https://www.freepik.com/free-vector/set-people-avatars-male-female-characters-faces_22535547.htm#query=png%20avatars&position=4&from_view=keyword&track=ais">Image
+// by upklyak</a> on Freepik
 public class PersonalInformationPanel extends JPanel {
     private String name;
     private String studentId;
@@ -45,59 +47,61 @@ public class PersonalInformationPanel extends JPanel {
         return new ImageIcon(newImage);
     }
 
+    // hash the studentID and select an image
+    private int selectImageIndex(String studentID, int imageNum) {
+        int hash = studentID.hashCode();
+        return hash % imageNum;
+    }
+
     public PersonalInformationPanel(String studentID) {
         super(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
         setBackground(GlobalColors.lighterBlack);
 
+        // Get user's information
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
         String[] data = userInfo.getRow(rowIndex);
 
+        // Parse data
         String[] parsedData = parseData(data);
         this.name = parsedData[0];
         this.studentId = parsedData[1];
         this.major = parsedData[2];
         this.entranceYear = parsedData[3];
 
-        File folder = new File("Images\\Avatars"); // 创建一个File对象，表示照片文件夹
-        File[] files = folder.listFiles(); // 获取文件夹中的所有文件
-        Random random = new Random(); // 创建一个Random对象，用来生成随机数
-        int index = random.nextInt(files.length); // 生成一个随机数，作为文件数组的索引
-        File file = files[index]; // 获取对应索引的文件
+        // Generate user's photo
+        File folder = new File("Images\\Avatars");
+        File[] files = folder.listFiles();
+        int index = selectImageIndex(studentID, files.length);
+        File file = files[index];
 
-        int aimWidth = 200;
-        int aimHeight = 200;
+        int aimWidth = 220;
+        int aimHeight = 220;
         photo = setImageSize(file.getPath(), aimWidth, aimHeight);
 
         JLabel photoLabel = new JLabel(photo);
         photoLabel.setPreferredSize(new Dimension(aimWidth, aimHeight));
         // photoLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        JTextArea nameLabel = new JTextArea(name);
-        JTextArea idLabel = new JTextArea("BUPT #" + studentId);
+        JLabel nameLabel = new JLabel(name);
+        JLabel idLabel = new JLabel("BUPT #" + studentId);
         nameLabel.setFont(FontManager.getLatoBold(20));
         idLabel.setFont(FontManager.getLatoLight(18));
         nameLabel.setForeground(GlobalColors.solidWhite);
         idLabel.setForeground(GlobalColors.solidWhite);
-        nameLabel.setBackground(GlobalColors.lighterBlack);
-        idLabel.setBackground(GlobalColors.lighterBlack);
 
         // nameLabel.setBorder(BorderFactory.createLineBorder(GlobalColors.solidOrange));
         // idLabel.setBorder(BorderFactory.createLineBorder(GlobalColors.solidOrange));
 
-        JTextArea majorLabel = new JTextArea(major);
-        JTextArea yearLabel = new JTextArea(entranceYear);
-        majorLabel.setFont(FontManager.getLatoRegular(14));
-        yearLabel.setFont(FontManager.getLatoRegular(14));
-        majorLabel.setForeground(GlobalColors.solidWhite);
+        JLabel yearLabel = new JLabel("Start year - " + entranceYear);
+        JLabel majorLabel = new JLabel(major);
+        yearLabel.setFont(FontManager.getLatoRegular(16));
+        majorLabel.setFont(FontManager.getLatoRegular(12));
         yearLabel.setForeground(GlobalColors.solidWhite);
-        majorLabel.setBackground(GlobalColors.lighterBlack);
-        yearLabel.setBackground(GlobalColors.lighterBlack);
-        majorLabel.setWrapStyleWord(true);
-        majorLabel.setLineWrap(true);
+        majorLabel.setForeground(GlobalColors.solidWhite);
 
         JPanel p1 = new JPanel(new GridBagLayout());
         JPanel p2 = new JPanel(new GridBagLayout());
@@ -188,14 +192,14 @@ public class PersonalInformationPanel extends JPanel {
         this.add(p4, gbc);
 
         // major and entrance year
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.fill = GridBagConstraints.NONE;
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.weightx = 1;
         gbc.weighty = 1;
-        p5.add(majorLabel, gbc);
+        p5.add(yearLabel, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -203,7 +207,7 @@ public class PersonalInformationPanel extends JPanel {
         gbc.gridheight = 1;
         gbc.weightx = 1;
         gbc.weighty = 1;
-        p5.add(yearLabel, gbc);
+        p5.add(majorLabel, gbc);
 
         gbc.fill = GridBagConstraints.BOTH;
         gbc.gridx = 0;
@@ -211,7 +215,7 @@ public class PersonalInformationPanel extends JPanel {
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.weightx = 1;
-        gbc.weighty = 0.2;
+        gbc.weighty = 0.1;
         this.add(p5, gbc);
 
         // blank
@@ -220,7 +224,7 @@ public class PersonalInformationPanel extends JPanel {
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.weightx = 1;
-        gbc.weighty = 0.3;
+        gbc.weighty = 0.4;
         this.add(p6, gbc);
 
         // gbc.gridx = 0;
