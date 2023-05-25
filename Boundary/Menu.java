@@ -34,7 +34,7 @@ public class Menu {
 
         // Add the sidebar and content panel to a split pane
         splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
-        splitPane.setDividerLocation(200);
+        splitPane.setDividerLocation(320);
         frame.getContentPane().add(splitPane);
 
         addDisplay(new UserInfoPanel(studentID));
@@ -57,7 +57,6 @@ public class Menu {
                 splitPane.remove(contentPanel);
                 contentPanel.removeAll();
                 contentPanel = new JScrollPane(display.getContentPanel());
-                contentPanel.setPreferredSize(new Dimension(700, 600));
                 contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
                 contentPanel.setWheelScrollingEnabled(true);
                 contentPanel.getVerticalScrollBar().setUnitIncrement(50);
@@ -88,7 +87,7 @@ public class Menu {
                 splitPane.remove(contentPanel);
                 // Set the new content panel
                 contentPanel = new JScrollPane(display.getContentPanel());
-                contentPanel.setPreferredSize(new Dimension(700, 600));
+                // contentPanel.setPreferredSize(new Dimension(700, 600));
                 contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
                 contentPanel.setWheelScrollingEnabled(true);
                 contentPanel.getVerticalScrollBar().setUnitIncrement(50);
@@ -104,21 +103,19 @@ public class Menu {
             }
         });
 
-        // Refresh the sidebar
-        sidebarPanel.revalidate();
-        sidebarPanel.repaint();
-        frame.revalidate();
-        frame.repaint();
+        // GridBagConstraints gbc = new GridBagConstraints();
+        // gbc.fill = GridBagConstraints.HORIZONTAL;
+        // gbc.weightx = 1.0;
+        // gbc.gridx = 0;
+        // gbc.gridy = GridBagConstraints.RELATIVE;
+        // gbc.insets = new Insets(10, 10, 10, 10);
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.weightx = 1.0;
-        gbc.gridx = 0;
-        gbc.gridy = GridBagConstraints.RELATIVE;
-        gbc.insets = new Insets(10, 10, 10, 10);
-        sidebarPanel.add(sideItemPanel, gbc);
+        sidebarPanel.add(sideItemPanel);
 
-        sidebarPanel.revalidate();
-        sidebarPanel.repaint();
+        // `> seems unnecessary
+        // sidebarPanel.revalidate();
+        // sidebarPanel.repaint();
+        // frame.revalidate();
+        // frame.repaint();
     }
 }

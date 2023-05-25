@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+// This class is used to load custom fonts
 public class FontManager {
     public static Font getCustomFont(String path, float fontSize) {
         try {
