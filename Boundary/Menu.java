@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import Entity.*;
 
 public class Menu {
     JFrame frame = new JFrame("Menu");
@@ -11,16 +12,21 @@ public class Menu {
     JPanel sidebarPanel = new JPanel();
     // Create a content panel
     JScrollPane contentPanel = new JScrollPane();
-    JSplitPane splitPane;
+    PersonalInformationPanel personalInformationPanel;
+
+    JSplitPane splitPane1;
+    JSplitPane splitPane2;
+
     // JPanel contentPanel = new UserInfo();
     private String studentID;
 
     public Menu(String sID) {
         studentID = sID;
+        personalInformationPanel = new PersonalInformationPanel(sID);
 
         // Create a new JFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1200, 900);
+        frame.setSize(1920, 1080);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         // bg
@@ -32,12 +38,16 @@ public class Menu {
         // Set the sidebar layout
 
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
-        sidebarPanel.setBackground(BaseDisplay.unselectedColor);
+        sidebarPanel.setBackground(GlobalColors.unselectedColor);
 
         // Add the sidebar and content panel to a split pane
-        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
-        splitPane.setDividerLocation(320);
-        frame.getContentPane().add(splitPane);
+        splitPane1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
+        splitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, splitPane1, personalInformationPanel);
+
+        splitPane1.setDividerLocation(300);
+        splitPane2.setDividerLocation(1600);
+
+        frame.getContentPane().add(splitPane2);
 
         addDisplay(new UserInfoPanel(studentID));
         addDisplay(new AchievementPanel(studentID));
@@ -47,6 +57,7 @@ public class Menu {
         addDisplay(new RolePanel(studentID));
         addDisplay(new PlanPanel(studentID));
         addDisplay(new CourseSchedulePanel(studentID));
+
         BackPanel backPanel = new BackPanel();
         backPanel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -54,13 +65,12 @@ public class Menu {
                 new Login();
             }
         });
-
         addDisplay(backPanel);
 
         // Set default content panel
-        splitPane.remove(contentPanel);
+        splitPane1.remove(contentPanel);
         contentPanel = new JScrollPane(new UserInfoPanel(studentID).getContentPanel());
-        splitPane.add(contentPanel);
+        splitPane1.add(contentPanel);
     }
 
     // Add target display to the sidebar, set for its listeners
@@ -69,28 +79,28 @@ public class Menu {
 
         sideItemPanel.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
-                sideItemPanel.setBackground(BaseDisplay.selectedColor);
+                sideItemPanel.setBackground(GlobalColors.selectedColor);
             }
 
             public void mouseExited(MouseEvent e) {
-                sideItemPanel.setBackground(BaseDisplay.unselectedColor);
+                sideItemPanel.setBackground(GlobalColors.unselectedColor);
             }
         });
 
         display.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 // Remove content panel from split pane
-                splitPane.remove(contentPanel);
-                
+                splitPane1.remove(contentPanel);
+
                 // Set the new content panel
                 contentPanel = new JScrollPane(display.getContentPanel());
 
-//                 contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-//                 contentPanel.setWheelScrollingEnabled(true);
-//                 contentPanel.getVerticalScrollBar().setUnitIncrement(50);
-//                 Add the new content panel to the split pane
-                
-                splitPane.add(contentPanel);
+                // contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                // contentPanel.setWheelScrollingEnabled(true);
+                // contentPanel.getVerticalScrollBar().setUnitIncrement(50);
+                // Add the new content panel to the split pane
+
+                splitPane1.add(contentPanel);
             }
         });
 
