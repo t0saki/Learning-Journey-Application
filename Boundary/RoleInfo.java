@@ -68,10 +68,19 @@ public class RoleInfo extends JPanel {
 
         // Show on this JPanel
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("<html><center>Name: " + str[0] + "<br>");
-        stringBuilder.append("Student ID:" + str[1] + "<br>");
-        stringBuilder.append("Major: " + str[2] + "<br>");
-        stringBuilder.append("Entrance year: " + str[3] + "</center></html>");
+        stringBuilder.append("<html><head>");
+        stringBuilder.append("<style>");
+        stringBuilder.append("body { font-family: Arial, sans-serif; }");
+        stringBuilder.append("h1 { font-size: 30px; text-align: center; }");
+        stringBuilder.append("p { font-size: 20px; }");
+        stringBuilder.append("</style>");
+        stringBuilder.append("</head><body>");
+        stringBuilder.append("<h1>Personal Role</h1>");
+        stringBuilder.append("<p><strong>Name:</strong> " + str[0] + "</p>");
+        stringBuilder.append("<p><strong>Student ID:</strong> " + str[1] + "</p>");
+        stringBuilder.append("<p><strong>Major:</strong> " + str[2] + "</p>");
+        stringBuilder.append("<p><strong>Entrance year:</strong> " + str[3] + "</p>");
+        stringBuilder.append("</body></html>");
 
         JLabel titlelable = new JLabel(stringBuilder.toString());
         titlelable.setFont(new Font("", Font.PLAIN, 30));
