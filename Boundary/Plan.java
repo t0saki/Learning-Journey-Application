@@ -10,6 +10,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the detailed panel showcasing user's individual plan
+ */
 public class Plan extends JPanel {
     String header = "Plans";
     String studentID;

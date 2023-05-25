@@ -4,8 +4,13 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemFileHandler extends BaseHandler {
-
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * The Handler for items such as
+ * achievements,skills,activities,roles and portfolios
+ */
+public class ItemFileHandler extends BaseHandler{
     @Override
     public int ChangeItem(String header, String entity, String content, String path) {
         try {

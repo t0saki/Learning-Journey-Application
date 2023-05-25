@@ -10,6 +10,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the detailed panel showcasing user's activities
+ */
 public class ActivityInfo extends JPanel {
     String header = "Activity";
     String studentID;
@@ -23,7 +28,12 @@ public class ActivityInfo extends JPanel {
         refresh(this.studentID);
     }
 
-    public void refresh(String studentID) {
+    /**
+     * @param studentID
+     * refresh every time when there are changes
+     * to information, regenerate the panel.
+     */
+    public void refresh(String studentID){
         this.removeAll();
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
@@ -113,7 +123,13 @@ public class ActivityInfo extends JPanel {
 
     }
 
-    private class addItem {
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the addition to the panel
+     */
+    private class addItem{
         JFrame frame;
 
         public addItem() {
@@ -152,7 +168,13 @@ public class ActivityInfo extends JPanel {
 
     }
 
-    private class deleteItem {
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the deleting to the panel
+     */
+    private class deleteItem{
         JFrame frame;
 
         public deleteItem() {
@@ -197,7 +219,14 @@ public class ActivityInfo extends JPanel {
 
     }
 
-    private class changeItem {
+
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the changing to the panel
+     */
+    private class changeItem{
         JFrame frame;
 
         public changeItem() {

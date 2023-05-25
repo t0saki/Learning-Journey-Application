@@ -6,6 +6,13 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the item panel showed on the screen
+ * indicating a module
+ * contains module's name and score
+ */
 public class ModuleItem extends ClickableItem {
     private UserInfoHandler userInfoHandler;
     private int num;
@@ -63,6 +70,9 @@ public class ModuleItem extends ClickableItem {
         // label2.setSize(150, 45);
         //label1.setAlignmentX(Component.CENTER_ALIGNMENT);
         //label2.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        String str=moduleName+" "+String.valueOf(Mark);
+        details = str;
         this.setVisible(true);
     }
 

@@ -5,6 +5,12 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the item panel showed on the screen
+ * indicating a role
+ */
 public class RoleItem extends ClickableItem {
     BaseHandler baseHandler;
     public RoleItem(String studentID,int index){
@@ -25,6 +31,7 @@ public class RoleItem extends ClickableItem {
         this.add(Box.createVerticalGlue());
         this.setVisible(true);
         baseHandler.close();
+        details = str;
     }
 
     @Override

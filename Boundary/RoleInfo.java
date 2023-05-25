@@ -10,6 +10,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the detailed panel showcasing user's roles
+ */
 public class RoleInfo extends JPanel {
     String header="Roles";
     String studentID;
@@ -22,6 +27,12 @@ public class RoleInfo extends JPanel {
         this.studentID=studentID;
         refresh(this.studentID);
     }
+
+    /**
+     * @param studentID
+     * refresh every time when there are changes
+     * to information, regenerate the panel.
+     */
     public void refresh(String studentID){
         this.removeAll();
         UserInfoHandler userInfo = new UserInfoHandler();
@@ -111,6 +122,13 @@ public class RoleInfo extends JPanel {
         });
 
     }
+
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the addition to the panel
+     */
     private class addItem{
         JFrame frame;
         public addItem(){
@@ -148,6 +166,13 @@ public class RoleInfo extends JPanel {
         }
 
     }
+
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the deleting to the panel
+     */
     private class deleteItem{
         JFrame frame;
         public deleteItem(){
@@ -191,6 +216,13 @@ public class RoleInfo extends JPanel {
         }
 
     }
+
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the changing to the panel
+     */
     private class changeItem{
         JFrame frame;
         public changeItem(){

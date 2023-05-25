@@ -17,6 +17,11 @@ import java.net.URL;
 
 //import static javax.crypto.JceSecurity.getCodeBase;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the detailed panel showcasing user's achievements
+ */
 public class Achievement extends JPanel {
     String header="Achievements";
     String studentID;
@@ -29,6 +34,12 @@ public class Achievement extends JPanel {
         this.studentID=studentID;
         refresh(this.studentID);
     }
+
+    /**
+     * @param studentID
+     * refresh every time when there are changes
+     * to information, regenerate the panel.
+     */
     public void refresh(String studentID){
         this.removeAll();
         UserInfoHandler userInfo = new UserInfoHandler();
@@ -54,14 +65,6 @@ public class Achievement extends JPanel {
 
         this.setLayout(new BorderLayout());
 
-//        JLabel[] labels = new JLabel[data.length-1];
-//        for (int i = 0; i < data.length-1; i++) {
-//            labels[i] = new JLabel(data[i]);
-//        }
-//
-//        for (JLabel label : labels) {
-//            userPanel.add(label);
-//        }
 
         String[] str = new String[data.length - 1];
         for (int i = 0; i < data.length-1; i++) {
@@ -106,7 +109,7 @@ public class Achievement extends JPanel {
         this.setVisible(true);
         userInfo.close();
         baseHandler.close();
-        add.addActionListener(new ActionListener() {
+        add.addActionListener(new ActionListener() {//add an item to the panel
             @Override
             public void actionPerformed(ActionEvent e) {
                 addItem additem=new addItem();
@@ -114,14 +117,14 @@ public class Achievement extends JPanel {
 
             }
         });
-        change.addActionListener(new ActionListener() {
+        change.addActionListener(new ActionListener() {//make changes on the items
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeItem changeItem=new changeItem();
                 refresh(studentID);
             }
         });
-        delete.addActionListener(new ActionListener() {
+        delete.addActionListener(new ActionListener() {//delete an item
             @Override
             public void actionPerformed(ActionEvent e) {
                 deleteItem deleteItem=new deleteItem();
@@ -130,6 +133,14 @@ public class Achievement extends JPanel {
         });
 
     }
+
+    //some inner class for adding, deleting and changing
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the addition to the panel
+     */
     private class addItem{
         JFrame frame;
         public addItem(){
@@ -167,6 +178,13 @@ public class Achievement extends JPanel {
         }
 
     }
+
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the deleting to the panel
+     */
     private class deleteItem{
         JFrame frame;
         public deleteItem(){
@@ -210,6 +228,13 @@ public class Achievement extends JPanel {
         }
 
     }
+
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the changing to the panel
+     */
     private class changeItem{
         JFrame frame;
         public changeItem(){
