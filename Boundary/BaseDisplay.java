@@ -2,11 +2,12 @@ package Boundary;
 
 import javax.swing.*;
 
-import Entity.FontManager;
+import Control.FontManager;
 import java.awt.*;
 import javax.swing.border.*;
 import java.awt.geom.*;
-import Entity.*;
+
+import Control.GlobalColors;
 
 public class BaseDisplay extends JPanel {
 

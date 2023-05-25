@@ -11,9 +11,9 @@ import java.awt.*;
  * the item panel showed on the screen
  * indicating an activity
  */
-public class ActivityItem extends ClickableItem {
+public class CurriculumItem extends ClickableItem {
     BaseHandler baseHandler;
-    public ActivityItem(String studentID,int index){
+    public CurriculumItem(String studentID, int index){
         super();
         baseHandler=new BaseHandler();
         baseHandler.open("Data/Curriculum/" +studentID+".csv");

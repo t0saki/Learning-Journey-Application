@@ -1,4 +1,4 @@
-package Entity;
+package Control;
 
 import java.awt.*;
 import java.io.File;

@@ -2,7 +2,7 @@ package Boundary;
 
 import javax.swing.*;
 import java.awt.*;
-import Entity.*;
+
 import Control.*;
 import java.io.*;
 import java.util.*;

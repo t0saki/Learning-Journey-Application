@@ -3,7 +3,6 @@ package Boundary;
 import Control.BaseHandler;
 import Control.Operate;
 import Control.UserInfoHandler;
-import Entity.ActivityItem;
 import Entity.PortfoliosItem;
 
 import javax.swing.*;
