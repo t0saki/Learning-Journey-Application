@@ -1,7 +1,5 @@
 package Boundary;
 
-<<<<<<< Updated upstream
-=======
 import java.awt.*;
 
 /**
@@ -9,7 +7,6 @@ import java.awt.*;
  * @date 2023/05/25
  * side panel which creates the detailed panel
  */
->>>>>>> Stashed changes
 public class ActivityPanel extends BaseDisplay{
     String displayType = "activity Panel";
     public ActivityPanel(String studentID) {
