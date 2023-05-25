@@ -6,10 +6,10 @@ import Entity.FontManager;
 import java.awt.*;
 import javax.swing.border.*;
 import java.awt.geom.*;
+import Entity.*;
 
 public class BaseDisplay extends JPanel {
-    public static Color unselectedColor = new Color(134, 91, 154);
-    public static Color selectedColor = new Color(74, 46, 104);
+
     public Boolean enableRoundedCorner = false;
 
     JPanel contentPanel = new JPanel();
@@ -34,8 +34,8 @@ public class BaseDisplay extends JPanel {
         // setLayout(new GridBagLayout());
         add(logo);
 
-        setBorder(new MatteBorder(15, 15, 15, 15, BaseDisplay.unselectedColor));
-        setBackground(unselectedColor);
+        setBorder(new MatteBorder(15, 15, 15, 15, GlobalColors.unselectedColor));
+        setBackground(GlobalColors.unselectedColor);
     }
 
     public JPanel getContentPanel() {

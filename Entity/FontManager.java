@@ -26,6 +26,10 @@ public class FontManager {
         return getCustomFont("Fonts\\Lato\\Lato-Light.ttf", fontSize);
     }
 
+    public static Font getLatoBold(float fontSize) {
+        return getCustomFont("Fonts\\Lato\\Lato-Bold.ttf", fontSize);
+    }
+
     public static Font getLatoRegular(float fontSize) {
         return getCustomFont("Fonts\\Lato\\Lato-Regular.ttf", fontSize);
     }
