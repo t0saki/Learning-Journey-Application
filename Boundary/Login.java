@@ -15,6 +15,7 @@ public class Login extends JFrame implements ActionListener {
     private JPasswordField passwordField;
     private JButton loginButton;
     private JButton registerButton;
+    private Boolean fastDebug = true; // TODO: disable fastDebug when release
 
     // Just show a simple login screen
     public Login() {
@@ -50,6 +51,12 @@ public class Login extends JFrame implements ActionListener {
         };
         usernameField.addKeyListener(keyAdapter);
         passwordField.addKeyListener(keyAdapter);
+
+        // For fast debug
+        if (fastDebug) {
+            usernameField.setText("John Doe");
+            passwordField.setText("A");
+        }
 
         loginButton = new JButton("Login");
         loginButton.addActionListener(this);
@@ -95,10 +102,13 @@ public class Login extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == loginButton) {
-            String username = usernameField.getText();
-            String password = new String(passwordField.getPassword());
 
+        if (e.getSource() == loginButton) {
+            String username;
+            String password;
+
+            username = usernameField.getText();
+            password = new String(passwordField.getPassword());
             // check empty
             if (username.equals("") || password.equals("")) {
                 JOptionPane.showMessageDialog(this, "Username or password cannot be empty!", "Warning",
@@ -116,7 +126,6 @@ public class Login extends JFrame implements ActionListener {
                 // right password
                 Boolean checkPassword = PasswordHandler.checkPassword(String.valueOf(passwordField.getPassword()),
                         baseHandler.getElement("Password", rowId));
-                checkPassword = true; // TODO: delete this line
                 if (checkPassword) {
                     String studentID = baseHandler.getElement("StudentId", rowId);
                     System.out.println("Student ID: " + studentID);
