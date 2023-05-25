@@ -11,6 +11,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the detailed panel showcasing user's portfolios
+ */
 public class PortfoliosInfo extends JPanel {
     String header = "Portfolios";
     String studentID;
@@ -24,7 +29,16 @@ public class PortfoliosInfo extends JPanel {
         refresh(this.studentID);
     }
 
+<<<<<<< Updated upstream
     public void refresh(String studentID) {
+=======
+    /**
+     * @param studentID
+     * refresh every time when there are changes
+     * to information, regenerate the panel.
+     */
+    public void refresh(String studentID){
+>>>>>>> Stashed changes
         this.removeAll();
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
@@ -113,7 +127,17 @@ public class PortfoliosInfo extends JPanel {
         });
     }
 
+<<<<<<< Updated upstream
     private class addItem {
+=======
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the addition to the panel
+     */
+    private class addItem{
+>>>>>>> Stashed changes
         JFrame frame;
 
         public addItem() {
@@ -152,7 +176,17 @@ public class PortfoliosInfo extends JPanel {
 
     }
 
+<<<<<<< Updated upstream
     private class deleteItem {
+=======
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the deleting to the panel
+     */
+    private class deleteItem{
+>>>>>>> Stashed changes
         JFrame frame;
 
         public deleteItem() {
@@ -197,7 +231,17 @@ public class PortfoliosInfo extends JPanel {
 
     }
 
+<<<<<<< Updated upstream
     private class changeItem {
+=======
+    /**
+     * @author XiangzheKong
+     * @date 2023/05/25
+     * create a frame to help with
+     * the changing to the panel
+     */
+    private class changeItem{
+>>>>>>> Stashed changes
         JFrame frame;
 
         public changeItem() {

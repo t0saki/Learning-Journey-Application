@@ -5,6 +5,12 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the item panel showed on the screen
+ * indicating an activity
+ */
 public class ActivityItem extends ClickableItem {
     BaseHandler baseHandler;
     public ActivityItem(String studentID,int index){
@@ -17,14 +23,14 @@ public class ActivityItem extends ClickableItem {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));
         this.setBackground(Color.LIGHT_GRAY);
-//        Font font = new Font("Arial", Font.BOLD, 16);
-//        content.setFont(font);
+
         content.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.add(Box.createVerticalGlue());
         this.add(content);
         this.add(Box.createVerticalGlue());
         this.setVisible(true);
         baseHandler.close();
+        details = str;
     }
 
     @Override

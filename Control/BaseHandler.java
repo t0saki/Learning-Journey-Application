@@ -206,6 +206,11 @@ public class BaseHandler {
         return headers;
     }
 
+    /**
+     * @author XiangzheKong
+     * @return int
+     * Get number of lines of the content.
+     */
     public int getLineCount() {
         int linecount = 0;
         for (int i = 0; i < 1024; i++) {
@@ -218,6 +223,14 @@ public class BaseHandler {
         return linecount;
     }
 
+    /**
+     * @author XiangzheKong
+     * @param str
+     * @return int
+     * Check whether an entity exists.
+     * return its row number if exists
+     * return a negative number if it does not exist
+     */
     public int CheckExist(String str) {
         if (fileReader == null) {
             System.out.println("you should open a file first!");
@@ -232,6 +245,13 @@ public class BaseHandler {
         return -1;
     }
 
+    /**
+     * @author XiangzheKong
+     * @param entity target entity, the first item in a row
+     * @param path file path
+     * @return int
+     * Delete the line with specific entity
+     */
     public int DeleteLine(String entity, String path) {
         try {
             File file = new File(path);
@@ -270,6 +290,16 @@ public class BaseHandler {
         return 0;
     }
 
+    /**
+     * @author XiangzheKong
+     * @param header
+     * @param entity
+     * @param content
+     * @param path
+     * @return int
+     * Change the specific item into another item.
+     *
+     */
     public int ChangeItem(String header, String entity, String content, String path) {
         int val = 0;
         int row = CheckExist(entity);
@@ -335,4 +365,5 @@ public class BaseHandler {
         }
         return 0;
     }
+
 }

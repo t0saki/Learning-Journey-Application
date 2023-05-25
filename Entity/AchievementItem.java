@@ -5,12 +5,17 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the item panel showed on the screen
+ * indicating an achievement
+ */
 public class AchievementItem extends ClickableItem {
     BaseHandler baseHandler;
     public AchievementItem(String studentID,int index){
         // call super constructor
         super();
-        details = "Achievement Details";
         baseHandler=new BaseHandler();
         baseHandler.open("Data/Achievements/" +studentID+".csv");
         JLabel content=new JLabel();
@@ -19,14 +24,14 @@ public class AchievementItem extends ClickableItem {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));
         this.setBackground(Color.LIGHT_GRAY);
-//        Font font = new Font("Arial", Font.BOLD, 16);
-//        content.setFont(font);
+
         content.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.add(Box.createVerticalGlue());
         this.add(content);
         this.add(Box.createVerticalGlue());
         this.setVisible(true);
         baseHandler.close();
+        details = str;
     }
 
     @Override

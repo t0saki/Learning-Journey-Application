@@ -5,6 +5,12 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/25
+ * the item panel showed on the screen
+ * indicating a skill
+ */
 public class SkillItem extends ClickableItem {
     BaseHandler baseHandler;
 
@@ -26,6 +32,7 @@ public class SkillItem extends ClickableItem {
         this.add(Box.createVerticalGlue());
         this.setVisible(true);
         baseHandler.close();
+        details = str;
     }
 
     @Override

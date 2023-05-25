@@ -9,6 +9,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author XiangzheKong
+ * @author GuoYu
+ * @date 2023/05/25
+ * the detailed panel showcasing user's GPA,
+ * modules and scores
+ */
 public class UserInfo extends JPanel {
     // Show a user's information
     public UserInfo(String studentID) {
@@ -36,6 +43,7 @@ public class UserInfo extends JPanel {
         GPAcontainer.add(GPAlabel, BorderLayout.CENTER);
         JScrollPane GPAscroller = new JScrollPane(GPAcontainer);
 
+        //three different methods calculating GPA
         JButton btn1 = new JButton("Standard calculation method");
         JButton btn2 = new JButton("Simple 4-point scale algorithm");
         JButton btn3 = new JButton("Peking University GPA Algorithm");
@@ -72,6 +80,7 @@ public class UserInfo extends JPanel {
 
         this.setLayout(new BorderLayout());
 
+        //Generate user's information
         String[] str = new String[data.length - 1];
         for (int i = 0; i < data.length-1; i++) {
             if(i>=2){
