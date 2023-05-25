@@ -13,12 +13,13 @@ import java.awt.event.ActionListener;
  * @author XiangzheKong
  * @author GuoYu
  * @date 2023/05/25
- * the detailed panel showcasing user's GPA,
- * modules and scores
+ *       the detailed panel showcasing user's GPA,
+ *       modules and scores
  */
 public class UserInfo extends JPanel {
     // Show a user's information
     public UserInfo(String studentID) {
+        setPreferredSize(new Dimension(680, 900));
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
@@ -43,7 +44,7 @@ public class UserInfo extends JPanel {
         GPAcontainer.add(GPAlabel, BorderLayout.CENTER);
         JScrollPane GPAscroller = new JScrollPane(GPAcontainer);
 
-        //three different methods calculating GPA
+        // three different methods calculating GPA
         JButton btn1 = new JButton("Standard calculation method");
         JButton btn2 = new JButton("Simple 4-point scale algorithm");
         JButton btn3 = new JButton("Peking University GPA Algorithm");
@@ -52,7 +53,7 @@ public class UserInfo extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double GPA = Operate.GPAhandler(studentID, 1);
-                showGPA(GPA, GPAscorePanel,1);
+                showGPA(GPA, GPAscorePanel, 1);
                 GPAlabel.setText("GPA: " + String.format("%.2f", GPA));
             }
         });
@@ -60,7 +61,7 @@ public class UserInfo extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double GPA = Operate.GPAhandler(studentID, 2);
-                showGPA(GPA, GPAscorePanel,2);
+                showGPA(GPA, GPAscorePanel, 2);
                 GPAlabel.setText("GPA: " + String.format("%.2f", GPA));
             }
         });
@@ -68,7 +69,7 @@ public class UserInfo extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double GPA = Operate.GPAhandler(studentID, 3);
-                showGPA(GPA, GPAscorePanel,3);
+                showGPA(GPA, GPAscorePanel, 3);
                 GPAlabel.setText("GPA: " + String.format("%.2f", GPA));
             }
         });
@@ -80,25 +81,25 @@ public class UserInfo extends JPanel {
 
         this.setLayout(new BorderLayout());
 
-        //Generate user's information
+        // Generate user's information
         String[] str = new String[data.length - 1];
-        for (int i = 0; i < data.length-1; i++) {
-            if(i>=2){
-                str[i]=data[i+1];
-            }else{
-                str[i]=data[i];
+        for (int i = 0; i < data.length - 1; i++) {
+            if (i >= 2) {
+                str[i] = data[i + 1];
+            } else {
+                str[i] = data[i];
             }
         }
 
         // Show on this JPanel
-        StringBuilder stringBuilder=new StringBuilder();
-        stringBuilder.append("<html><center>Name: "+str[0]+"<br>");
-        stringBuilder.append("Student ID:"+str[1]+"<br>");
-        stringBuilder.append("Major: "+str[2]+"<br>");
-        stringBuilder.append("Entrance year: "+str[3]+"</center></html>");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<html><center>Name: " + str[0] + "<br>");
+        stringBuilder.append("Student ID:" + str[1] + "<br>");
+        stringBuilder.append("Major: " + str[2] + "<br>");
+        stringBuilder.append("Entrance year: " + str[3] + "</center></html>");
 
-        JLabel titlelable=new JLabel(stringBuilder.toString());
-        titlelable.setFont(new Font("",Font.PLAIN,30));
+        JLabel titlelable = new JLabel(stringBuilder.toString());
+        titlelable.setFont(new Font("", Font.PLAIN, 30));
         title.add(titlelable);
         userPanel.add(title);
         userPanel.add(GPApanel);
@@ -107,8 +108,8 @@ public class UserInfo extends JPanel {
         add(userPanel, "North");
 
         JPanel ItemPanel = new JPanel();
-//        ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
-        ItemPanel.setLayout(new BoxLayout(ItemPanel,BoxLayout.Y_AXIS));
+        // ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
+        ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.Y_AXIS));
         ItemPanel.setMinimumSize(new Dimension(600, 550));
         ModuleItem firstModule = new ModuleItem(1, studentID);
         ModuleItem[] moduleItem = new ModuleItem[firstModule.getNum()];
@@ -118,13 +119,13 @@ public class UserInfo extends JPanel {
             moduleItem[i] = new ModuleItem(i + 1, studentID);
             ItemPanel.add(moduleItem[i]);
         }
-//        JScrollPane scrollPane = new JScrollPane(ItemPanel);
-//        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        // JScrollPane scrollPane = new JScrollPane(ItemPanel);
+        // scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(ItemPanel, "Center");
     }
 
     private void showGPA(double GPA, JPanel GPAscorePanel, int type) {
-        if(type!=1) {
+        if (type != 1) {
             GPAscorePanel.removeAll();
             GPAscorePanel.revalidate();
             GPAscorePanel.repaint();
@@ -144,7 +145,7 @@ public class UserInfo extends JPanel {
             GPAscorePanel.add(scoreContainer, BorderLayout.WEST);
             GPAscorePanel.revalidate();
             GPAscorePanel.repaint();
-        }else{
+        } else {
             GPAscorePanel.removeAll();
             GPAscorePanel.revalidate();
             GPAscorePanel.repaint();

@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 /**
  * @author XiangzheKong
  * @date 2023/05/25
- * the detailed panel showcasing user's portfolios
+ *       the detailed panel showcasing user's portfolios
  */
 public class PortfoliosInfo extends JPanel {
     String header = "Portfolios";
@@ -25,17 +25,17 @@ public class PortfoliosInfo extends JPanel {
     }
 
     public PortfoliosInfo(String studentID) {
+        setPreferredSize(new Dimension(680, 900));
         this.studentID = studentID;
         refresh(this.studentID);
     }
 
-
     /**
      * @param studentID
-     * refresh every time when there are changes
-     * to information, regenerate the panel.
+     *                  refresh every time when there are changes
+     *                  to information, regenerate the panel.
      */
-    public void refresh(String studentID){
+    public void refresh(String studentID) {
         this.removeAll();
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
@@ -127,10 +127,10 @@ public class PortfoliosInfo extends JPanel {
     /**
      * @author XiangzheKong
      * @date 2023/05/25
-     * create a frame to help with
-     * the addition to the panel
+     *       create a frame to help with
+     *       the addition to the panel
      */
-    private class addItem{
+    private class addItem {
         JFrame frame;
 
         public addItem() {
@@ -172,10 +172,10 @@ public class PortfoliosInfo extends JPanel {
     /**
      * @author XiangzheKong
      * @date 2023/05/25
-     * create a frame to help with
-     * the deleting to the panel
+     *       create a frame to help with
+     *       the deleting to the panel
      */
-    private class deleteItem{
+    private class deleteItem {
         JFrame frame;
 
         public deleteItem() {
@@ -223,10 +223,10 @@ public class PortfoliosInfo extends JPanel {
     /**
      * @author XiangzheKong
      * @date 2023/05/25
-     * create a frame to help with
-     * the changing to the panel
+     *       create a frame to help with
+     *       the changing to the panel
      */
-    private class changeItem{
+    private class changeItem {
         JFrame frame;
 
         public changeItem() {

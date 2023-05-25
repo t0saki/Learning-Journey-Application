@@ -9,12 +9,14 @@ import java.util.Map;
 
 public class CourseSchedule extends JPanel {
 
-    private static final String[] DAYS_OF_WEEK = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    private static final String[] TIME_SLOTS = {"Morning", "Late Morning", "Noon", "Afternoon", "Late Afternoon", "Evening"};
+    private static final String[] DAYS_OF_WEEK = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+    private static final String[] TIME_SLOTS = { "Morning", "Late Morning", "Noon", "Afternoon", "Late Afternoon",
+            "Evening" };
 
     private String studentID;
 
     public CourseSchedule(String studentID) {
+        setPreferredSize(new Dimension(680, 900));
         this.studentID = studentID;
         refresh();
     }
@@ -43,9 +45,9 @@ public class CourseSchedule extends JPanel {
         }
 
         // Add day labels to the top row
-//        JPanel tempPanel = new JPanel();
-//        tempPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-//        add(tempPanel);
+        // JPanel tempPanel = new JPanel();
+        // tempPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        // add(tempPanel);
         for (int i = 0; i < DAYS_OF_WEEK.length; i++) {
             add(dayLabelArray[i]);
         }
@@ -66,7 +68,8 @@ public class CourseSchedule extends JPanel {
                 JPanel cellPanel = new JPanel();
                 cellPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
                 if (scheduleMap.containsKey(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])) {
-                    cellPanel.add(new JLabel(scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i]), SwingConstants.CENTER));
+                    cellPanel.add(
+                            new JLabel(scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i]), SwingConstants.CENTER));
                     cellPanel.setBackground(Color.GREEN);
                 }
                 add(cellPanel);

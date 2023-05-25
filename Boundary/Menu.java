@@ -30,7 +30,9 @@ public class Menu {
         // contentPanel.setBackground(Color.WHITE);
         // contentPanel.setLayout(new BorderLayout());
         // Set the sidebar layout
+
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
+        sidebarPanel.setBackground(BaseDisplay.unselectedColor);
 
         // Add the sidebar and content panel to a split pane
         splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
@@ -52,26 +54,6 @@ public class Menu {
         JPanel sideItemPanel = display;
 
         sideItemPanel.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                // Remove content panel from split pane
-                splitPane.remove(contentPanel);
-                contentPanel.removeAll();
-                contentPanel = new JScrollPane(display.getContentPanel());
-                contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-                contentPanel.setWheelScrollingEnabled(true);
-                contentPanel.getVerticalScrollBar().setUnitIncrement(50);
-                // Add the new content panel to the split pane
-                splitPane.add(contentPanel);
-
-                // Refresh the split pane
-                splitPane.revalidate();
-                splitPane.repaint();
-
-                // Refresh the frame
-                frame.revalidate();
-                frame.repaint();
-            }
-
             public void mouseEntered(MouseEvent e) {
                 sideItemPanel.setBackground(BaseDisplay.selectedColor);
             }
@@ -85,21 +67,16 @@ public class Menu {
             public void mouseClicked(MouseEvent e) {
                 // Remove content panel from split pane
                 splitPane.remove(contentPanel);
+                
                 // Set the new content panel
                 contentPanel = new JScrollPane(display.getContentPanel());
-                // contentPanel.setPreferredSize(new Dimension(700, 600));
-                contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-                contentPanel.setWheelScrollingEnabled(true);
-                contentPanel.getVerticalScrollBar().setUnitIncrement(50);
-                // Add the new content panel to the split pane
-                splitPane.add(contentPanel);
 
-                // Refresh the split pane
-                splitPane.revalidate();
-                splitPane.repaint();
-                // Refresh the frame
-                frame.revalidate();
-                frame.repaint();
+                // contentPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                // contentPanel.setWheelScrollingEnabled(true);
+                // contentPanel.getVerticalScrollBar().setUnitIncrement(50);
+                // Add the new content panel to the split pane
+                
+                splitPane.add(contentPanel);
             }
         });
 
@@ -109,7 +86,7 @@ public class Menu {
         // gbc.gridx = 0;
         // gbc.gridy = GridBagConstraints.RELATIVE;
         // gbc.insets = new Insets(10, 10, 10, 10);
-
+        sideItemPanel.setPreferredSize(new Dimension(320, 50));
         sidebarPanel.add(sideItemPanel);
 
         // `> seems unnecessary
