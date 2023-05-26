@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * @author Zhengxiao Wu
  * @date 2023/05/25
- * the Histogram panel, used to display the histogram of a student's marks
+ *       the Histogram panel, used to display the histogram of a student's marks
  */
 
 public class Histogram extends JPanel {
@@ -21,12 +21,12 @@ public class Histogram extends JPanel {
         // Set outer border
         setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
 
-//        JFrame frame = new JFrame("Histogram");
-//        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//        frame.setSize(1200, 900);
-//        frame.setLocationRelativeTo(null);
-//        frame.setVisible(true);
-//        frame.add(this);
+        // JFrame frame = new JFrame("Histogram");
+        // frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        // frame.setSize(1200, 900);
+        // frame.setLocationRelativeTo(null);
+        // frame.setVisible(true);
+        // frame.add(this);
     }
 
     @Override
@@ -56,11 +56,11 @@ public class Histogram extends JPanel {
 
         // Color from red to green
         Color[] colors = {
-                new Color(255, 0, 0),
-                new Color(255, 128, 0),
-                new Color(255, 255, 0),
-                new Color(128, 255, 0),
-                new Color(0, 255, 0)
+                new Color(231, 76, 60),
+                new Color(255, 229, 105),
+                new Color(255, 255, 255),
+                new Color(174, 214, 241),
+                new Color(41, 128, 185)
         };
 
         // Draw bars
@@ -69,7 +69,8 @@ public class Histogram extends JPanel {
             g.setColor(colors[i]);
 
             int x = i * (barWidth + 10) + 10;
-            int barHeight = (int) (((double) frequency[i] / Arrays.stream(frequency).max().getAsInt() * getHeight()) * 0.9);
+            int barHeight = (int) (((double) frequency[i] / Arrays.stream(frequency).max().getAsInt() * getHeight())
+                    * 0.9);
 
             int y = getHeight() - barHeight - 20;
             g.fillRect(x, y, barWidth, barHeight);
@@ -82,7 +83,7 @@ public class Histogram extends JPanel {
         // Draw axis
         g.setColor(Color.BLACK);
         g.drawLine(0, getHeight(), getWidth(), getHeight());
-//        g.drawLine(0, 0, 0, getHeight());
+        // g.drawLine(0, 0, 0, getHeight());
     }
 
     private int getMax() {
