@@ -6,11 +6,16 @@ import javax.swing.*;
 import javax.imageio.*;
 import java.io.*;
 
+/**
+ * @author Ruitian Yang
+ * @author Yurong He
+ * @date 2023/05/25
+ *       the personal information panel
+ */
 public class ImageBackgroundPanel extends JPanel {
 
     private BufferedImage image; // the original image
-    private int width; // the width of the panel
-    private int height; // the height of the panel
+    private int parentContainerHeight; // the height of the panel
 
     public ImageBackgroundPanel(String imagePath, int windowHeight, double i) {
         // this.image is created from the image at imagePath
@@ -20,8 +25,7 @@ public class ImageBackgroundPanel extends JPanel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.height = windowHeight;
-        System.out.println("width: " + width + " height: " + height);
+        this.parentContainerHeight = windowHeight;
     }
 
     @Override
@@ -30,7 +34,7 @@ public class ImageBackgroundPanel extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
 
         // calculate the scaling factor based on the height ratio
-        double scale = (double) height / image.getHeight();
+        double scale = (double) parentContainerHeight / image.getHeight();
 
         // calculate the scaled width and height of the image
         int scaledWidth = (int) (image.getWidth() * scale);
