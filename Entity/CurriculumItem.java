@@ -11,7 +11,7 @@ import java.awt.*;
  *       the item panel showed on the screen
  *       indicating an activity
  */
-public class CurriculumItem extends ClickableItem {
+public class CurriculumItem extends ClickableItem implements BaseItem{
     BaseHandler baseHandler;
     String item;
 
