@@ -2,9 +2,11 @@ package Boundary;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 import Control.*;
 import java.io.*;
+import javax.imageio.*;
 
 /**
  * @author Ruitian Yang
@@ -19,7 +21,7 @@ public class PersonalInformationPanel extends JPanel {
     private String studentId;
     private String major;
     private String entranceYear;
-    private ImageIcon photo;
+    private BufferedImage photo;
 
     /**
      * @param data[] the data of the user
@@ -74,16 +76,21 @@ public class PersonalInformationPanel extends JPanel {
         this.entranceYear = parsedData[3];
 
         // Generate user's photo
-        File folder = new File("Images\\Avatars");
+        File folder = new File("Images\\Avatars_downscaled");
         File[] files = folder.listFiles();
         int index = selectImageIndex(studentID, files.length);
         File file = files[index];
 
         int aimWidth = 220;
         int aimHeight = 220;
-        photo = setImageSize(file.getPath(), aimWidth, aimHeight);
 
-        JLabel photoLabel = new JLabel(photo);
+        try {
+            photo = ImageIO.read(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JLabel photoLabel = new JLabel(new ImageIcon(photo));
         photoLabel.setPreferredSize(new Dimension(aimWidth, aimHeight));
         // photoLabel.setHorizontalAlignment(JLabel.CENTER);
 
