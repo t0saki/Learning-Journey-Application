@@ -92,7 +92,7 @@ public class CourseSchedule extends JPanel {
                     cellPanel.add(locationLabel);
                     cellPanel.add(professorLabel);
 
-                    cellPanel.setBackground(Color.GREEN);
+                    cellPanel.setBackground(new Color(192, 238, 228));
                 }
                 add(cellPanel);
             }

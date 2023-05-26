@@ -21,7 +21,7 @@ import java.awt.event.ActionListener;
 public class UserInfo extends JPanel {
     // Show a user's information
     public UserInfo(String studentID, HistogramPanel histogramPanel) {
-        setPreferredSize(new Dimension(680, 1600));
+        setPreferredSize(new Dimension(680, 2400));
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);

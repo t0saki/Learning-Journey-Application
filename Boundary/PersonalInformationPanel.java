@@ -56,8 +56,7 @@ public class PersonalInformationPanel extends JPanel {
     public PersonalInformationPanel(String studentID) {
         super(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-
-        setBackground(GlobalColors.lighterBlack);
+        setBackground(GlobalColors.darkerPurple);
 
         // Get user's information
         UserInfoHandler userInfo = new UserInfoHandler();
@@ -112,17 +111,17 @@ public class PersonalInformationPanel extends JPanel {
 
         // p1.setBackground(GlobalColors.solidYellow);
         // p2.setBackground(GlobalColors.solidRed);
-        // p3.setBackground(GlobalColors.lighterBlack);
+        // p3.setBackground(GlobalColors.darkerPurple);
         // p4.setBackground(GlobalColors.solidBrown);
         // p5.setBackground(GlobalColors.solidYellow);
         // p6.setBackground(GlobalColors.solidRed);
 
-        p1.setBackground(GlobalColors.lighterBlack);
-        p2.setBackground(GlobalColors.lighterBlack);
-        p3.setBackground(GlobalColors.lighterBlack);
-        p4.setBackground(GlobalColors.lighterBlack);
-        p5.setBackground(GlobalColors.lighterBlack);
-        p6.setBackground(GlobalColors.lighterBlack);
+        p1.setBackground(GlobalColors.darkerPurple);
+        p2.setBackground(GlobalColors.darkerPurple);
+        p3.setBackground(GlobalColors.darkerPurple);
+        p4.setBackground(GlobalColors.darkerPurple);
+        p5.setBackground(GlobalColors.darkerPurple);
+        p6.setBackground(GlobalColors.darkerPurple);
 
         gbc.fill = GridBagConstraints.BOTH;
         gbc.anchor = GridBagConstraints.CENTER;

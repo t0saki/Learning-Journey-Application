@@ -19,8 +19,8 @@ import Control.*;
 public class Login extends JFrame implements ActionListener {
     private JTextField usernameField;
     private JPasswordField passwordField;
-    private JButton loginButton;
-    private JButton registerButton;
+    private MyButton loginButton;
+    private MyButton registerButton;
     private Boolean fastDebug = true; // TODO: disable fastDebug when release
 
     // Just show a simple login screen
@@ -55,10 +55,12 @@ public class Login extends JFrame implements ActionListener {
         usernameField.setMargin(new Insets(0, 10, 0, 0));
         passwordField.setMargin(new Insets(0, 10, 0, 0));
 
-        loginButton = new JButton("Login");
+        loginButton = new MyButton("Login");
+        loginButton.setRadius(20);
         loginButton.addActionListener(this);
 
-        registerButton = new JButton("Don't have an account? Sign up!");
+        registerButton = new MyButton("Don't have an account? Sign up!");
+        registerButton.setRadius(20);
         registerButton.addActionListener(this);
 
         // set fonts
