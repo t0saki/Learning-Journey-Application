@@ -69,7 +69,7 @@ public class Histogram extends JPanel {
             g.setColor(colors[i]);
 
             int x = i * (barWidth + 10) + 10;
-            int barHeight = (int) (((double) frequency[i] / Arrays.stream(frequency).max().getAsInt() * getHeight()) * 0.9);
+            int barHeight = (int) (((double) frequency[i] / Arrays.stream(frequency).max().getAsInt() * getHeight()));
 
             int y = getHeight() - barHeight - 20;
             g.fillRect(x, y, barWidth, barHeight);

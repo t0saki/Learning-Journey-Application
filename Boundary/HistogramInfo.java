@@ -20,7 +20,7 @@ public class HistogramInfo extends JPanel {
 
         // Header
         JPanel title = new JPanel();
-        JLabel titlelable = new JLabel("<html><center>CourseMark Histogram</center></html>");
+        JLabel titlelable = new JLabel("<html><center>Histogram</center></html>");
         titlelable.setFont(FontManager.getIBSCartooning(110));
         titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
         // userPanel.add(titlelable);
@@ -37,7 +37,7 @@ public class HistogramInfo extends JPanel {
         // Add x axis
         JPanel xaxis = new JPanel();
         xaxis.setLayout(new BoxLayout(xaxis, BoxLayout.X_AXIS));
-        xaxis.setBorder(BorderFactory.createEmptyBorder(10, 100, 0, 100));
+        xaxis.setBorder(BorderFactory.createEmptyBorder(10, 80, 0, 80));
 //        xaxis.add(Box.createHorizontalGlue());
         xaxis.add(new JLabel("Below 60"));
         xaxis.add(Box.createHorizontalGlue());
