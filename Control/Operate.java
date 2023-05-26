@@ -25,7 +25,7 @@ public class Operate {
                 GPA = GPA / total_credit;
                 break;
             case 2:// Simple 4-point scale algorithm
-                int creditmark = 0;
+                double creditmark = 0;
                 for (int i = 0; i < linecount; i++) {
                     double mark = Double.parseDouble(line[i]);
                     int credit = Integer.parseInt(baseHandler1.getElement("credits", i));
