@@ -15,8 +15,8 @@ import java.awt.event.ActionListener;
  * @author XiangzheKong
  * @author GuoYu
  * @date 2023/05/25
- *       the detailed panel showcasing user's GPA,
- *       modules and scores
+ * the detailed panel showcasing user's GPA,
+ * modules and scores
  */
 public class UserInfo extends JPanel {
     // Show a user's information
@@ -174,7 +174,7 @@ public class UserInfo extends JPanel {
             int width = (int) (GPA / 4.0 * GPAscorePanel.getWidth());
             JLabel scoreLabel = new JLabel();
             scoreLabel.setOpaque(true);
-            scoreLabel.setBackground(Color.GREEN);
+            scoreLabel.setBackground(new Color(245,224,8));
             scoreLabel.setPreferredSize(new Dimension(width, GPAscorePanel.getHeight()));
 
             JPanel scoreContainer = new JPanel();
@@ -194,7 +194,7 @@ public class UserInfo extends JPanel {
             int width = (int) (GPA / 100.0 * GPAscorePanel.getWidth());
             JLabel scoreLabel = new JLabel();
             scoreLabel.setOpaque(true);
-            scoreLabel.setBackground(Color.GREEN);
+            scoreLabel.setBackground(new Color(245,224,8));
             scoreLabel.setPreferredSize(new Dimension(width, GPAscorePanel.getHeight()));
 
             JPanel scoreContainer = new JPanel();
