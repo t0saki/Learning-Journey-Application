@@ -11,6 +11,14 @@ import java.util.List;
  *       achievements,skills,activities,roles and portfolios
  */
 public class ItemFileHandler extends BaseHandler {
+
+    /**
+     * @param header  the header of the file
+     * @param entity  the entity of the item
+     * @param content the content of the item
+     * @param path    the path of the file
+     * @return int 0 if success, 1 if fail
+     */
     @Override
     public int ChangeItem(String header, String entity, String content, String path) {
         try {

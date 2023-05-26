@@ -9,6 +9,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Ruitian Yang
+ * @author Yurong He
+ * @date 2023/05/25
+ *       the registration panel
+ */
 public class Registration extends JFrame implements ActionListener {
     private final JTextField usernameField;
     private final JTextField studentIdField;
@@ -21,10 +27,12 @@ public class Registration extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
+        // Create a new JPanel
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.setLayout(new GridBagLayout());
 
+        // Create a new GridBagConstraints
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.insets = new Insets(10, 0, 10, 0);
@@ -44,18 +52,22 @@ public class Registration extends JFrame implements ActionListener {
         registerButton = new JButton("Register");
         registerButton.addActionListener(this);
 
+        // Add components to the panel
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
         panel.add(titleLabel, constraints);
 
+        // constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 1;
         panel.add(usernameLabel, constraints);
 
+        // constraints.gridx = 0;
         constraints.gridy = 2;
         panel.add(passwordLabel, constraints);
 
+        // constraints.gridx = 0;
         constraints.gridy = 3;
         panel.add(studentIDLabel, constraints);
 
@@ -132,7 +144,5 @@ public class Registration extends JFrame implements ActionListener {
             }
             baseHandler.close();
         }
-        // 注册成功后的操作
-        // 可以在这里打开登录窗口
     }
 }
