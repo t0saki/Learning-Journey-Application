@@ -263,7 +263,7 @@ public class Login extends JFrame implements ActionListener {
                 return;
             }
 
-            // 在这里可以添加登录验证逻辑
+            //
             // ...
             BaseHandler baseHandler = new BaseHandler();
             baseHandler.open("Data\\UserInfo.csv");

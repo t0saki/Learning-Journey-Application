@@ -142,7 +142,7 @@ public class Registration extends JFrame implements ActionListener {
                 return;
             }
 
-            // 在这里可以添加注册逻辑
+            //
             // ...
 //            Student newStudent = new Student(studentIdField.getText(), usernameField.getText(),
 //                    PasswordHandler.hashPassword(String.valueOf(passwordField.getPassword())));

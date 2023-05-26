@@ -63,7 +63,7 @@ public class Histogram extends JPanel {
                 new Color(0, 255, 0)
         };
 
-        // 绘制直方图的每个条形
+        // Draw bars
         for (int i = 0; i < MarkStep; i++) {
             // Color
             g.setColor(colors[i]);
@@ -74,15 +74,15 @@ public class Histogram extends JPanel {
             int y = getHeight() - barHeight - 20;
             g.fillRect(x, y, barWidth, barHeight);
 
-            // 绘制频次标签
+            // Draw label
             String label = String.valueOf(frequency[i]);
             g.drawString(label, x, y - 10);
         }
 
-        // 绘制X轴和Y轴
+        // Draw axis
         g.setColor(Color.BLACK);
-        g.drawLine(0, getHeight(), getWidth(), getHeight()); // X轴
-//        g.drawLine(0, 0, 0, getHeight()); // Y轴
+        g.drawLine(0, getHeight(), getWidth(), getHeight());
+//        g.drawLine(0, 0, 0, getHeight());
     }
 
     private int getMax() {
