@@ -21,9 +21,7 @@ public class Login extends JFrame implements ActionListener {
     private JPasswordField passwordField;
     private MyButton loginButton;
     private MyButton registerButton;
-    private Boolean fastDebug = false; // TODO: disable fastDebug when release
-
-    // Just show a simple login screen
+    private Boolean fastDebug = false;
 
     /**
      * Constructor for the login panel

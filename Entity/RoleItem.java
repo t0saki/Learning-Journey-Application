@@ -12,7 +12,7 @@ import java.awt.*;
  *       the item panel showed on the screen
  *       indicating a role
  */
-public class RoleItem extends ClickableItem implements BaseItem{
+public class RoleItem extends ClickableItem implements BaseItem {
     BaseHandler baseHandler;
     String item;
 
@@ -43,7 +43,7 @@ public class RoleItem extends ClickableItem implements BaseItem{
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, new Color(171, 126, 252), getWidth(), getHeight(), Color.white);
+                0, 0, new Color(165, 105, 189), getWidth(), getHeight(), new Color(210, 180, 222));
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;

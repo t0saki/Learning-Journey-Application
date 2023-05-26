@@ -12,7 +12,7 @@ import java.awt.*;
  *       the item panel showed on the screen
  *       indicating an activity
  */
-public class CurriculumItem extends ClickableItem implements BaseItem{
+public class CurriculumItem extends ClickableItem implements BaseItem {
     BaseHandler baseHandler;
     String item;
 
@@ -42,7 +42,7 @@ public class CurriculumItem extends ClickableItem implements BaseItem{
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, new Color(144, 238, 144), getWidth(), getHeight(), Color.white);
+                0, 0, new Color(88, 214, 141), getWidth(), getHeight(), new Color(171, 235, 198));
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;

@@ -16,6 +16,7 @@ public class AchievementItem extends ClickableItem implements BaseItem {
     BaseHandler baseHandler;
 
     String item;
+
     public AchievementItem(String studentID, int index) {
         // call super constructor
         super();
@@ -43,7 +44,7 @@ public class AchievementItem extends ClickableItem implements BaseItem {
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, new Color(255, 192, 203), getWidth(), getHeight(), Color.white);
+                0, 0, new Color(236, 112, 99), getWidth(), getHeight(), new Color(245, 183, 177));
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;

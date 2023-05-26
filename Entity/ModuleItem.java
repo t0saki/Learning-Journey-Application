@@ -124,7 +124,7 @@ public class ModuleItem extends ClickableItem implements BaseItem {
             ((Graphics2D) g).setPaint(gradient);
         } else {
             //label2.setText("<html><sup>Excellent</sup></html>");
-            GradientPaint gradient = new GradientPaint(0, 0, new Color(127, 183, 126), width, height, new Color(192, 238, 228));
+            GradientPaint gradient = new GradientPaint(0, 0, new Color(133, 193, 233 ), width, height, new Color(133, 193, 233 ));
             ((Graphics2D) g).setPaint(gradient);
         }
         // Create a gradient paint

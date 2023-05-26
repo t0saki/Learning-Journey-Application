@@ -12,7 +12,7 @@ import java.awt.*;
  *       the item panel showed on the screen
  *       indicating a skill
  */
-public class SkillItem extends ClickableItem implements BaseItem{
+public class SkillItem extends ClickableItem implements BaseItem {
     BaseHandler baseHandler;
     String item;
 
@@ -43,7 +43,7 @@ public class SkillItem extends ClickableItem implements BaseItem{
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, new Color(255, 255, 192), getWidth(), getHeight(), Color.white);
+                0, 0, new Color(244, 208, 63), getWidth(), getHeight(), new Color(247, 220, 111));
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;
