@@ -29,7 +29,9 @@ public class FontManager {
     public static Font getLatoBold(float fontSize) {
         return getCustomFont("Fonts\\Lato\\Lato-Bold.ttf", fontSize);
     }
-
+    public static Font getLatoBoldItalic(float fontSize) {
+        return getCustomFont("Fonts\\Lato\\IBS Cartooning.ttf", fontSize);
+    }
     public static Font getLatoRegular(float fontSize) {
         return getCustomFont("Fonts\\Lato\\Lato-Regular.ttf", fontSize);
     }
