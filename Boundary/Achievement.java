@@ -267,7 +267,7 @@ public class Achievement extends JPanel {
             titlepanel.setLayout(new FlowLayout(FlowLayout.CENTER));
             frame.getContentPane().setLayout(new GridLayout(4, 1, 5, 5));
             frame.setTitle("change Item");
-            frame.setSize(300, 200);
+            frame.setSize(600, 200);
             frame.setVisible(true);
             frame.setLocationRelativeTo(null);
 

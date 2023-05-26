@@ -66,6 +66,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Data\Schedule\0000.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Data\Skills\0000.csv">
           <value>
             <Attribute>
