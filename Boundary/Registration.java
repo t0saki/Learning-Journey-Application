@@ -129,14 +129,12 @@ public class Registration extends JFrame implements ActionListener {
                 baseHandler.append(newStudent.toCSVRow());
 
                 // TODO: enable this after we can actually add data to these files
-                // baseHandler.create("Data\\achievements\\" + newStudent.getStudentId() +
-                // ".csv");
-                // baseHandler.create("Data\\activity\\" + newStudent.getStudentId() + ".csv");
-                // baseHandler.create("Data\\portfolios\\" + newStudent.getStudentId() +
-                // ".csv");
-                // baseHandler.create("Data\\roles\\" + newStudent.getStudentId() + ".csv");
-                // baseHandler.create("Data\\skills\\" + newStudent.getStudentId() + ".csv");
-                // baseHandler.create("Data\\Schedule\\" + newStudent.getStudentId() + ".csv");
+                baseHandler.create("Achievement" ,studentID);
+                baseHandler.create("Curriculum" ,studentID);
+                baseHandler.create("Portfolios" ,studentID);
+                baseHandler.create("Roles" ,studentID);
+                baseHandler.create("Schedule" ,studentID);
+                baseHandler.create("Skills" ,studentID);
 
                 JOptionPane.showMessageDialog(this, "Registration succeeded!");
                 dispose();

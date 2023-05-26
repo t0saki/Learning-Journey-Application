@@ -69,6 +69,47 @@ public class BaseHandler {
         return 0;
     }
 
+    public int create(String type, String filename) {
+        // if (fileReader != null) {
+        // System.out.println("Another file is already opened, close it before open
+        // another one.");
+        // return 0;
+        // }
+
+        String csvPath = "Data/" + type + "/" + filename + ".csv";
+        try {
+            fileWriter = new FileWriter(new File(csvPath), true);
+        } catch (Exception e) {
+            System.out.println("Error creating file");
+            return 1;
+        }
+
+        // Copy from sample.csv
+        String samplePath = "Data/" + type + "/sample.csv";
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(new File(samplePath)));
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                fileWriter.write(line + "\n");
+            }
+            reader.close();
+        } catch (Exception e) {
+            System.out.println("Error copying sample file");
+            return 1;
+        }
+
+        // close the current file
+        try {
+            fileWriter.close();
+            fileWriter = null;
+        } catch (IOException e) {
+            System.out.println("close(): Error closing file.");
+            return 1;
+        }
+
+        return 0;
+    }
+
     // close the current file
     public int close() {
         if (fileReader == null) {
@@ -78,8 +119,6 @@ public class BaseHandler {
         try {
             fileReader.close();
             fileReader = null;
-            fileWriter.close();
-            fileWriter = null;
         } catch (IOException e) {
             System.out.println("close(): Error closing file.");
             return 1;
