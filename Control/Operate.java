@@ -3,7 +3,19 @@ package Control;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * @author XiangzheKong
+ * @date 2023/05/27
+ * Control class for performing data analysis,
+ * data calculation and item manipulation
+ */
 public class Operate {
+    /**
+     * @param studentID
+     * @param type
+     * @return double
+     * calculate different types of GPA
+     */
     public static double GPAhandler(String studentID, int type) {
         BaseHandler baseHandler = new BaseHandler();
         baseHandler.open("Data/Modules&Marks.csv");
@@ -78,6 +90,11 @@ public class Operate {
         return GPA;
     }
 
+    /**
+     * @param score
+     * @return double
+     * calculate grade points for different marks
+     */
     public static double calculateGradePoints(double score) {
         if (score >= 90) {
             return 4.0;
@@ -102,6 +119,13 @@ public class Operate {
         }
     }
 
+    /**
+     * @param ID
+     * @param header
+     * @param val
+     * @return int
+     * add an item to the file
+     */
     public static int addItem(String ID, String header, String val) {
         BaseHandler baseHandler = new BaseHandler();
         baseHandler.open("Data/" + header + "/" + ID + ".csv");
@@ -110,6 +134,13 @@ public class Operate {
         return 0;
     }
 
+    /**
+     * @param ID
+     * @param header
+     * @param val
+     * @return int
+     * delete an item from the file
+     */
     public static int deleteItem(String ID, String header, String val) {
         BaseHandler baseHandler = new BaseHandler();
         baseHandler.open("Data/" + header + "/" + ID + ".csv");
@@ -123,6 +154,14 @@ public class Operate {
         return 0;
     }
 
+    /**
+     * @param ID
+     * @param header
+     * @param target
+     * @param val
+     * @return int
+     * change an item in a file
+     */
     public static int changeItem(String ID, String header, String target, String val) {
         ItemFileHandler itemFileHandler = new ItemFileHandler();
         itemFileHandler.open("Data/" + header + "/" + ID + ".csv");
@@ -137,6 +176,13 @@ public class Operate {
         return 0;
     }
 
+    /**
+     * @param studentID
+     * @return {@link HashMap}<{@link String}, {@link Integer}>
+     *     get the course with the highest mark
+     *     if there are courses with the same score, put
+     *     them in together
+     */
     public static HashMap<String, Integer> getHighestMark(String studentID) {
         HashMap<String, Integer> map = new HashMap<String, Integer>();
         BaseHandler baseHandler = new BaseHandler();
@@ -163,6 +209,11 @@ public class Operate {
         return map;
     }
 
+    /**
+     * @param studentID
+     * @return int
+     * detect whether there are filed courses
+     */
     public static int failedExam(String studentID) {
         BaseHandler baseHandler = new BaseHandler();
         baseHandler.open("Data/Modules&Marks.csv");
@@ -180,6 +231,11 @@ public class Operate {
         return count;
     }
 
+    /**
+     * @param studentID
+     * @return {@link ArrayList}<{@link String}>
+     *     get all courses with marks higher than 85
+     */
     public static ArrayList<String> getgoodmarks(String studentID) {
         BaseHandler baseHandler = new BaseHandler();
         baseHandler.open("Data/Modules&Marks.csv");
@@ -198,6 +254,11 @@ public class Operate {
 
     }
 
+    /**
+     * @param studentID
+     * @return int indicating the result type
+     * analyse user's courses and get a result
+     */
     public static int Analyse(String studentID) {
         boolean choice1 = false;
         boolean choice2 = false;
@@ -234,6 +295,11 @@ public class Operate {
         }
     }
 
+    /**
+     * @param type
+     * @return {@link String}
+     * get suggestion according to the type
+     */
     public static String getComment(int type) {
         String type1 = "";
         String type2 = "";

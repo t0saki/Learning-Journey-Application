@@ -3,7 +3,7 @@ package Boundary;
 /**
  * @author XiangzheKong
  * @date 2023/05/25
- *       side panel which creates the detailed panel
+ * side panel which creates the detailed panel
  */
 public class AchievementPanel extends BaseDisplay {
     String displayType = "Achievement Panel";

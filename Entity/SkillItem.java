@@ -7,6 +7,7 @@ import java.awt.*;
 
 /**
  * @author XiangzheKong
+ * @author GuoYu
  * @date 2023/05/25
  *       the item panel showed on the screen
  *       indicating a skill
