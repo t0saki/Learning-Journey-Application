@@ -131,6 +131,7 @@ public class Login extends JFrame implements ActionListener {
                     System.out.println("Student ID: " + studentID);
                     // JOptionPane.showMessageDialog(this, "Login successful!");
                     dispose();
+
                     new Menu(studentID);
                 }
                 // bad password

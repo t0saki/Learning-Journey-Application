@@ -45,7 +45,7 @@ public class LearningJourneyApp {
 
         // Initialize the user interface
         SwingUtilities.invokeLater(() -> {
-            new Login();
+            new Start();
         });
     }
 
