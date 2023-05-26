@@ -36,7 +36,7 @@ public class Login extends JFrame implements ActionListener {
 
         GridBagConstraints gbc = new GridBagConstraints();
 
-        JPanel picPanel = new ImageBackgroundPanel("Images\\Campus\\3.jpg", 1);
+        JPanel picPanel = new ImageBackgroundPanel("Images\\Campus\\4.jpg", 600, 1);
         JPanel vertBlank1 = new JPanel();
         JPanel contentPanel = new JPanel(new GridBagLayout());
         JPanel vertBlank2 = new JPanel();
