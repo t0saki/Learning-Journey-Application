@@ -18,6 +18,9 @@ import java.awt.event.ActionListener;
 public class Registration extends JFrame implements ActionListener {
     private final JTextField usernameField;
     private final JTextField studentIdField;
+    private final JTextField majorField;
+    private final JTextField gradeField;
+
     private final JPasswordField passwordField;
     private final JButton registerButton;
 
@@ -82,8 +85,29 @@ public class Registration extends JFrame implements ActionListener {
         constraints.gridy = 3;
         panel.add(studentIdField, constraints);
 
+        // add major and grade
+        JLabel majorLabel = new JLabel("Major:");
+        majorField = new JTextField(20);
+        JLabel gradeLabel = new JLabel("Grade:");
+        gradeField = new JTextField(20);
+
         constraints.gridx = 0;
-        constraints.gridy = 4;
+        constraints.gridy = 5;
+        panel.add(majorLabel, constraints);
+        constraints.gridx = 1;
+        constraints.gridy = 5;
+        panel.add(majorField, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 6;
+        panel.add(gradeLabel, constraints);
+        constraints.gridx = 1;
+        constraints.gridy = 6;
+        panel.add(gradeField, constraints);
+
+        // add register button
+        constraints.gridx = 0;
+        constraints.gridy = 7;
         constraints.gridwidth = 2;
         constraints.weightx = 0.0;
         panel.add(registerButton, constraints);
@@ -110,8 +134,11 @@ public class Registration extends JFrame implements ActionListener {
 
             // 在这里可以添加注册逻辑
             // ...
+//            Student newStudent = new Student(studentIdField.getText(), usernameField.getText(),
+//                    PasswordHandler.hashPassword(String.valueOf(passwordField.getPassword())));
+
             Student newStudent = new Student(studentIdField.getText(), usernameField.getText(),
-                    PasswordHandler.hashPassword(String.valueOf(passwordField.getPassword())));
+                    PasswordHandler.hashPassword(String.valueOf(passwordField.getPassword())), majorField.getText(), gradeField.getText());
 
             System.out.println(newStudent);
             BaseHandler baseHandler = new BaseHandler();

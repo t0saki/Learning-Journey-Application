@@ -4,69 +4,77 @@ package Entity;
  * @author Ruitian Yang
  * @author YuRong He
  * @date 2023/05/25
- *       the entity class of student
+ * the entity class of student
  */
 public class Student {
-   private String studentId;
-   private String userName;
-   private String password;
-   private String major;
-   private String startYear;
+    private String studentId;
+    private String userName;
+    private String password;
+    private String major;
+    private String startYear;
 
-   public Student(String sid, String name, String password) {
-      this.studentId = sid;
-      this.userName = name;
-      this.password = password;
-      this.major = "Telecommunications Engineering and Management";
-      this.startYear = "2020";
-   }
+    public Student(String sid, String name, String password) {
+        this.studentId = sid;
+        this.userName = name;
+        this.password = password;
+        this.major = "Telecommunications Engineering and Management";
+        this.startYear = "2020";
+    }
 
-   public void setStudentId(String sid) {
-      this.studentId = sid;
-   }
+   public Student(String sid, String name, String password, String major, String startYear) {
+        this.studentId = sid;
+        this.userName = name;
+        this.password = password;
+        this.major = major;
+        this.startYear = startYear;
+    }
 
-   public String getStudentId() {
-      return studentId;
-   }
+    public void setStudentId(String sid) {
+        this.studentId = sid;
+    }
 
-   public void setUserName(String name) {
-      this.userName = name;
-   }
+    public String getStudentId() {
+        return studentId;
+    }
 
-   public String getUserName() {
-      return userName;
-   }
+    public void setUserName(String name) {
+        this.userName = name;
+    }
 
-   public void setPassword(String password) {
-      this.password = password;
-   }
+    public String getUserName() {
+        return userName;
+    }
 
-   public String getPassword() {
-      return password;
-   }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-   public void setMajor(String major) {
-      this.major = major;
-   }
+    public String getPassword() {
+        return password;
+    }
 
-   public String getMajor() {
-      return major;
-   }
+    public void setMajor(String major) {
+        this.major = major;
+    }
 
-   public void setStartYear(String startYear) {
-      this.startYear = startYear;
-   }
+    public String getMajor() {
+        return major;
+    }
 
-   public String getStartYear() {
-      return startYear;
-   }
+    public void setStartYear(String startYear) {
+        this.startYear = startYear;
+    }
 
-   public String toString() {
-      return "User Name: " + userName + "\nStudent Id: " + studentId + "\nPassword: " + password + "\nMajor: " + major
-            + "\nStart Year: " + startYear;
-   }
+    public String getStartYear() {
+        return startYear;
+    }
 
-   public String toCSVRow() {
-      return userName + "," + studentId + "," + password + "," + major + "," + startYear;
-   }
+    public String toString() {
+        return "User Name: " + userName + "\nStudent Id: " + studentId + "\nPassword: " + password + "\nMajor: " + major
+                + "\nStart Year: " + startYear;
+    }
+
+    public String toCSVRow() {
+        return userName + "," + studentId + "," + password + "," + major + "," + startYear;
+    }
 }
