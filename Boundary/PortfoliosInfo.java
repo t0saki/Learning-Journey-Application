@@ -45,16 +45,18 @@ public class PortfoliosInfo extends JPanel {
         userPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         JPanel operatepanel = new JPanel();
-        operatepanel.setLayout(new GridLayout(1, 3, 5, 0));
+        operatepanel.setLayout(new GridLayout(1, 4, 5, 0));
         JPanel titlepanel = new JPanel();
         titlepanel.setLayout(new GridLayout(2, 1, 5, 5));
 
         JButton add = new JButton("Add");
         JButton delete = new JButton("Delete");
         JButton change = new JButton("Change");
+        JButton search=new JButton("Search");
         operatepanel.add(add);
         operatepanel.add(delete);
         operatepanel.add(change);
+        operatepanel.add(search);
 
         this.setLayout(new BorderLayout());
 
@@ -130,6 +132,12 @@ public class PortfoliosInfo extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 PortfoliosInfo.deleteItem deleteItem = new PortfoliosInfo.deleteItem();
                 refresh(studentID);
+            }
+        });
+        search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

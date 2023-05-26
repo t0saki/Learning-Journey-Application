@@ -17,49 +17,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\Data\Achievements\1234.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Data\Achievements\12345.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Data\Achievements\123456.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="\Data\Achievements\124.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Data\Achievements\43215.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Data\Activity\0000.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Data\Activity\123.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -94,20 +52,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\Data\Portfolios\123.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Data\Roles\123.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="\Data\Skills\0000.csv">
           <value>
             <Attribute>
@@ -130,13 +74,6 @@
           </value>
         </entry>
         <entry key="\Data\achievements\0000.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Data\activity\0000.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

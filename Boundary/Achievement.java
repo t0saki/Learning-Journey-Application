@@ -51,7 +51,7 @@ public class Achievement extends JPanel {
         userPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         JPanel operatepanel = new JPanel();
-        operatepanel.setLayout(new GridLayout(1, 3, 5, 0));
+        operatepanel.setLayout(new GridLayout(1, 4, 5, 0));
         JPanel titlepanel = new JPanel();
         titlepanel.setLayout(new GridLayout(2, 1, 5, 5));
 
@@ -60,9 +60,11 @@ public class Achievement extends JPanel {
         add.setIcon(addIcon);
         JButton delete = new JButton("Delete");
         JButton change = new JButton("Change");
+        JButton search=new JButton("Search");
         operatepanel.add(add);
         operatepanel.add(delete);
         operatepanel.add(change);
+        operatepanel.add(search);
 
         this.setLayout(new BorderLayout());
 
@@ -140,6 +142,12 @@ public class Achievement extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 deleteItem deleteItem = new deleteItem();
                 refresh(studentID);
+            }
+        });
+        search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
 

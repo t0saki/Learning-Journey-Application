@@ -27,7 +27,7 @@ public class UserInfo extends JPanel {
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
         String[] data = userInfo.getRow(rowIndex);
         JPanel userPanel = new JPanel();
-        userPanel.setLayout(new GridLayout(3, 1, 5, 5));
+        userPanel.setLayout(new GridLayout(4, 1, 5, 5));
         JPanel title = new JPanel();
         JPanel GPApanel = new JPanel();
         GPApanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -53,6 +53,8 @@ public class UserInfo extends JPanel {
         JButton btn2 = new JButton("<html><center>Simple 4-point scale <br> algorithm</center></html>");
         JButton btn3 = new JButton("<html><center>Peking University <br> GPA Algorithm</center></html>");
 
+        JButton search=new JButton("Search");
+
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,6 +77,12 @@ public class UserInfo extends JPanel {
                 double GPA = Operate.GPAhandler(studentID, 3);
                 showGPA(GPA, GPAscorePanel, 3);
                 GPAlabel.setText("GPA: " + String.format("%.2f", GPA));
+            }
+        });
+        search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
             }
         });
 
@@ -127,6 +135,7 @@ public class UserInfo extends JPanel {
         userPanel.add(title);
         userPanel.add(GPApanel);
         userPanel.add(buttonpanel);
+        userPanel.add(search);
 
         add(userPanel, "North");
 
