@@ -87,7 +87,7 @@ public class Registration extends JFrame implements ActionListener {
 
         // add major and grade
         JLabel majorLabel = new JLabel("Major:");
-        majorField = new JComboBox<>(new String[]{"Telecommunications Engineering and Management", "E-Commerce and Law", "Internet of Things Engineering", "Computer Science and Technology", "Software Engineering", "Data Science and Big Data Technology", "Network Engineering", "Information Security", "Digital Media Technology", "Digital Media"});
+        majorField = new JComboBox<>(new String[]{"Telecommunications Engineering with Management", "E‐Commerce Engineering with Law", "Internet of Things Engineering", "Electronic Information Engineering", "Intelligent Science and Technology"});
         JLabel gradeLabel = new JLabel("Grade:");
         gradeField = new JTextField(20);
 
