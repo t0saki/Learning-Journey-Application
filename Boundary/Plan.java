@@ -1,9 +1,6 @@
 package Boundary;
 
-import Control.BaseHandler;
-import Control.Operate;
-import Control.StringSearch;
-import Control.UserInfoHandler;
+import Control.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,16 +34,26 @@ public class Plan extends JPanel {
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
         String[] data = userInfo.getRow(rowIndex);
 
+        //Title
+        JPanel userpanel=new JPanel();
+        userpanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        JLabel titlelable = new JLabel("<html><center>Personal Achievement</center></html>");
+        titlelable.setFont(FontManager.getIBSCartooning(110));
+        titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
+        userpanel.add(titlelable);
+
         // User's name
         JPanel namepanel = new JPanel();
         namepanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         JLabel name = new JLabel("Name: " + userInfo.getElement("Username", rowIndex));
+        name.setFont(new Font("",Font.PLAIN,30));
         namepanel.add(name);
 
         // User's GPA
         JPanel GPApanel = new JPanel();
         GPApanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         JLabel GPALabel = new JLabel("GPA(Standard calculation method): " + Operate.GPAhandler(studentID, 1));
+        GPALabel.setFont(new Font("",Font.PLAIN,30));
         GPApanel.add(GPALabel);
 
         // User's highest mark course
@@ -60,6 +67,7 @@ public class Plan extends JPanel {
             stringBuilder.append(entry.getKey() + " ");
         }
         JLabel coures = new JLabel("Highest Scoring Subject: " + stringBuilder.toString());
+        coures.setFont(new Font("",Font.PLAIN,30));
         highestCourse.add(coures);
 
         // Display number of Achievements
@@ -69,6 +77,7 @@ public class Plan extends JPanel {
         baseHandler.open("Data/Achievements/" + studentID + ".csv");
         int num = baseHandler.getLineCount();
         JLabel achievementnum = new JLabel("Number of Achievements: " + num);
+        achievementnum.setFont(new Font("",Font.PLAIN,30));
         achievementpanel.add(achievementnum);
         baseHandler.close();
 
@@ -78,6 +87,7 @@ public class Plan extends JPanel {
         baseHandler.open("Data/Curriculum/" + studentID + ".csv");
         num = baseHandler.getLineCount();
         JLabel activitynum = new JLabel("Number of Curriculum: " + num);
+        activitynum.setFont(new Font("",Font.PLAIN,30));
         activitypanel.add(activitynum);
         baseHandler.close();
 
@@ -87,6 +97,7 @@ public class Plan extends JPanel {
         baseHandler.open("Data/Portfolios/" + studentID + ".csv");
         num = baseHandler.getLineCount();
         JLabel Portfoliosnum = new JLabel("Number of Portfolios: " + num);
+        Portfoliosnum.setFont(new Font("",Font.PLAIN,30));
         portfoliosPanel.add(Portfoliosnum);
         baseHandler.close();
 
@@ -100,19 +111,27 @@ public class Plan extends JPanel {
         textArea.setText("Suggestion: " + suggestion);
         suggestionpanel.add(textArea);
         textArea.setColumns(65);
+        textArea.setFont(new Font("",Font.PLAIN,20));
         textArea.setWrapStyleWord(true);
         textArea.setLineWrap(true);
         textArea.setEditable(false);
         textArea.setOpaque(false);
 
-        this.setLayout(new GridLayout(7, 1, 5, 10));
-        this.add(namepanel);
-        this.add(GPApanel);
-        this.add(highestCourse);
-        this.add(achievementpanel);
-        this.add(activitypanel);
-        this.add(portfoliosPanel);
-        this.add(suggestionpanel);
+        JPanel mainPanel=new JPanel();
+        mainPanel.setLayout(new GridLayout(7, 1, 5, 10));
+        this.setLayout(new BorderLayout());
+
+        mainPanel.add(namepanel);
+        mainPanel.add(GPApanel);
+        mainPanel.add(highestCourse);
+        mainPanel.add(achievementpanel);
+        mainPanel.add(activitypanel);
+        mainPanel.add(portfoliosPanel);
+        mainPanel.add(suggestionpanel);
+
+        this.add(userpanel,BorderLayout.NORTH);
+        this.add(mainPanel,BorderLayout.CENTER);
+
 
     }
 
