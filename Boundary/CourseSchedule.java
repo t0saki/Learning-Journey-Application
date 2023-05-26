@@ -83,10 +83,10 @@ public class CourseSchedule extends JPanel {
                     JLabel professorLabel = new JLabel(
                             schedule[scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])][4], SwingConstants.CENTER);
 
-                    courseLabel.setFont(courseLabel.getFont().deriveFont(Font.BOLD, 20f));
+                    courseLabel.setFont(courseLabel.getFont().deriveFont(Font.BOLD, 14f));
                     // Smaller other info
-                    locationLabel.setFont(locationLabel.getFont().deriveFont(Font.PLAIN, 14f));
-                    professorLabel.setFont(professorLabel.getFont().deriveFont(Font.PLAIN, 14f));
+                    locationLabel.setFont(locationLabel.getFont().deriveFont(Font.PLAIN, 12f));
+                    professorLabel.setFont(professorLabel.getFont().deriveFont(Font.PLAIN, 12f));
 
                     cellPanel.add(courseLabel);
                     cellPanel.add(locationLabel);

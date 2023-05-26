@@ -170,7 +170,7 @@ public class Registration extends JFrame implements ActionListener {
                 baseHandler.create("Curriculum", studentID);
                 baseHandler.create("Portfolios", studentID);
                 baseHandler.create("Roles", studentID);
-                baseHandler.create("Schedule", studentID);
+//                baseHandler.create("Schedule", studentID);
                 baseHandler.create("Skills", studentID);
 
                 JOptionPane.showMessageDialog(this, "Registration succeeded!");
