@@ -47,10 +47,10 @@ public class SkillInfo extends JPanel {
         JPanel titlepanel = new JPanel();
         titlepanel.setLayout(new GridLayout(2, 1, 5, 5));
 
-        JButton add = new MyButton("Add");
-        JButton delete = new MyButton("Delete");
-        JButton change = new MyButton("Change");
-        JButton search=new MyButton("Search");
+        JButton add = new ContentButton("Add");
+        JButton delete = new ContentButton("Delete");
+        JButton change = new ContentButton("Change");
+        JButton search = new ContentButton("Search");
         operatepanel.add(add);
         operatepanel.add(delete);
         operatepanel.add(change);
@@ -97,7 +97,7 @@ public class SkillInfo extends JPanel {
         baseHandler.open("Data/Skills/" + studentID + ".csv");
         int linecount = baseHandler.getLineCount();
         SkillItem[] Skills = new SkillItem[linecount];
-//        ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
+        // ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
         ItemPanel.setLayout(new GridLayout(0, 2, 0, 0));
         ItemPanel.setMinimumSize(new Dimension(600, 550));
         for (int i = 0; i < linecount; i++) {

@@ -13,12 +13,12 @@ import java.awt.event.ActionListener;
  * @author Ruitian Yang
  * @author Yurong He
  * @date 2023/05/25
- *       the registration panel
+ * the registration panel
  */
 public class Registration extends JFrame implements ActionListener {
     private final JTextField usernameField;
     private final JTextField studentIdField;
-    private final JTextField majorField;
+    private final JComboBox<String> majorField;
     private final JTextField gradeField;
 
     private final JPasswordField passwordField;
@@ -87,7 +87,7 @@ public class Registration extends JFrame implements ActionListener {
 
         // add major and grade
         JLabel majorLabel = new JLabel("Major:");
-        majorField = new JTextField(20);
+        majorField = new JComboBox<>(new String[]{"Telecommunications Engineering and Management", "E-Commerce and Law", "Internet of Things Engineering", "Computer Science and Technology", "Software Engineering", "Data Science and Big Data Technology", "Network Engineering", "Information Security", "Digital Media Technology", "Digital Media"});
         JLabel gradeLabel = new JLabel("Grade:");
         gradeField = new JTextField(20);
 
@@ -126,8 +126,18 @@ public class Registration extends JFrame implements ActionListener {
             String studentID = studentIdField.getText();
 
             // if empty
-            if (username.equals("") || password.equals("") || studentID.equals("")) {
+            if (username.equals("") || password.equals("") || studentID.equals("") || majorField.getSelectedItem().toString().equals("") || gradeField.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Please fill in all the fields!", "Warning",
+                        JOptionPane.PLAIN_MESSAGE);
+                return;
+            }
+
+            // check student id and grade is number
+            try {
+                Integer.parseInt(studentID);
+                Integer.parseInt(gradeField.getText());
+            } catch (NumberFormatException exception) {
+                JOptionPane.showMessageDialog(this, "Student ID and grade must be numbers!", "Warning",
                         JOptionPane.PLAIN_MESSAGE);
                 return;
             }
@@ -138,7 +148,7 @@ public class Registration extends JFrame implements ActionListener {
 //                    PasswordHandler.hashPassword(String.valueOf(passwordField.getPassword())));
 
             Student newStudent = new Student(studentIdField.getText(), usernameField.getText(),
-                    PasswordHandler.hashPassword(String.valueOf(passwordField.getPassword())), majorField.getText(), gradeField.getText());
+                    PasswordHandler.hashPassword(String.valueOf(passwordField.getPassword())), majorField.getSelectedItem().toString(), gradeField.getText());
 
             System.out.println(newStudent);
             BaseHandler baseHandler = new BaseHandler();
@@ -156,12 +166,12 @@ public class Registration extends JFrame implements ActionListener {
                 baseHandler.append(newStudent.toCSVRow());
 
                 // TODO: enable this after we can actually add data to these files
-                baseHandler.create("Achievement" ,studentID);
-                baseHandler.create("Curriculum" ,studentID);
-                baseHandler.create("Portfolios" ,studentID);
-                baseHandler.create("Roles" ,studentID);
-                baseHandler.create("Schedule" ,studentID);
-                baseHandler.create("Skills" ,studentID);
+                baseHandler.create("Achievement", studentID);
+                baseHandler.create("Curriculum", studentID);
+                baseHandler.create("Portfolios", studentID);
+                baseHandler.create("Roles", studentID);
+                baseHandler.create("Schedule", studentID);
+                baseHandler.create("Skills", studentID);
 
                 JOptionPane.showMessageDialog(this, "Registration succeeded!");
                 dispose();

@@ -14,6 +14,10 @@ public class GlobalColors {
     public static Color lighterPurple = new Color(134, 91, 154);
     public static Color darkerPurple = new Color(74, 46, 104);
 
+    public static Color lighterGreen = new Color(160, 200, 160);
+    public static Color darkerGreen = new Color(100, 140, 100);
+    public static Color lighterBlue = new Color(160, 160, 200);
+    public static Color darkerBlue = new Color(100, 100, 140);
     public static Color solidGreen = new Color(0, 255, 0);
     public static Color solidRed = new Color(255, 0, 0);
     public static Color solidBlue = new Color(0, 0, 255);
