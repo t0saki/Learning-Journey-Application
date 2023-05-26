@@ -15,13 +15,13 @@ import java.awt.event.ActionListener;
  * @author XiangzheKong
  * @author GuoYu
  * @date 2023/05/25
- * the detailed panel showcasing user's GPA,
- * modules and scores
+ *       the detailed panel showcasing user's GPA,
+ *       modules and scores
  */
 public class UserInfo extends JPanel {
     // Show a user's information
     public UserInfo(String studentID, HistogramPanel histogramPanel) {
-//        setPreferredSize(new Dimension(680, 2400));
+        // setPreferredSize(new Dimension(680, 2400));
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
@@ -49,11 +49,11 @@ public class UserInfo extends JPanel {
         JScrollPane GPAscroller = new JScrollPane(GPAcontainer);
 
         // three different methods calculating GPA
-        JButton btn1 = new MyButton("<html><center>Standard<br>calculation<br>method</center></html>");
-        JButton btn2 = new MyButton("<html><center>Simple 4-point scale <br> algorithm</center></html>");
-        JButton btn3 = new MyButton("<html><center>Peking University <br> GPA Algorithm</center></html>");
+        JButton btn1 = new ContentButton("<html><center>Standard<br>calculation<br>method</center></html>");
+        JButton btn2 = new ContentButton("<html><center>Simple 4-point scale <br> algorithm</center></html>");
+        JButton btn3 = new ContentButton("<html><center>Peking University <br> GPA Algorithm</center></html>");
 
-        JButton search = new MyButton("Search");
+        JButton search = new ContentButton("Search");
 
         btn1.addActionListener(new ActionListener() {
             @Override
@@ -141,7 +141,7 @@ public class UserInfo extends JPanel {
 
         JPanel ItemPanel = new JPanel();
         // ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
-//        ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.Y_AXIS));
+        // ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.Y_AXIS));
         ItemPanel.setLayout(new GridLayout(0, 2, 0, 0));
         ItemPanel.setMinimumSize(new Dimension(200, 550));
         ModuleItem firstModule = new ModuleItem(1, studentID);
