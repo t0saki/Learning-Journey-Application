@@ -37,7 +37,7 @@ public class Plan extends JPanel {
         //Title
         JPanel userpanel=new JPanel();
         userpanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        JLabel titlelable = new JLabel("<html><center>Personal Achievement</center></html>");
+        JLabel titlelable = new JLabel("<html><center>Personal Plan</center></html>");
         titlelable.setFont(FontManager.getIBSCartooning(110));
         titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
         userpanel.add(titlelable);
@@ -47,6 +47,7 @@ public class Plan extends JPanel {
         namepanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         JLabel name = new JLabel("Name: " + userInfo.getElement("Username", rowIndex));
         name.setFont(new Font("",Font.PLAIN,30));
+        name.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
         namepanel.add(name);
 
         // User's GPA
