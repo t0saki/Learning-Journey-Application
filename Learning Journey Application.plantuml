@@ -1,0 +1,283 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Achievement {
+  + Achievement(String): 
+  ~ header: String
+  - createImageIcon(): ImageIcon
+  + refresh(String): void
+   header: String
+}
+class AchievementItem {
+  + AchievementItem(String, int): 
+  # paintComponent(Graphics): void
+}
+class AchievementPanel {
+  + AchievementPanel(String): 
+}
+class BackPanel {
+  + BackPanel(): 
+}
+class BaseDisplay {
+  + BaseDisplay(String): 
+  ~ contentPanel: JPanel
+  + paint(Graphics): void
+   contentPanel: JPanel
+}
+class BaseHandler {
+  + BaseHandler(): 
+  - headers: String[]
+  - headerMap: Map<String, Integer>
+  - lineCount: int
+  - fileData: String[][]
+  + append(String): int
+  + getFirstRowIndexByHeaderAndVal(String, String): int
+  + CheckExist(String): int
+  + create(String): int
+  + getElement(int, int): String
+  + getRow(int): String[]
+  + DeleteLine(String, String): int
+  + open(String): int
+  + getElement(String, int): String
+  + ChangeItem(String, String, String, String): int
+  + close(): int
+  + loadAllCsvData(): int
+   headers: String[]
+   headerMap: Map<String, Integer>
+   fileData: String[][]
+   lineCount: int
+}
+class BaseHandlerTest {
+  + BaseHandlerTest(): 
+  ~ append(): void
+  ~ changeItem(): void
+  ~ deleteLine(): void
+  ~ checkExist(): void
+  ~ getFirstRowIndexByHeaderAndVal(): void
+  ~ create(): void
+  ~ getRow(): void
+  ~ getElement(): void
+  ~ loadAllCsvData(): void
+  ~ open(): void
+}
+class ClickableItem {
+  + ClickableItem(): 
+  - showDetailsDialog(): void
+}
+class CourseSchedule {
+  + CourseSchedule(String): 
+  + refresh(): void
+}
+class CourseSchedulePanel {
+  + CourseSchedulePanel(String): 
+}
+class CurriculumInfo {
+  + CurriculumInfo(String): 
+  ~ header: String
+  + refresh(String): void
+   header: String
+}
+class CurriculumItem {
+  + CurriculumItem(String, int): 
+  # paintComponent(Graphics): void
+}
+class CurriculumPanel {
+  + CurriculumPanel(String): 
+}
+class FontManager {
+  + FontManager(): 
+  + getLatoBold(float): Font
+  + getCustomFont(String, float): Font?
+  + getLatoRegular(float): Font
+  + getLatoLight(float): Font
+}
+class GlobalColors {
+  + GlobalColors(): 
+}
+class Histogram {
+  + Histogram(int[], int): 
+  # paintComponent(Graphics): void
+   max: int
+   min: int
+}
+class HistogramPanel {
+  + HistogramPanel(): 
+  + update(Histogram): void
+}
+class ItemFileHandler {
+  + ItemFileHandler(): 
+  + ChangeItem(String, String, String, String): int
+}
+class LearningJourneyApp {
+  + LearningJourneyApp(): 
+  + main(String[]): void
+}
+class Login {
+  + Login(): 
+  + actionPerformed(ActionEvent): void
+}
+class Menu {
+  + Menu(String): 
+  + addDisplay(BaseDisplay): void
+}
+class ModuleItem {
+  + ModuleItem(int, String): 
+  - moduleName: String
+  - gradientWidth: int
+  - num: int
+  - Mark: int
+  + getModuleMark(String, String): int
+  + getModuleName(int): String
+  # paintComponent(Graphics): void
+   moduleName: String
+   gradientWidth: int
+   Mark: int
+   num: int
+   userInfo: UserInfoHandler
+}
+class Operate {
+  + Operate(): 
+  + changeItem(String, String, String, String): int
+  + addItem(String, String, String): int
+  + GPAhandler(String, int): double
+  + deleteItem(String, String, String): int
+  + getHighestMark(String): HashMap<String, Integer>?
+  + calculateGradePoints(double): double
+  + failedExam(String): int
+  + getComment(int): String
+  + getgoodmarks(String): ArrayList<String>?
+  + Analyse(String): int
+}
+class OperateTest {
+  + OperateTest(): 
+  ~ getHighestMark(): void
+  ~ GPAhandler(): void
+  ~ addItem(): void
+  ~ calculateGradePoints(): void
+  ~ deleteItem(): void
+  ~ failedExam(): void
+  ~ getgoodmarks(): void
+  ~ analyse(): void
+  ~ changeItem(): void
+}
+class PasswordHandler {
+  + PasswordHandler(): 
+  + checkPassword(String, String): boolean
+  + hashPassword(String): String?
+}
+class PersonalInformationPanel {
+  + PersonalInformationPanel(String): 
+  + setImageSize(String, int, int): ImageIcon
+  - parseData(String[]): String[]
+}
+class Plan {
+  + Plan(String): 
+  ~ header: String
+  + refresh(String): void
+   header: String
+}
+class PlanPanel {
+  + PlanPanel(String): 
+}
+class PortfoliosInfo {
+  + PortfoliosInfo(String): 
+  ~ header: String
+  + refresh(String): void
+   header: String
+}
+class PortfoliosItem {
+  + PortfoliosItem(String, int): 
+  # paintComponent(Graphics): void
+}
+class PortfoliosPanel {
+  + PortfoliosPanel(String): 
+}
+class Registration {
+  + Registration(): 
+  + actionPerformed(ActionEvent): void
+}
+class RoleInfo {
+  + RoleInfo(String): 
+  ~ header: String
+  + refresh(String): void
+   header: String
+}
+class RoleItem {
+  + RoleItem(String, int): 
+  # paintComponent(Graphics): void
+}
+class RolePanel {
+  + RolePanel(String): 
+}
+class SkillInfo {
+  + SkillInfo(String): 
+  ~ header: String
+  + refresh(String): void
+   header: String
+}
+class SkillItem {
+  + SkillItem(String, int): 
+  # paintComponent(Graphics): void
+}
+class Start {
+  + Start(): 
+}
+class StringSearch {
+  + StringSearch(): 
+  + addEntry(String): void
+  + searchKeyword(): void
+}
+class Student {
+  + Student(String, String, String): 
+  - major: String
+  - studentId: String
+  - userName: String
+  - startYear: String
+  - password: String
+  + toString(): String
+  + toCSVRow(): String
+   startYear: String
+   password: String
+   studentId: String
+   major: String
+   userName: String
+}
+class UserInfo {
+  + UserInfo(String, HistogramPanel): 
+  - showGPA(double, JPanel, int): void
+}
+class UserInfoHandler {
+  + UserInfoHandler(): 
+}
+class UserInfoPanel {
+  + UserInfoPanel(String, HistogramPanel): 
+}
+class addItemWin {
+  + addItemWin(String, String): 
+}
+class skillPanel {
+  + skillPanel(String): 
+}
+
+AchievementItem           -[#000082,plain]-^  ClickableItem            
+AchievementPanel          -[#000082,plain]-^  BaseDisplay              
+BackPanel                 -[#000082,plain]-^  BaseDisplay              
+CourseSchedulePanel       -[#000082,plain]-^  BaseDisplay              
+CurriculumItem            -[#000082,plain]-^  ClickableItem            
+CurriculumPanel           -[#000082,plain]-^  BaseDisplay              
+HistogramPanel            -[#000082,plain]-^  BaseDisplay              
+ItemFileHandler           -[#000082,plain]-^  BaseHandler              
+ModuleItem                -[#000082,plain]-^  ClickableItem            
+PlanPanel                 -[#000082,plain]-^  BaseDisplay              
+PortfoliosItem            -[#000082,plain]-^  ClickableItem            
+PortfoliosPanel           -[#000082,plain]-^  BaseDisplay              
+RoleItem                  -[#000082,plain]-^  ClickableItem            
+RolePanel                 -[#000082,plain]-^  BaseDisplay              
+SkillItem                 -[#000082,plain]-^  ClickableItem            
+UserInfoHandler           -[#000082,plain]-^  BaseHandler              
+UserInfoPanel             -[#000082,plain]-^  BaseDisplay              
+skillPanel                -[#000082,plain]-^  BaseDisplay              
+@enduml

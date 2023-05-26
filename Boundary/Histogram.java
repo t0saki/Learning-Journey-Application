@@ -40,7 +40,7 @@ public class Histogram extends JPanel {
 
         int[] frequency = new int[MarkStep + 1];
         for (int i = 0; i < data.length; i++) {
-            int index = (data[i] - MinMark) / MarkStep;
+            int index = (data[i] - MinMark) / step;
             frequency[index]++;
         }
         MarkStep++;
