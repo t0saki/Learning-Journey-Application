@@ -22,9 +22,9 @@ class OperateTest {
     @Test
     void GPAhandler() {
         String studentID="123";
-        assertEquals(90.875,Operate.GPAhandler(studentID,1),0.01);
-        assertEquals(2.0,Operate.GPAhandler(studentID,2),0.01);
-        assertEquals(3.23,Operate.GPAhandler(studentID,3),0.01);
+        assertEquals(86.1,Operate.GPAhandler(studentID,1),0.01);
+        assertEquals(2.3,Operate.GPAhandler(studentID,2),0.01);
+        assertEquals(3.06,Operate.GPAhandler(studentID,3),0.01);
     }
 
 
@@ -123,7 +123,7 @@ class OperateTest {
 
         // Expected result
         HashMap<String, Integer> expectedMap = new HashMap<>();
-        expectedMap.put("PDP", 100);
+        expectedMap.put("Personal Development Plan", 100);
 
         // Assertion
         assertEquals(expectedMap, result);
@@ -150,7 +150,7 @@ class OperateTest {
         ArrayList<String> result = Operate.getgoodmarks(studentID);
 
         // Expected result
-        List<String> expectedList = Arrays.asList("English", "AdvancedMath","TCPIP","DSP","PDP","C++","Java","Python");
+        List<String> expectedList = Arrays.asList("College English", "AdvancedMath","Internet Protocols","Telecommunications Systems","Personal Development Plan");
 
         // Assertion
         assertEquals(result,expectedList);

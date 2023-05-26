@@ -10,8 +10,9 @@ import java.awt.event.ActionListener;
 
 /**
  * @author XiangzheKong
+ * @author GuoYu
  * @date 2023/05/25
- *       the detailed panel showcasing user's curriculums
+ * the detailed panel showcasing user's curriculums
  */
 public class CurriculumInfo extends JPanel {
     String header = "Curriculum";
@@ -29,8 +30,8 @@ public class CurriculumInfo extends JPanel {
 
     /**
      * @param studentID
-     *                  refresh every time when there are changes
-     *                  to information, regenerate the panel.
+     * refresh every time when there are changes
+     * to information, regenerate the panel.
      */
     public void refresh(String studentID) {
         this.removeAll();

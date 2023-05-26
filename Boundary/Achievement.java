@@ -16,8 +16,9 @@ import java.io.IOException;
 
 /**
  * @author XiangzheKong
+ * @author GuoYu
  * @date 2023/05/25
- *       the detailed panel showcasing user's achievements
+ * the detailed panel showcasing user's achievements
  */
 public class Achievement extends JPanel {
     String header = "Achievements";

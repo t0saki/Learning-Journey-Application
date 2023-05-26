@@ -10,6 +10,7 @@ import java.util.Map;
 
 /**
  * @author XiangzheKong
+ * @author GuoYu
  * @date 2023/05/25
  *       the detailed panel showcasing user's individual plan
  */

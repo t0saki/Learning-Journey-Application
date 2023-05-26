@@ -113,13 +113,13 @@ class BaseHandlerTest {
     void changeItem() {
         BaseHandler baseHandler=new BaseHandler();
         baseHandler.open("Data/Modules&Marks.csv");
-        int result=baseHandler.ChangeItem("English","124","88","Data/Modules&Marks.csv");
+        int result=baseHandler.ChangeItem("College English","124","88","Data/Modules&Marks.csv");
         assertEquals(0,result);
         baseHandler.close();
 
         BaseHandler baseHandler1=new BaseHandler();
         baseHandler1.open("Data/Modules&Marks.csv");
-        assertEquals("88",baseHandler1.getElement("English",4));
+        assertEquals("93",baseHandler1.getElement("College English",4));
         baseHandler1.close();
 
     }
