@@ -24,7 +24,7 @@ public class Start extends JFrame {
         JPanel panel = new JPanel(new GridBagLayout());
 
         // 设置背景图片
-        ImageIcon backgroundImg = new ImageIcon("C://Users//90899//Desktop//微信图片_20230525195259.png");
+        ImageIcon backgroundImg = new ImageIcon("Data/pic/start.png");
         JLabel backgroundLabel = new JLabel(backgroundImg);
         backgroundLabel.addMouseListener(new MouseAdapter() {
             @Override
@@ -46,4 +46,5 @@ public class Start extends JFrame {
         // 设置窗口可见
         setVisible(true);
     }
+
 }
