@@ -4,6 +4,13 @@ import Control.FontManager;
 
 import javax.swing.*;
 
+/**
+ * @author Zhengxiao Wu
+ * @date 2023/05/26
+ *       the histogram info panel, used to display the histogram of a
+ *       student
+ */
+
 public class HistogramInfo extends JPanel {
         private int[] data;
         private int step;
@@ -20,7 +27,7 @@ public class HistogramInfo extends JPanel {
 
                 // Header
                 JPanel title = new JPanel();
-                JLabel titlelable = new JLabel("<html><center>CourseMark Histogram</center></html>");
+                JLabel titlelable = new JLabel("<html><center>Histogram</center></html>");
                 titlelable.setFont(FontManager.getIBSCartooning(100));
                 titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
                 // userPanel.add(titlelable);

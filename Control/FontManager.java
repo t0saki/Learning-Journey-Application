@@ -12,6 +12,12 @@ import java.io.IOException;
  *       class to load custom fonts
  */
 public class FontManager {
+
+    /**
+     * @param path     the path of the font file
+     * @param fontSize the size of the font
+     * @return Font the font
+     */
     public static Font getCustomFont(String path, float fontSize) {
         try {
             // create the font to use. Specify the size!

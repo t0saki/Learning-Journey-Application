@@ -2,9 +2,11 @@ package Boundary;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 import Control.*;
 import java.io.*;
+import javax.imageio.*;
 
 /**
  * @author Ruitian Yang
@@ -19,11 +21,11 @@ public class PersonalInformationPanel extends JPanel {
     private String studentId;
     private String major;
     private String entranceYear;
-    private ImageIcon photo;
+    private BufferedImage photo;
 
     /**
-     * @param data[]
-     * @return String[]
+     * @param data[] the data of the user
+     * @return String[] the parsed data of the user
      */
     private String[] parseData(String data[]) {
         // Generate user's information
@@ -38,6 +40,7 @@ public class PersonalInformationPanel extends JPanel {
         return str;
     }
 
+    // set the size of the image
     public ImageIcon setImageSize(String fileName, int aimWidth, int aimHeight) {
         ImageIcon icon = new ImageIcon(fileName);
 
@@ -53,6 +56,7 @@ public class PersonalInformationPanel extends JPanel {
         return hash % imageNum;
     }
 
+    // constructor
     public PersonalInformationPanel(String studentID) {
         super(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -72,16 +76,21 @@ public class PersonalInformationPanel extends JPanel {
         this.entranceYear = parsedData[3];
 
         // Generate user's photo
-        File folder = new File("Images\\Avatars");
+        File folder = new File("Images\\Avatars_downscaled");
         File[] files = folder.listFiles();
         int index = selectImageIndex(studentID, files.length);
         File file = files[index];
 
         int aimWidth = 220;
         int aimHeight = 220;
-        photo = setImageSize(file.getPath(), aimWidth, aimHeight);
 
-        JLabel photoLabel = new JLabel(photo);
+        try {
+            photo = ImageIO.read(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JLabel photoLabel = new JLabel(new ImageIcon(photo));
         photoLabel.setPreferredSize(new Dimension(aimWidth, aimHeight));
         // photoLabel.setHorizontalAlignment(JLabel.CENTER);
 
@@ -108,13 +117,6 @@ public class PersonalInformationPanel extends JPanel {
         JPanel p4 = new JPanel(new GridBagLayout());
         JPanel p5 = new JPanel(new GridBagLayout());
         JPanel p6 = new JPanel(new GridBagLayout());
-
-        // p1.setBackground(GlobalColors.solidYellow);
-        // p2.setBackground(GlobalColors.solidRed);
-        // p3.setBackground(GlobalColors.darkerPurple);
-        // p4.setBackground(GlobalColors.solidBrown);
-        // p5.setBackground(GlobalColors.solidYellow);
-        // p6.setBackground(GlobalColors.solidRed);
 
         p1.setBackground(GlobalColors.darkerPurple);
         p2.setBackground(GlobalColors.darkerPurple);
@@ -225,32 +227,6 @@ public class PersonalInformationPanel extends JPanel {
         gbc.weightx = 1;
         gbc.weighty = 0.4;
         this.add(p6, gbc);
-
-        // gbc.gridx = 0;
-        // gbc.gridy = 2;
-        // gbc.gridwidth = 1;
-        // gbc.gridheight = 1;
-        // gbc.weightx = 1;
-        // gbc.weighty = 0.2;
-        // gbc.fill = GridBagConstraints.BOTH;
-        // gbc.anchor = GridBagConstraints.CENTER;
-        // upperPanel.add(idLabel, gbc);
-
-        // // set a red border for upperPanel
-        // upperPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-        // majorLabel.setFont(FontManager.getLatoRegular(14));
-        // yearLabel.setFont(FontManager.getLatoRegular(14));
-
-        // JPanel middlePanel = new JPanel(new GridLayout(2, 1));
-        // middlePanel.add(majorLabel);
-        // middlePanel.add(yearLabel);
-        // // set a blue border for middlePanel
-        // middlePanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        // setLayout(new BorderLayout());
-        // this.add(upperPanel, BorderLayout.NORTH);
-        // this.add(middlePanel, BorderLayout.CENTER);
     }
 
 }

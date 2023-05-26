@@ -211,9 +211,9 @@ public class Operate {
         analyser.open("Data/Analyse.csv");
         ArrayList<String> modules = Operate.getgoodmarks(studentID);
         for (String module : modules) {
-            if (analyser.getElement(1, analyser.CheckExist(module)).equals("1")) {
+            if (analyser.getElement(1, analyser.CheckExist(module)).startsWith("1")) {
                 choice1 = true;
-            } else if (analyser.getElement(1, analyser.CheckExist(module)).equals("2")) {
+            } else if (analyser.getElement(1, analyser.CheckExist(module)).startsWith("2")) {
                 choice2 = true;
             }
         }

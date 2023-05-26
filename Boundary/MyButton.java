@@ -10,32 +10,46 @@ import javax.swing.JButton;
 
 import Control.*;
 
+/**
+ * @author Ruitian Yang
+ * @author Yurong He
+ * @date 2023/05/25
+ *       this is a customized button class
+ */
 public class MyButton extends JButton {
     private boolean over;
     private Color color;
     private Color colorOver;
     private Color colorClick;
     private Color borderColor;
-    private Color textColor;
-    private int radius = 0;
+    // private Color textColor;
+    private int radius = 20;
 
     public MyButton(String buttonName) {
         this();
         setText(buttonName);
     }
 
+    /**
+     * @param color       the color of the button
+     * @param colorOver   the color of the button when the mouse is over it
+     * @param colorClick  the color of the button when the mouse is clicking it
+     * @param borderColor the color of the border
+     * @param textColor   the color of the text
+     */
     public void setColors(Color color, Color colorOver, Color colorClick, Color borderColor, Color textColor) {
         this.color = color;
         this.colorOver = colorOver;
         this.colorClick = colorClick;
         this.borderColor = borderColor;
-        this.textColor = textColor;
+        // this.textColor = textColor;
 
         // Set colors
         setBackground(color);
         setForeground(textColor);
     }
 
+    // Constructor
     public MyButton() {
         setColors(GlobalColors.lighterPurple, GlobalColors.darkerPurple, GlobalColors.lighterPurple,
                 GlobalColors.lighterPurple, GlobalColors.solidWhite);
@@ -71,12 +85,15 @@ public class MyButton extends JButton {
         });
     }
 
+    // Set radius
     public void setRadius(int radius) {
         this.radius = radius;
     }
 
+    // Paint Component
     @Override
     protected void paintComponent(Graphics grphcs) {
+        // Paint Background
         Graphics2D g2 = (Graphics2D) grphcs;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 

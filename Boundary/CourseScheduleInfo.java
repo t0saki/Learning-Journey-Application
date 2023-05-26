@@ -4,6 +4,13 @@ import Control.FontManager;
 
 import javax.swing.*;
 
+/**
+ * @author Zhengxiao Wu
+ * @date 2023/05/26
+ *       the Course Schedule panel, used to display the course schedule of a
+ *       student
+ */
+
 public class CourseScheduleInfo extends JPanel {
     CourseSchedule courseSchedule;
 

@@ -21,18 +21,18 @@ import java.awt.event.ActionListener;
 public class UserInfo extends JPanel {
     // Show a user's information
     public UserInfo(String studentID, HistogramPanel histogramPanel) {
-        setPreferredSize(new Dimension(680, 2400));
+//        setPreferredSize(new Dimension(680, 2400));
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
         String[] data = userInfo.getRow(rowIndex);
         JPanel userPanel = new JPanel();
-        userPanel.setLayout(new GridLayout(4, 1, 5, 5));
+        userPanel.setLayout(new GridLayout(3, 1, 5, 5));
         JPanel title = new JPanel();
         JPanel GPApanel = new JPanel();
         GPApanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         JPanel buttonpanel = new JPanel();
-        buttonpanel.setLayout(new GridLayout(1, 3, 5, 5));
+        buttonpanel.setLayout(new GridLayout(1, 4, 5, 5));
 
         StringSearch stringSearch = new StringSearch();
 
@@ -49,11 +49,11 @@ public class UserInfo extends JPanel {
         JScrollPane GPAscroller = new JScrollPane(GPAcontainer);
 
         // three different methods calculating GPA
-        JButton btn1 = new JButton("<html><center>Standard<br>calculation<br>method</center></html>");
-        JButton btn2 = new JButton("<html><center>Simple 4-point scale <br> algorithm</center></html>");
-        JButton btn3 = new JButton("<html><center>Peking University <br> GPA Algorithm</center></html>");
+        JButton btn1 = new MyButton("<html><center>Standard<br>calculation<br>method</center></html>");
+        JButton btn2 = new MyButton("<html><center>Simple 4-point scale <br> algorithm</center></html>");
+        JButton btn3 = new MyButton("<html><center>Peking University <br> GPA Algorithm</center></html>");
 
-        JButton search = new JButton("Search");
+        JButton search = new MyButton("Search");
 
         btn1.addActionListener(new ActionListener() {
             @Override
@@ -89,6 +89,7 @@ public class UserInfo extends JPanel {
         buttonpanel.add(btn1);
         buttonpanel.add(btn2);
         buttonpanel.add(btn3);
+        buttonpanel.add(search);
         GPApanel.add(GPAscroller);
 
         this.setLayout(new BorderLayout());
@@ -135,14 +136,13 @@ public class UserInfo extends JPanel {
         userPanel.add(title);
         userPanel.add(GPApanel);
         userPanel.add(buttonpanel);
-        userPanel.add(search);
 
         add(userPanel, "North");
 
         JPanel ItemPanel = new JPanel();
         // ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
         ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.Y_AXIS));
-        ItemPanel.setMinimumSize(new Dimension(600, 550));
+        ItemPanel.setMinimumSize(new Dimension(200, 550));
         ModuleItem firstModule = new ModuleItem(1, studentID);
         ModuleItem[] moduleItem = new ModuleItem[firstModule.getNum()];
         moduleItem[0] = firstModule;

@@ -24,41 +24,53 @@ public class Login extends JFrame implements ActionListener {
     private Boolean fastDebug = true; // TODO: disable fastDebug when release
 
     // Just show a simple login screen
+
+    /**
+     * Constructor for the login panel
+     */
     public Login() {
         // Create a new JFrame
         setTitle("Login");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
+        // Create a new JPanel
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(1000, 600));
         panel.setLayout(new GridBagLayout());
 
+        // Create a new GridBagConstraints
         GridBagConstraints gbc = new GridBagConstraints();
 
+        // Create a new ImageBackgroundPanel
         JPanel picPanel = new ImageBackgroundPanel("Images\\Campus\\4.jpg", 600, 1);
         JPanel vertBlank1 = new JPanel();
         JPanel contentPanel = new JPanel(new GridBagLayout());
         JPanel vertBlank2 = new JPanel();
 
+        // Create a new JLabel
         JLabel signInLabel = new JLabel("Sign In");
         signInLabel.setForeground(GlobalColors.solidWhite);
 
+        // Create a new JTextField
         JPanel b1 = new JPanel();
         JPanel b2 = new JPanel();
         JPanel b3 = new JPanel();
         JPanel b4 = new JPanel();
         JPanel b5 = new JPanel();
 
+        // Create a new JPasswordField
         usernameField = new JTextField(20);
         passwordField = new JPasswordField(20);
         usernameField.setMargin(new Insets(0, 10, 0, 0));
         passwordField.setMargin(new Insets(0, 10, 0, 0));
 
+        // Create a new MyButton
         loginButton = new MyButton("Login");
         loginButton.setRadius(20);
         loginButton.addActionListener(this);
 
+        // Create a new MyButton
         registerButton = new MyButton("Don't have an account? Sign up!");
         registerButton.setRadius(20);
         registerButton.addActionListener(this);
@@ -204,8 +216,6 @@ public class Login extends JFrame implements ActionListener {
         gbc.weighty = 1;
         panel.add(vertBlank2, gbc);
 
-        //////////////////////////
-
         // We can also press enter to login
         KeyAdapter keyAdapter = new KeyAdapter() {
             @Override
@@ -216,6 +226,7 @@ public class Login extends JFrame implements ActionListener {
             }
         };
 
+        // Add listener
         usernameField.addKeyListener(keyAdapter);
         passwordField.addKeyListener(keyAdapter);
 
@@ -225,8 +236,6 @@ public class Login extends JFrame implements ActionListener {
             passwordField.setText("A");
         }
 
-        //////////////////////////
-
         add(panel, BorderLayout.CENTER);
         pack();
         setLocationRelativeTo(null); // 居中显示
@@ -234,11 +243,17 @@ public class Login extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    /**
+     * @param e
+     * @description: listen to the button
+     * @return: void
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
             String username;
             String password;
+
             username = usernameField.getText();
             password = new String(passwordField.getPassword());
             // check empty
@@ -247,10 +262,12 @@ public class Login extends JFrame implements ActionListener {
                         JOptionPane.PLAIN_MESSAGE);
                 return;
             }
+
             // 在这里可以添加登录验证逻辑
             // ...
             BaseHandler baseHandler = new BaseHandler();
             baseHandler.open("Data\\UserInfo.csv");
+
             int rowId = baseHandler.getFirstRowIndexByHeaderAndVal("Username", usernameField.getText());
             if (rowId != -1) {
                 // right password
@@ -261,6 +278,7 @@ public class Login extends JFrame implements ActionListener {
                     System.out.println("Student ID: " + studentID);
                     // JOptionPane.showMessageDialog(this, "Login successful!");
                     dispose();
+
                     new Menu(studentID);
                 }
                 // bad password
@@ -272,11 +290,7 @@ public class Login extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "USER NAME NOT FOUND", "Warning", JOptionPane.PLAIN_MESSAGE);
                 System.out.print("USER NAME NOT FOUND");
             }
-            // 登录成功后的操作
-            // dispose(); // 关闭登录窗口
         } else if (e.getSource() == registerButton) {
-            // 处理注册按钮点击事件
-            // JOptionPane.showMessageDialog(this, "Redirecting to registration page...");
             new Registration();
             dispose();
         }

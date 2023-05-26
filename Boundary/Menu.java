@@ -37,14 +37,8 @@ public class Menu {
         frame.setSize(1920, 1080);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        // bg
-        // sidebarPanel.setBackground(new Color(245, 245, 245));
-        // sidebarPanel.setLayout(new GridBagLayout());
-        //
-        // contentPanel.setBackground(Color.WHITE);
-        // contentPanel.setLayout(new BorderLayout());
-        // Set the sidebar layout
 
+        // sidebarPanel.setLayout(new GridLayout(10, 1));
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
         sidebarPanel.setBackground(GlobalColors.lighterPurple);
 
@@ -52,14 +46,17 @@ public class Menu {
         splitPane1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
         splitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, splitPane1, personalInformationPanel);
 
+        // Set the divider location
         splitPane1.setDividerLocation(300);
         splitPane2.setDividerLocation(1600);
 
         frame.getContentPane().add(splitPane2);
 
+        // Add the sidebar items
         HistogramPanel histogramPanel = new HistogramPanel();
         UserInfoPanel userInfoPanel = new UserInfoPanel(studentID, histogramPanel);
 
+        // Add the sidebar items
         addDisplay(userInfoPanel);
         addDisplay(histogramPanel);
         addDisplay(new AchievementPanel(studentID));
@@ -70,6 +67,7 @@ public class Menu {
         addDisplay(new PlanPanel(studentID));
         addDisplay(new CourseSchedulePanel(studentID));
 
+        // Add the back button
         BackPanel backPanel = new BackPanel();
         backPanel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -85,7 +83,10 @@ public class Menu {
         splitPane1.add(contentPanel);
     }
 
-    // Add target display to the sidebar, set for its listeners
+    /**
+     * @param display
+     *                Add target display to the sidebar, set for its listeners
+     */
     public void addDisplay(BaseDisplay display) {
         JPanel sideItemPanel = display;
 
