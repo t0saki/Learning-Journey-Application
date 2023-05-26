@@ -28,7 +28,7 @@ public class ModuleItem extends ClickableItem {
 
         JLabel label1 = new JLabel();
         // JLabel label2 = new JLabel();
-        moduleName = getModuleName(col);
+        moduleName = getItemName(col);
         Mark = getModuleMark(studentID, moduleName);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(150, 100));
@@ -80,7 +80,7 @@ public class ModuleItem extends ClickableItem {
         this.setVisible(true);
     }
 
-    public String getModuleName(int col) {
+    public String getItemName(int col) {
         return userInfoHandler.getHeaders()[col];
     }
 
@@ -129,11 +129,11 @@ public class ModuleItem extends ClickableItem {
         repaint();
     }
 
-    public int getMark() {
+    public int getValue() {
         return Mark;
     }
 
-    public String getModuleName() {
+    public String getItemName() {
         return moduleName;
     }
 }

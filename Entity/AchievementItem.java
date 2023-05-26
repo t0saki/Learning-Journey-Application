@@ -11,9 +11,10 @@ import java.awt.*;
  *       the item panel showed on the screen
  *       indicating an achievement
  */
-public class AchievementItem extends ClickableItem {
+public class AchievementItem extends ClickableItem implements BaseItem {
     BaseHandler baseHandler;
 
+    String item;
     public AchievementItem(String studentID, int index) {
         // call super constructor
         super();
@@ -21,6 +22,7 @@ public class AchievementItem extends ClickableItem {
         baseHandler.open("Data/Achievements/" + studentID + ".csv");
         JLabel content = new JLabel();
         String str = baseHandler.getElement("Achievements", index);
+        item = str;
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));
@@ -55,4 +57,9 @@ public class AchievementItem extends ClickableItem {
         g.setColor(Color.BLACK);
         g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
     }
+
+    public String getItemName() {
+        return item;
+    }
+
 }

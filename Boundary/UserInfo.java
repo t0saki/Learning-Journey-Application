@@ -140,13 +140,13 @@ public class UserInfo extends JPanel {
         int[] marks = new int[firstModule.getNum()];
         int markslen = marks.length;
         ItemPanel.add(firstModule);
-        marks[0] = firstModule.getMark();
-        stringSearch.addEntry(firstModule.getModuleName());
+        marks[0] = firstModule.getValue();
+        stringSearch.addEntry(firstModule.getItemName());
         for (int i = 1; i < firstModule.getNum(); i++) {
             moduleItem[i] = new ModuleItem(i + 1, studentID);
             ItemPanel.add(moduleItem[i]);
-            marks[i] = moduleItem[i].getMark();
-            stringSearch.addEntry(moduleItem[i].getModuleName());
+            marks[i] = moduleItem[i].getValue();
+            stringSearch.addEntry(moduleItem[i].getItemName());
         }
 
         histogramPanel.update(new Histogram(marks, 10));
