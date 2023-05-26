@@ -93,7 +93,7 @@ public class Achievement extends JPanel {
         // stringBuilder.append("</body></html>");
 
         JLabel titlelable = new JLabel("<html><center>Personal Achievement</center></html>");
-        titlelable.setFont(FontManager.getIBSCartooning(110));
+        titlelable.setFont(FontManager.getIBSCartooning(100));
         titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
         userPanel.add(titlelable);
 

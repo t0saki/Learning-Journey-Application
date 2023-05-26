@@ -21,7 +21,7 @@ import java.awt.event.ActionListener;
 public class UserInfo extends JPanel {
     // Show a user's information
     public UserInfo(String studentID, HistogramPanel histogramPanel) {
-        setPreferredSize(new Dimension(680, 1600));
+        setPreferredSize(new Dimension(680, 2400));
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
@@ -127,7 +127,7 @@ public class UserInfo extends JPanel {
         // stringBuilder.append("</body></html>");
 
         JLabel titlelable = new JLabel("<html><center>Personal Information</center></html>");
-        titlelable.setFont(FontManager.getIBSCartooning(110));
+        titlelable.setFont(FontManager.getIBSCartooning(100));
         titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
         // userPanel.add(titlelable);
         // titlelable.setFont(new Font("", Font.PLAIN, 30));
