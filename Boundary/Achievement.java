@@ -55,7 +55,7 @@ public class Achievement extends JPanel {
 
         JButton add = new MyButton("Add");
         ImageIcon addIcon = createImageIcon();
-        add.setIcon(addIcon);
+//        add.setIcon(addIcon);
         JButton delete = new MyButton("Delete");
         JButton change = new MyButton("Change");
         JButton search=new MyButton("Search");
