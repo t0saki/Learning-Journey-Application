@@ -38,11 +38,11 @@ public class UserInfo extends JPanel {
 
         JLabel GPAlabel = new JLabel("GPA: ");
         JPanel GPAcontainer = new JPanel();
-        GPAcontainer.setPreferredSize(new Dimension(600, 200));
+        GPAcontainer.setPreferredSize(new Dimension(1000, 70));
         GPAcontainer.setBackground(Color.WHITE);
         GPAcontainer.setLayout(new BorderLayout());
         JPanel GPAscorePanel = new JPanel();
-        GPAscorePanel.setPreferredSize(new Dimension(0, 150));
+        GPAscorePanel.setPreferredSize(new Dimension(0, 40));
         GPAscorePanel.setBackground(Color.LIGHT_GRAY);
         GPAcontainer.add(GPAscorePanel, BorderLayout.NORTH);
         GPAcontainer.add(GPAlabel, BorderLayout.CENTER);
