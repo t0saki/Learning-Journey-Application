@@ -13,7 +13,7 @@ import java.awt.*;
  *       indicating a module
  *       contains module's name and score
  */
-public class ModuleItem extends ClickableItem {
+public class ModuleItem extends ClickableItem implements BaseItem{
     private UserInfoHandler userInfoHandler;
     private int num;
     private int Mark;
@@ -81,7 +81,7 @@ public class ModuleItem extends ClickableItem {
         this.setVisible(true);
     }
 
-    public String getModuleName(int col) {
+    public String getItemName(int col) {
         return userInfoHandler.getHeaders()[col];
     }
 
@@ -150,11 +150,11 @@ public class ModuleItem extends ClickableItem {
         repaint();
     }
 
-    public int getMark() {
+    public int getValue() {
         return Mark;
     }
 
-    public String getModuleName() {
+    public String getItemName() {
         return moduleName;
     }
 }

@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Start extends JFrame {
-    private JButton startButton;
-
     public Start() {
         // 设置窗口标题
         setTitle("Start");

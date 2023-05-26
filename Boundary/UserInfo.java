@@ -15,8 +15,8 @@ import java.awt.event.ActionListener;
  * @author XiangzheKong
  * @author GuoYu
  * @date 2023/05/25
- *       the detailed panel showcasing user's GPA,
- *       modules and scores
+ * the detailed panel showcasing user's GPA,
+ * modules and scores
  */
 public class UserInfo extends JPanel {
     // Show a user's information
@@ -27,7 +27,7 @@ public class UserInfo extends JPanel {
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
         String[] data = userInfo.getRow(rowIndex);
         JPanel userPanel = new JPanel();
-        userPanel.setLayout(new GridLayout(3, 1, 5, 5));
+        userPanel.setLayout(new GridLayout(4, 1, 5, 5));
         JPanel title = new JPanel();
         JPanel GPApanel = new JPanel();
         GPApanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -53,6 +53,8 @@ public class UserInfo extends JPanel {
         JButton btn2 = new JButton("<html><center>Simple 4-point scale <br> algorithm</center></html>");
         JButton btn3 = new JButton("<html><center>Peking University <br> GPA Algorithm</center></html>");
 
+        JButton search = new JButton("Search");
+
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,6 +77,12 @@ public class UserInfo extends JPanel {
                 double GPA = Operate.GPAhandler(studentID, 3);
                 showGPA(GPA, GPAscorePanel, 3);
                 GPAlabel.setText("GPA: " + String.format("%.2f", GPA));
+            }
+        });
+        search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stringSearch.searchKeyword();
             }
         });
 
@@ -127,6 +135,7 @@ public class UserInfo extends JPanel {
         userPanel.add(title);
         userPanel.add(GPApanel);
         userPanel.add(buttonpanel);
+        userPanel.add(search);
 
         add(userPanel, "North");
 
@@ -138,15 +147,14 @@ public class UserInfo extends JPanel {
         ModuleItem[] moduleItem = new ModuleItem[firstModule.getNum()];
         moduleItem[0] = firstModule;
         int[] marks = new int[firstModule.getNum()];
-        int markslen = marks.length;
         ItemPanel.add(firstModule);
-        marks[0] = firstModule.getMark();
-        stringSearch.addEntry(firstModule.getModuleName());
+        marks[0] = firstModule.getValue();
+        stringSearch.addEntry(firstModule.getItemName());
         for (int i = 1; i < firstModule.getNum(); i++) {
             moduleItem[i] = new ModuleItem(i + 1, studentID);
             ItemPanel.add(moduleItem[i]);
-            marks[i] = moduleItem[i].getMark();
-            stringSearch.addEntry(moduleItem[i].getModuleName());
+            marks[i] = moduleItem[i].getValue();
+            stringSearch.addEntry(moduleItem[i].getItemName());
         }
 
         histogramPanel.update(new Histogram(marks, 10));
@@ -154,7 +162,6 @@ public class UserInfo extends JPanel {
         // scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(ItemPanel, "Center");
 
-        stringSearch.searchKeyword();
     }
 
     private void showGPA(double GPA, JPanel GPAscorePanel, int type) {

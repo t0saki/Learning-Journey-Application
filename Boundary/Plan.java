@@ -2,6 +2,7 @@ package Boundary;
 
 import Control.BaseHandler;
 import Control.Operate;
+import Control.StringSearch;
 import Control.UserInfoHandler;
 
 import javax.swing.*;
