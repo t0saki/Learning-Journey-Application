@@ -32,11 +32,11 @@ public class Histogram extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int barWidth = getWidth() / data.length - 10;
 
         int MaxMark = getMax();
         int MinMark = getMin();
         int MarkStep = (MaxMark - MinMark) / step;
+        int barWidth = getWidth() / (MarkStep + 1) - 10;
 
         int[] frequency = new int[MarkStep + 1];
         for (int i = 0; i < data.length; i++) {
