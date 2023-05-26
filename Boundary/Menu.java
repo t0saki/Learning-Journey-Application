@@ -46,7 +46,7 @@ public class Menu {
         // Set the sidebar layout
 
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
-        sidebarPanel.setBackground(GlobalColors.unselectedColor);
+        sidebarPanel.setBackground(GlobalColors.lighterPurple);
 
         // Add the sidebar and content panel to a split pane
         splitPane1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, contentPanel);
@@ -91,11 +91,11 @@ public class Menu {
 
         sideItemPanel.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
-                sideItemPanel.setBackground(GlobalColors.selectedColor);
+                sideItemPanel.setBackground(GlobalColors.darkerPurple);
             }
 
             public void mouseExited(MouseEvent e) {
-                sideItemPanel.setBackground(GlobalColors.unselectedColor);
+                sideItemPanel.setBackground(GlobalColors.lighterPurple);
             }
         });
 

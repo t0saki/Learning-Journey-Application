@@ -42,8 +42,8 @@ public class BaseDisplay extends JPanel {
         // setLayout(new GridBagLayout());
         add(logo);
 
-        setBorder(new MatteBorder(15, 15, 15, 15, GlobalColors.unselectedColor));
-        setBackground(GlobalColors.unselectedColor);
+        setBorder(new MatteBorder(15, 15, 15, 15, GlobalColors.lighterPurple));
+        setBackground(GlobalColors.lighterPurple);
     }
 
     public JPanel getContentPanel() {
