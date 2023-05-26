@@ -97,7 +97,8 @@ public class PortfoliosInfo extends JPanel {
         baseHandler.open("Data/Portfolios/" + studentID + ".csv");
         int linecount = baseHandler.getLineCount();
         PortfoliosItem[] Portfolios = new PortfoliosItem[linecount];
-        ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
+//        ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
+        ItemPanel.setLayout(new GridLayout(0, 2, 0, 0));
         ItemPanel.setMinimumSize(new Dimension(600, 550));
         for (int i = 0; i < linecount; i++) {
             Portfolios[i] = new PortfoliosItem(studentID, i);
