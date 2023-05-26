@@ -142,7 +142,8 @@ public class UserInfo extends JPanel {
 
         JPanel ItemPanel = new JPanel();
         // ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.PAGE_AXIS));
-        ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.Y_AXIS));
+//        ItemPanel.setLayout(new BoxLayout(ItemPanel, BoxLayout.Y_AXIS));
+        ItemPanel.setLayout(new GridLayout(0, 2, 0, 0));
         ItemPanel.setMinimumSize(new Dimension(200, 550));
         ModuleItem firstModule = new ModuleItem(1, studentID);
         ModuleItem[] moduleItem = new ModuleItem[firstModule.getNum()];
