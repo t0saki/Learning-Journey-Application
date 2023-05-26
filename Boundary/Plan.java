@@ -65,11 +65,25 @@ public class Plan extends JPanel {
         Iterator<Map.Entry<String, Integer>> iterator = map.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<String, Integer> entry = iterator.next();
-            stringBuilder.append(entry.getKey() + " ");
+            if(!iterator.hasNext()){
+                stringBuilder.append(entry.getKey());
+            }else{
+                stringBuilder.append(entry.getKey() + ",");
+            }
         }
-        JLabel coures = new JLabel("Highest Scoring Subject: " + stringBuilder.toString());
-        coures.setFont(new Font("",Font.PLAIN,30));
-        highestCourse.add(coures);
+
+        JTextArea course=new JTextArea();
+        course.setText("Highest Scoring Subject: " + stringBuilder.toString());
+        course.setFont(new Font("",Font.PLAIN,20));
+        course.setColumns(65);
+        course.setWrapStyleWord(true);
+        course.setLineWrap(true);
+        course.setEditable(false);
+        course.setOpaque(false);
+
+//        JLabel coures = new JLabel("Highest Scoring Subject: " + stringBuilder.toString());
+//        coures.setFont(new Font("",Font.PLAIN,30));
+        highestCourse.add(course);
 
         // Display number of Achievements
         JPanel achievementpanel = new JPanel();
