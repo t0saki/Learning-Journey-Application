@@ -1,9 +1,6 @@
 package Boundary;
 
-import Control.BaseHandler;
-import Control.FontManager;
-import Control.Operate;
-import Control.UserInfoHandler;
+import Control.*;
 import Entity.AchievementItem;
 
 import javax.imageio.ImageIO;
@@ -43,6 +40,7 @@ public class Achievement extends JPanel {
      */
     public void refresh(String studentID) {
         this.removeAll();
+        StringSearch stringSearch = new StringSearch();
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
@@ -117,6 +115,7 @@ public class Achievement extends JPanel {
             achievementpanel.setLayout(new GridLayout(1, 1));
             achievementpanel.add(Achievements[i]);
             ItemPanel.add(achievementpanel);
+            stringSearch.addEntry(Achievements[i].getItemName());
         }
         this.add(ItemPanel, "Center");
         this.setVisible(true);
@@ -147,7 +146,7 @@ public class Achievement extends JPanel {
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                stringSearch.searchKeyword();
             }
         });
 

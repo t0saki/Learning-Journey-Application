@@ -1,9 +1,6 @@
 package Boundary;
 
-import Control.BaseHandler;
-import Control.FontManager;
-import Control.Operate;
-import Control.UserInfoHandler;
+import Control.*;
 import Entity.SkillItem;
 
 import javax.swing.*;
@@ -37,6 +34,7 @@ public class SkillInfo extends JPanel {
      */
     public void refresh(String studentID) {
         this.removeAll();
+        StringSearch stringSearch = new StringSearch();
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
@@ -108,6 +106,7 @@ public class SkillInfo extends JPanel {
             Skillpanel.setLayout(new GridLayout(1, 1));
             Skillpanel.add(Skills[i]);
             ItemPanel.add(Skillpanel);
+            stringSearch.addEntry(Skills[i].getItemName());
         }
         this.add(ItemPanel, "Center");
         this.setVisible(true);
@@ -138,6 +137,7 @@ public class SkillInfo extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                stringSearch.searchKeyword();
             }
         });
 

@@ -15,8 +15,8 @@ import java.awt.event.ActionListener;
  * @author XiangzheKong
  * @author GuoYu
  * @date 2023/05/25
- *       the detailed panel showcasing user's GPA,
- *       modules and scores
+ * the detailed panel showcasing user's GPA,
+ * modules and scores
  */
 public class UserInfo extends JPanel {
     // Show a user's information
@@ -53,7 +53,7 @@ public class UserInfo extends JPanel {
         JButton btn2 = new JButton("<html><center>Simple 4-point scale <br> algorithm</center></html>");
         JButton btn3 = new JButton("<html><center>Peking University <br> GPA Algorithm</center></html>");
 
-        JButton search=new JButton("Search");
+        JButton search = new JButton("Search");
 
         btn1.addActionListener(new ActionListener() {
             @Override
@@ -82,7 +82,7 @@ public class UserInfo extends JPanel {
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                stringSearch.searchKeyword();
             }
         });
 
@@ -163,7 +163,6 @@ public class UserInfo extends JPanel {
         // scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(ItemPanel, "Center");
 
-        stringSearch.searchKeyword();
     }
 
     private void showGPA(double GPA, JPanel GPAscorePanel, int type) {

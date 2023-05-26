@@ -1,9 +1,6 @@
 package Boundary;
 
-import Control.BaseHandler;
-import Control.FontManager;
-import Control.Operate;
-import Control.UserInfoHandler;
+import Control.*;
 import Entity.PortfoliosItem;
 
 import javax.swing.*;
@@ -37,6 +34,7 @@ public class PortfoliosInfo extends JPanel {
      */
     public void refresh(String studentID) {
         this.removeAll();
+        StringSearch stringSearch = new StringSearch();
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
@@ -108,6 +106,7 @@ public class PortfoliosInfo extends JPanel {
             Portfoliospanel.setLayout(new GridLayout(1, 1));
             Portfoliospanel.add(Portfolios[i]);
             ItemPanel.add(Portfoliospanel);
+            stringSearch.addEntry(Portfolios[i].getItemName());
         }
         this.add(ItemPanel, "Center");
         this.setVisible(true);
@@ -137,7 +136,7 @@ public class PortfoliosInfo extends JPanel {
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                stringSearch.searchKeyword();
             }
         });
     }
