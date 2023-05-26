@@ -303,24 +303,24 @@ public class BaseHandler {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             List<String> lines = new ArrayList<>();
 
-            // 将文件中的所有行读取到列表中
+            // Read all lines from the file
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(line);
             }
             reader.close();
 
-            // 检查要删除的行是否存在
+            // Find the row number of the entity
             int row = CheckExist(entity);
             if (row < 0) {
                 System.out.println("Item does not exist!");
                 return 1;
             }
 
-            // 从列表中移除要删除的行
+            // Remove the line
             lines.remove(row + 1);
 
-            // 将更新后的行重新写入文件
+            // Write the updated file
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
             for (String updatedLine : lines) {
                 writer.write(updatedLine);

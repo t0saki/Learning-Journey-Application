@@ -10,11 +10,11 @@ import java.awt.*;
  * @author XiangzheKong
  * @author GuoYu
  * @date 2023/05/25
- *       the item panel showed on the screen
- *       indicating a module
- *       contains module's name and score
+ * the item panel showed on the screen
+ * indicating a module
+ * contains module's name and score
  */
-public class ModuleItem extends ClickableItem implements BaseItem{
+public class ModuleItem extends ClickableItem implements BaseItem {
     private UserInfoHandler userInfoHandler;
     private int num;
     private int Mark;
@@ -120,14 +120,14 @@ public class ModuleItem extends ClickableItem implements BaseItem{
             ((Graphics2D) g).setPaint(gradient);
         } else if (Mark > 70 && Mark <= 90) {
             //label2.setText("<html><sup>Good</sup></html>");
-            GradientPaint gradient = new GradientPaint(0, 0, new Color(177, 215, 180), width, height, new Color(248, 249, 136));
+            GradientPaint gradient = new GradientPaint(0, 0, new Color(245, 224, 8), width, height, new Color(250, 202, 46));
             ((Graphics2D) g).setPaint(gradient);
         } else {
             //label2.setText("<html><sup>Excellent</sup></html>");
             GradientPaint gradient = new GradientPaint(0, 0, new Color(127, 183, 126), width, height, new Color(192, 238, 228));
             ((Graphics2D) g).setPaint(gradient);
         }
-         // Create a gradient paint
+        // Create a gradient paint
         // GradientPaint gradient = new GradientPaint(
         // 0, 0, Color.PINK, getWidth(), getHeight(), Color.orange);
 //         GradientPaint gradient = new GradientPaint(
@@ -138,10 +138,10 @@ public class ModuleItem extends ClickableItem implements BaseItem{
 //         // Set the paint to be the gradient
 //         g2d.setPaint(gradient);
 //
-         // Draw a rectangle filled with the gradient
-         g.fillRect(0, 0, getWidth(), getHeight());
+        // Draw a rectangle filled with the gradient
+        g.fillRect(0, 0, getWidth(), getHeight());
 
-         //Draw a border around the panel
+        //Draw a border around the panel
         g.setColor(Color.WHITE);
         g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
     }

@@ -87,7 +87,7 @@ public class Registration extends JFrame implements ActionListener {
 
         // add major and grade
         JLabel majorLabel = new JLabel("Major:");
-        majorField = new JComboBox<>(new String[]{"Telecommunications Engineering and Management", "E-Commerce and Law", "Internet of Things Engineering", "Computer Science and Technology", "Software Engineering", "Data Science and Big Data Technology", "Network Engineering", "Information Security", "Digital Media Technology", "Digital Media"});
+        majorField = new JComboBox<>(new String[]{"Telecommunications Engineering with Management", "E‐Commerce Engineering with Law", "Internet of Things Engineering", "Electronic Information Engineering", "Intelligent Science and Technology"});
         JLabel gradeLabel = new JLabel("Grade:");
         gradeField = new JTextField(20);
 
@@ -142,7 +142,7 @@ public class Registration extends JFrame implements ActionListener {
                 return;
             }
 
-            // 在这里可以添加注册逻辑
+            //
             // ...
 //            Student newStudent = new Student(studentIdField.getText(), usernameField.getText(),
 //                    PasswordHandler.hashPassword(String.valueOf(passwordField.getPassword())));
@@ -170,7 +170,7 @@ public class Registration extends JFrame implements ActionListener {
                 baseHandler.create("Curriculum", studentID);
                 baseHandler.create("Portfolios", studentID);
                 baseHandler.create("Roles", studentID);
-                baseHandler.create("Schedule", studentID);
+//                baseHandler.create("Schedule", studentID);
                 baseHandler.create("Skills", studentID);
 
                 JOptionPane.showMessageDialog(this, "Registration succeeded!");
