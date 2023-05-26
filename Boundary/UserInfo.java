@@ -27,12 +27,12 @@ public class UserInfo extends JPanel {
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
         String[] data = userInfo.getRow(rowIndex);
         JPanel userPanel = new JPanel();
-        userPanel.setLayout(new GridLayout(3, 1, 5, 5));
+        userPanel.setLayout(new GridLayout(0, 1, 5, 5));
         JPanel title = new JPanel();
         JPanel GPApanel = new JPanel();
         GPApanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         JPanel buttonpanel = new JPanel();
-        buttonpanel.setLayout(new GridLayout(1, 4, 5, 5));
+        buttonpanel.setLayout(new GridLayout(0, 4, 5, 5));
 
         StringSearch stringSearch = new StringSearch();
 
