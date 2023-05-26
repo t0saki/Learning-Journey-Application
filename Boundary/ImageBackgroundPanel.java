@@ -17,6 +17,7 @@ public class ImageBackgroundPanel extends JPanel {
     private BufferedImage image; // the original image
     private int parentContainerHeight; // the height of the panel
 
+    // Just show a simple login screen
     public ImageBackgroundPanel(String imagePath, int windowHeight, double i) {
         // this.image is created from the image at imagePath
         this.image = null;
@@ -28,6 +29,10 @@ public class ImageBackgroundPanel extends JPanel {
         this.parentContainerHeight = windowHeight;
     }
 
+    /**
+     * @param g
+     *          sets the background image to fit the panel
+     */
     @Override
     protected void paintComponent(Graphics g) {
         // super.paintComponent(g);
