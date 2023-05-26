@@ -13,6 +13,6 @@ public class HistogramPanel extends BaseDisplay {
     }
 
     public void update(Histogram histogram) {
-        contentPanel = histogram;
+        contentPanel = new HistogramInfo(histogram);
     }
 }
