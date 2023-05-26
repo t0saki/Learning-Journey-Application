@@ -24,7 +24,7 @@ public class Start extends JFrame {
         JPanel panel = new JPanel(new GridBagLayout());
 
         // 设置背景图片
-        ImageIcon backgroundImg = new ImageIcon("Data/pic/start.png");
+        ImageIcon backgroundImg = new ImageIcon("Data//pic//start_waifu2x_4x_3n_png_shrink.jpg");
         JLabel backgroundLabel = new JLabel(backgroundImg);
         backgroundLabel.addMouseListener(new MouseAdapter() {
             @Override
