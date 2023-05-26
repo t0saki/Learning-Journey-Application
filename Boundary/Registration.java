@@ -49,7 +49,7 @@ public class Registration extends JFrame implements ActionListener {
         JLabel passwordLabel = new JLabel("Password:");
         passwordField = new JPasswordField(20);
 
-        registerButton = new JButton("Register");
+        registerButton = new MyButton("Register");
         registerButton.addActionListener(this);
 
         // Add components to the panel

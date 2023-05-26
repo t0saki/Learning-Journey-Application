@@ -27,7 +27,7 @@ public class HistogramInfo extends JPanel {
 
                 // Header
                 JPanel title = new JPanel();
-                JLabel titlelable = new JLabel("<html><center>CourseMark Histogram</center></html>");
+                JLabel titlelable = new JLabel("<html><center>Histogram</center></html>");
                 titlelable.setFont(FontManager.getIBSCartooning(100));
                 titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
                 // userPanel.add(titlelable);

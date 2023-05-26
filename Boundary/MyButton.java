@@ -23,7 +23,7 @@ public class MyButton extends JButton {
     private Color colorClick;
     private Color borderColor;
     // private Color textColor;
-    private int radius = 0;
+    private int radius = 20;
 
     public MyButton(String buttonName) {
         this();
