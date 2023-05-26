@@ -11,8 +11,9 @@ import java.awt.*;
  *       the item panel showed on the screen
  *       indicating an activity
  */
-public class CurriculumItem extends ClickableItem {
+public class CurriculumItem extends ClickableItem implements BaseItem{
     BaseHandler baseHandler;
+    String item;
 
     public CurriculumItem(String studentID, int index) {
         super();
@@ -20,6 +21,7 @@ public class CurriculumItem extends ClickableItem {
         baseHandler.open("Data/Curriculum/" + studentID + ".csv");
         JLabel content = new JLabel();
         String str = baseHandler.getElement("Curriculum", index);
+        item = str;
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));
@@ -53,5 +55,9 @@ public class CurriculumItem extends ClickableItem {
         // Draw a border around the panel
         g.setColor(Color.BLACK);
         g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+    }
+
+    public String getItemName() {
+        return item;
     }
 }

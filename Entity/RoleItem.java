@@ -11,8 +11,9 @@ import java.awt.*;
  *       the item panel showed on the screen
  *       indicating a role
  */
-public class RoleItem extends ClickableItem {
+public class RoleItem extends ClickableItem implements BaseItem{
     BaseHandler baseHandler;
+    String item;
 
     public RoleItem(String studentID, int index) {
         super();
@@ -21,6 +22,7 @@ public class RoleItem extends ClickableItem {
         JLabel content = new JLabel();
         String str = baseHandler.getElement("Roles", index);
         content.setText(str);
+        item = str;
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));
         this.setBackground(Color.LIGHT_GRAY);
@@ -54,5 +56,9 @@ public class RoleItem extends ClickableItem {
         // Draw a border around the panel
         g.setColor(Color.BLACK);
         g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+    }
+
+    public String getItemName() {
+        return item;
     }
 }

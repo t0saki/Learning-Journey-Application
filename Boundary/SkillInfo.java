@@ -1,9 +1,6 @@
 package Boundary;
 
-import Control.BaseHandler;
-import Control.FontManager;
-import Control.Operate;
-import Control.UserInfoHandler;
+import Control.*;
 import Entity.SkillItem;
 
 import javax.swing.*;
@@ -37,6 +34,7 @@ public class SkillInfo extends JPanel {
      */
     public void refresh(String studentID) {
         this.removeAll();
+        StringSearch stringSearch = new StringSearch();
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
         int rowIndex = userInfo.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
@@ -45,16 +43,18 @@ public class SkillInfo extends JPanel {
         userPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         JPanel operatepanel = new JPanel();
-        operatepanel.setLayout(new GridLayout(1, 3, 5, 0));
+        operatepanel.setLayout(new GridLayout(1, 4, 5, 0));
         JPanel titlepanel = new JPanel();
         titlepanel.setLayout(new GridLayout(2, 1, 5, 5));
 
         JButton add = new JButton("Add");
         JButton delete = new JButton("Delete");
         JButton change = new JButton("Change");
+        JButton search=new JButton("Search");
         operatepanel.add(add);
         operatepanel.add(delete);
         operatepanel.add(change);
+        operatepanel.add(search);
 
         this.setLayout(new BorderLayout());
 
@@ -106,6 +106,7 @@ public class SkillInfo extends JPanel {
             Skillpanel.setLayout(new GridLayout(1, 1));
             Skillpanel.add(Skills[i]);
             ItemPanel.add(Skillpanel);
+            stringSearch.addEntry(Skills[i].getItemName());
         }
         this.add(ItemPanel, "Center");
         this.setVisible(true);
@@ -130,6 +131,13 @@ public class SkillInfo extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // SkillInfo.deleteItem deleteItem = new SkillInfo.deleteItem();
                 refresh(studentID);
+            }
+        });
+        search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                stringSearch.searchKeyword();
             }
         });
 
