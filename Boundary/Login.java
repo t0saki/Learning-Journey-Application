@@ -236,11 +236,9 @@ public class Login extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         if (e.getSource() == loginButton) {
             String username;
             String password;
-
             username = usernameField.getText();
             password = new String(passwordField.getPassword());
             // check empty
@@ -249,12 +247,10 @@ public class Login extends JFrame implements ActionListener {
                         JOptionPane.PLAIN_MESSAGE);
                 return;
             }
-
             // 在这里可以添加登录验证逻辑
             // ...
             BaseHandler baseHandler = new BaseHandler();
             baseHandler.open("Data\\UserInfo.csv");
-
             int rowId = baseHandler.getFirstRowIndexByHeaderAndVal("Username", usernameField.getText());
             if (rowId != -1) {
                 // right password
@@ -265,7 +261,6 @@ public class Login extends JFrame implements ActionListener {
                     System.out.println("Student ID: " + studentID);
                     // JOptionPane.showMessageDialog(this, "Login successful!");
                     dispose();
-
                     new Menu(studentID);
                 }
                 // bad password
@@ -277,9 +272,7 @@ public class Login extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "USER NAME NOT FOUND", "Warning", JOptionPane.PLAIN_MESSAGE);
                 System.out.print("USER NAME NOT FOUND");
             }
-
             // 登录成功后的操作
-
             // dispose(); // 关闭登录窗口
         } else if (e.getSource() == registerButton) {
             // 处理注册按钮点击事件
