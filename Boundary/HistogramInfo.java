@@ -4,6 +4,13 @@ import Control.FontManager;
 
 import javax.swing.*;
 
+/**
+ * @author Zhengxiao Wu
+ * @date 2023/05/26
+ *       the histogram info panel, used to display the histogram of a
+ *       student
+ */
+
 public class HistogramInfo extends JPanel {
         private int[] data;
         private int step;
