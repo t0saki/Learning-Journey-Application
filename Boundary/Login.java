@@ -36,7 +36,7 @@ public class Login extends JFrame implements ActionListener {
 
         GridBagConstraints gbc = new GridBagConstraints();
 
-        JPanel picPanel = new JPanel(new GridBagLayout());
+        JPanel picPanel = new ImageBackgroundPanel("Images\\Campus\\3.jpg", 1);
         JPanel vertBlank1 = new JPanel();
         JPanel contentPanel = new JPanel(new GridBagLayout());
         JPanel vertBlank2 = new JPanel();
@@ -71,7 +71,7 @@ public class Login extends JFrame implements ActionListener {
         b3.setBackground(GlobalColors.lighterBlack);
         b4.setBackground(GlobalColors.lighterBlack);
         b5.setBackground(GlobalColors.lighterBlack);
-        picPanel.setBackground(GlobalColors.solidYellow);
+        // picPanel.setBackground(GlobalColors.solidYellow);
         vertBlank1.setBackground(GlobalColors.lighterBlack);
         contentPanel.setBackground(GlobalColors.lighterBlack);
         vertBlank2.setBackground(GlobalColors.lighterBlack);

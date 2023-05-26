@@ -68,7 +68,7 @@ public class SkillInfo extends JPanel {
         }
 
         // Show on this JPanel
-        StringBuilder stringBuilder = new StringBuilder();
+        // StringBuilder stringBuilder = new StringBuilder();
         // stringBuilder.append("<html><head>");
         // stringBuilder.append("<style>");
         // stringBuilder.append("body { font-family: Arial, sans-serif; }");
@@ -113,7 +113,7 @@ public class SkillInfo extends JPanel {
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SkillInfo.addItem additem = new SkillInfo.addItem();
+                // SkillInfo.addItem additem = new SkillInfo.addItem();
                 refresh(studentID);
 
             }
@@ -121,14 +121,14 @@ public class SkillInfo extends JPanel {
         change.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SkillInfo.changeItem changeItem = new SkillInfo.changeItem();
+                // SkillInfo.changeItem changeItem = new SkillInfo.changeItem();
                 refresh(studentID);
             }
         });
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SkillInfo.deleteItem deleteItem = new SkillInfo.deleteItem();
+                // SkillInfo.deleteItem deleteItem = new SkillInfo.deleteItem();
                 refresh(studentID);
             }
         });

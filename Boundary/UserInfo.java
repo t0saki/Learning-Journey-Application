@@ -138,7 +138,6 @@ public class UserInfo extends JPanel {
         ModuleItem[] moduleItem = new ModuleItem[firstModule.getNum()];
         moduleItem[0] = firstModule;
         int[] marks = new int[firstModule.getNum()];
-        int markslen = marks.length;
         ItemPanel.add(firstModule);
         marks[0] = firstModule.getMark();
         stringSearch.addEntry(firstModule.getModuleName());
