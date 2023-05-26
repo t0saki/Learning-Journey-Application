@@ -8,8 +8,8 @@ import java.awt.*;
 /**
  * @author XiangzheKong
  * @date 2023/05/25
- * the item panel showed on the screen
- * indicating a skill
+ *       the item panel showed on the screen
+ *       indicating a skill
  */
 public class SkillItem extends ClickableItem {
     BaseHandler baseHandler;

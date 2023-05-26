@@ -3,7 +3,8 @@ package Boundary;
 /**
  * @author Zhengxiao Wu
  * @date 2023/05/25
- *     the Course Schedule panel, used to display the course schedule of a student
+ *       the Course Schedule panel, used to display the course schedule of a
+ *       student
  */
 
 public class CourseSchedulePanel extends BaseDisplay {

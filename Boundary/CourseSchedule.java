@@ -5,17 +5,18 @@ import Control.BaseHandler;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author Zhengxiao Wu
  * @date 2023/05/25
- *     the Course Schedule panel, used to display the course schedule of a student
+ *       the Course Schedule panel, used to display the course schedule of a
+ *       student
  */
 public class CourseSchedule extends JPanel {
 
-    private static final String[] DAYS_OF_WEEK = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    private static final String[] TIME_SLOTS = {"Morning", "Late Morning", "Noon", "Afternoon", "Late Afternoon", "Evening"};
+    private static final String[] DAYS_OF_WEEK = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+    private static final String[] TIME_SLOTS = { "Morning", "Late Morning", "Noon", "Afternoon", "Late Afternoon",
+            "Evening" };
 
     private String studentID;
 
@@ -75,10 +76,12 @@ public class CourseSchedule extends JPanel {
                 cellPanel.setLayout(new GridLayout(3, 1));
                 if (scheduleMap.containsKey(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])) {
                     // Bigger course name
-                    JLabel courseLabel = new JLabel(schedule[scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])][0], SwingConstants.CENTER);
-                    JLabel locationLabel = new JLabel(schedule[scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])][3], SwingConstants.CENTER);
-                    JLabel professorLabel = new JLabel(schedule[scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])][4], SwingConstants.CENTER);
-
+                    JLabel courseLabel = new JLabel(schedule[scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])][0],
+                            SwingConstants.CENTER);
+                    JLabel locationLabel = new JLabel(
+                            schedule[scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])][3], SwingConstants.CENTER);
+                    JLabel professorLabel = new JLabel(
+                            schedule[scheduleMap.get(DAYS_OF_WEEK[j] + " " + TIME_SLOTS[i])][4], SwingConstants.CENTER);
 
                     courseLabel.setFont(courseLabel.getFont().deriveFont(Font.BOLD, 20f));
                     // Smaller other info

@@ -8,17 +8,18 @@ import java.awt.*;
 /**
  * @author XiangzheKong
  * @date 2023/05/25
- * the item panel showed on the screen
- * indicating a portfolio
+ *       the item panel showed on the screen
+ *       indicating a portfolio
  */
 public class PortfoliosItem extends ClickableItem {
     BaseHandler baseHandler;
-    public PortfoliosItem(String studentID,int index){
+
+    public PortfoliosItem(String studentID, int index) {
         super();
-        baseHandler=new BaseHandler();
-        baseHandler.open("Data/Portfolios/" +studentID+".csv");
-        JLabel content=new JLabel();
-        String str=baseHandler.getElement("Portfolios",index);
+        baseHandler = new BaseHandler();
+        baseHandler.open("Data/Portfolios/" + studentID + ".csv");
+        JLabel content = new JLabel();
+        String str = baseHandler.getElement("Portfolios", index);
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));

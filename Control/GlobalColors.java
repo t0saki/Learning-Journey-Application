@@ -2,6 +2,12 @@ package Control;
 
 import java.awt.*;
 
+/**
+ * @author Ruitian Yang
+ * @author YuRong He
+ * @date 2023/05/25
+ *       definitions of globally used colors
+ */
 public class GlobalColors {
     public static Color lighterBlack = new Color(44, 47, 72);
     public static Color darkerBlack = new Color(29, 32, 62);

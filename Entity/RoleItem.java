@@ -8,17 +8,18 @@ import java.awt.*;
 /**
  * @author XiangzheKong
  * @date 2023/05/25
- * the item panel showed on the screen
- * indicating a role
+ *       the item panel showed on the screen
+ *       indicating a role
  */
 public class RoleItem extends ClickableItem {
     BaseHandler baseHandler;
-    public RoleItem(String studentID,int index){
+
+    public RoleItem(String studentID, int index) {
         super();
-        baseHandler=new BaseHandler();
-        baseHandler.open("Data/Roles/" +studentID+".csv");
-        JLabel content=new JLabel();
-        String str=baseHandler.getElement("Roles",index);
+        baseHandler = new BaseHandler();
+        baseHandler.open("Data/Roles/" + studentID + ".csv");
+        JLabel content = new JLabel();
+        String str = baseHandler.getElement("Roles", index);
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));

@@ -1,5 +1,4 @@
 import Boundary.Login;
-import Boundary.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +6,7 @@ import java.awt.*;
 /**
  * @author Zhengxiao Wu
  * @date 2023/05/25
- *     the entry point of the program
+ *       the entry point of the program
  */
 
 public class LearningJourneyApp {
@@ -45,7 +44,7 @@ public class LearningJourneyApp {
 
         // Initialize the user interface
         SwingUtilities.invokeLater(() -> {
-            new Start();
+            new Login();
         });
     }
 

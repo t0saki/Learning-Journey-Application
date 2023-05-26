@@ -7,9 +7,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 
-import Control.PasswordHandler;
-import Control.BaseHandler;
+import Control.*;
 
+/**
+ * @author Ruitian Yang
+ * @author ZhengXiao Wu
+ * @author YuRong He
+ * @date 2023/05/25
+ *       the login panel, containing login and register button
+ */
 public class Login extends JFrame implements ActionListener {
     private JTextField usernameField;
     private JPasswordField passwordField;
@@ -25,20 +31,177 @@ public class Login extends JFrame implements ActionListener {
         setResizable(false);
 
         JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        panel.setPreferredSize(new Dimension(1000, 600));
         panel.setLayout(new GridBagLayout());
 
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.insets = new Insets(10, 0, 10, 0);
+        GridBagConstraints gbc = new GridBagConstraints();
 
-        JLabel titleLabel = new JLabel("Login");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        JPanel picPanel = new JPanel(new GridBagLayout());
+        JPanel vertBlank1 = new JPanel();
+        JPanel contentPanel = new JPanel(new GridBagLayout());
+        JPanel vertBlank2 = new JPanel();
 
-        JLabel usernameLabel = new JLabel("Username:");
+        JLabel signInLabel = new JLabel("Sign In");
+        signInLabel.setForeground(GlobalColors.solidWhite);
+
+        JPanel b1 = new JPanel();
+        JPanel b2 = new JPanel();
+        JPanel b3 = new JPanel();
+        JPanel b4 = new JPanel();
+        JPanel b5 = new JPanel();
+
         usernameField = new JTextField(20);
-        JLabel passwordLabel = new JLabel("Password:");
         passwordField = new JPasswordField(20);
+
+        loginButton = new JButton("Login");
+        loginButton.addActionListener(this);
+
+        registerButton = new JButton("Don't have an account? Sign up!");
+        registerButton.addActionListener(this);
+
+        // set fonts
+        signInLabel.setFont(FontManager.getLatoBold(30));
+        usernameField.setFont(FontManager.getLatoRegular(18));
+        loginButton.setFont(FontManager.getLatoRegular(18));
+        registerButton.setFont(FontManager.getLatoRegular(18));
+
+        // set colors
+        b1.setBackground(GlobalColors.lighterBlack);
+        b2.setBackground(GlobalColors.lighterBlack);
+        b3.setBackground(GlobalColors.lighterBlack);
+        b4.setBackground(GlobalColors.lighterBlack);
+        b5.setBackground(GlobalColors.lighterBlack);
+        picPanel.setBackground(GlobalColors.solidYellow);
+        vertBlank1.setBackground(GlobalColors.lighterBlack);
+        contentPanel.setBackground(GlobalColors.lighterBlack);
+        vertBlank2.setBackground(GlobalColors.lighterBlack);
+
+        // start filling
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        // picPanel
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.7;
+        gbc.weighty = 1;
+        panel.add(picPanel, gbc);
+
+        // blank
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.075;
+        gbc.weighty = 1;
+        panel.add(vertBlank1, gbc);
+
+        // content
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.SOUTHWEST;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.2;
+        contentPanel.add(signInLabel, gbc);
+
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.02;
+        contentPanel.add(b1, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.06;
+        contentPanel.add(usernameField, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.02;
+        contentPanel.add(b2, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.06;
+        contentPanel.add(passwordField, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.05;
+        contentPanel.add(b3, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.06;
+        contentPanel.add(loginButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 7;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.05;
+        contentPanel.add(b4, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 8;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.06;
+        contentPanel.add(registerButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 9;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 0.1;
+        contentPanel.add(b5, gbc);
+
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.35;
+        gbc.weighty = 1;
+        panel.add(contentPanel, gbc);
+
+        // blank
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.075;
+        gbc.weighty = 1;
+        panel.add(vertBlank2, gbc);
+
+        //////////////////////////
 
         // We can also press enter to login
         KeyAdapter keyAdapter = new KeyAdapter() {
@@ -49,6 +212,7 @@ public class Login extends JFrame implements ActionListener {
                 }
             }
         };
+
         usernameField.addKeyListener(keyAdapter);
         passwordField.addKeyListener(keyAdapter);
 
@@ -58,40 +222,7 @@ public class Login extends JFrame implements ActionListener {
             passwordField.setText("A");
         }
 
-        loginButton = new JButton("Login");
-        loginButton.addActionListener(this);
-
-        registerButton = new JButton("Register");
-        registerButton.addActionListener(this);
-
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridwidth = 2;
-        panel.add(titleLabel, constraints);
-
-        constraints.gridy = 1;
-        constraints.gridwidth = 1;
-        panel.add(usernameLabel, constraints);
-
-        constraints.gridy = 2;
-        panel.add(passwordLabel, constraints);
-
-        constraints.gridx = 1;
-        constraints.gridy = 1;
-        constraints.weightx = 1.0;
-        panel.add(usernameField, constraints);
-
-        constraints.gridy = 2;
-        panel.add(passwordField, constraints);
-
-        constraints.gridx = 0;
-        constraints.gridy = 3;
-        constraints.gridwidth = 2;
-        constraints.weightx = 0.0;
-        panel.add(loginButton, constraints);
-
-        constraints.gridy = 4;
-        panel.add(registerButton, constraints);
+        //////////////////////////
 
         add(panel, BorderLayout.CENTER);
         pack();

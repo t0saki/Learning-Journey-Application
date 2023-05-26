@@ -11,10 +11,8 @@ import java.util.Map;
  * @author Ruitian Yang
  * @author Xiangzhe Kong
  * @date 2023/05/25
- *     the file handler class, used to read and write csv files
+ *       the file handler class, used to read and write csv files
  */
-
-
 public class BaseHandler {
     private FileReader fileReader;
     private FileWriter fileWriter;
@@ -61,7 +59,6 @@ public class BaseHandler {
         // another one.");
         // return 0;
         // }
-        FileWriter fileWriter;
         try {
             fileWriter = new FileWriter(new File(csvPath), true);
         } catch (Exception e) {
@@ -218,7 +215,7 @@ public class BaseHandler {
     /**
      * @author XiangzheKong
      * @return int
-     * Get number of lines of the content.
+     *         Get number of lines of the content.
      */
     public int getLineCount() {
         int linecount = 0;
@@ -236,9 +233,9 @@ public class BaseHandler {
      * @author XiangzheKong
      * @param str
      * @return int
-     * Check whether an entity exists.
-     * return its row number if exists
-     * return a negative number if it does not exist
+     *         Check whether an entity exists.
+     *         return its row number if exists
+     *         return a negative number if it does not exist
      */
     public int CheckExist(String str) {
         if (fileReader == null) {
@@ -257,9 +254,9 @@ public class BaseHandler {
     /**
      * @author XiangzheKong
      * @param entity target entity, the first item in a row
-     * @param path file path
+     * @param path   file path
      * @return int
-     * Delete the line with specific entity
+     *         Delete the line with specific entity
      */
     public int DeleteLine(String entity, String path) {
         try {
@@ -306,7 +303,7 @@ public class BaseHandler {
      * @param content
      * @param path
      * @return int
-     * Change the specific item into another item.
+     *         Change the specific item into another item.
      *
      */
     public int ChangeItem(String header, String entity, String content, String path) {

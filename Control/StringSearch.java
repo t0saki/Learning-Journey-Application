@@ -7,9 +7,8 @@ import java.util.List;
 /**
  * @author Zhengxiao Wu
  * @date 2023/05/25
- *     the string search handler, used to search string
+ *       the string search handler, used to search string
  */
-
 public class StringSearch {
     private List<String> entries;
 
@@ -37,7 +36,8 @@ public class StringSearch {
         if (matchingEntries.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No matching entries found for the keyword: " + keyword);
         } else {
-            StringBuilder message = new StringBuilder("The keyword '" + keyword + "' found in the following entries:\n");
+            StringBuilder message = new StringBuilder(
+                    "The keyword '" + keyword + "' found in the following entries:\n");
             for (String matchingEntry : matchingEntries) {
                 message.append("- ").append(matchingEntry).append("\n");
             }

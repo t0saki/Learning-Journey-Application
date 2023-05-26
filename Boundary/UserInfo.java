@@ -20,7 +20,7 @@ import java.awt.event.ActionListener;
  */
 public class UserInfo extends JPanel {
     // Show a user's information
-    public UserInfo(String studentID,HistogramPanel histogramPanel) {
+    public UserInfo(String studentID, HistogramPanel histogramPanel) {
         setPreferredSize(new Dimension(680, 1600));
         UserInfoHandler userInfo = new UserInfoHandler();
         userInfo.open("Data\\UserInfo.csv");
@@ -52,7 +52,6 @@ public class UserInfo extends JPanel {
         JButton btn1 = new JButton("<html><center>Standard<br>calculation<br>method</center></html>");
         JButton btn2 = new JButton("<html><center>Simple 4-point scale <br> algorithm</center></html>");
         JButton btn3 = new JButton("<html><center>Peking University <br> GPA Algorithm</center></html>");
-
 
         btn1.addActionListener(new ActionListener() {
             @Override
@@ -97,30 +96,33 @@ public class UserInfo extends JPanel {
         }
 
         // Show on this JPanel
-//        StringBuilder stringBuilder = new StringBuilder();
-//        stringBuilder.append("<html><head>");
-//        stringBuilder.append("<link href=\"https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap\" rel=\"stylesheet\">");
-//        stringBuilder.append("<style>");
-//        //stringBuilder.append("body { font-family: Arial, sans-serif; }");
-//        stringBuilder.append("h1 { font-family: 'Alex Brush', cursive;   font-size: 50px; text-align: center; }");
-//        stringBuilder.append("p { font-size: 20px; }");
-//        stringBuilder.append("</style>");
-//        stringBuilder.append("</head><body>");
-//        stringBuilder.append("<h1>Personal Information</h1>");
-//        stringBuilder.append("</body></html>");
+        // StringBuilder stringBuilder = new StringBuilder();
+        // stringBuilder.append("<html><head>");
+        // stringBuilder.append("<link
+        // href=\"https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap\"
+        // rel=\"stylesheet\">");
+        // stringBuilder.append("<style>");
+        // //stringBuilder.append("body { font-family: Arial, sans-serif; }");
+        // stringBuilder.append("h1 { font-family: 'Alex Brush', cursive; font-size:
+        // 50px; text-align: center; }");
+        // stringBuilder.append("p { font-size: 20px; }");
+        // stringBuilder.append("</style>");
+        // stringBuilder.append("</head><body>");
+        // stringBuilder.append("<h1>Personal Information</h1>");
+        // stringBuilder.append("</body></html>");
 
-
-//        stringBuilder.append("<p><strong>Name:</strong> " + str[0] + "</p>");
-//        stringBuilder.append("<p><strong>Student ID:</strong> " + str[1] + "</p>");
-//        stringBuilder.append("<p><strong>Major:</strong> " + str[2] + "</p>");
-//        stringBuilder.append("<p><strong>Entrance year:</strong> " + str[3] + "</p>");
-//        stringBuilder.append("</body></html>");
+        // stringBuilder.append("<p><strong>Name:</strong> " + str[0] + "</p>");
+        // stringBuilder.append("<p><strong>Student ID:</strong> " + str[1] + "</p>");
+        // stringBuilder.append("<p><strong>Major:</strong> " + str[2] + "</p>");
+        // stringBuilder.append("<p><strong>Entrance year:</strong> " + str[3] +
+        // "</p>");
+        // stringBuilder.append("</body></html>");
 
         JLabel titlelable = new JLabel("<html><center>Personal Information</center></html>");
-        titlelable.setFont(FontManager.getLatoBoldItalic(110));
+        titlelable.setFont(FontManager.getIBSCartooning(110));
         titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
-        //userPanel.add(titlelable);
-//        titlelable.setFont(new Font("", Font.PLAIN, 30));
+        // userPanel.add(titlelable);
+        // titlelable.setFont(new Font("", Font.PLAIN, 30));
         title.add(titlelable);
         userPanel.add(title);
         userPanel.add(GPApanel);

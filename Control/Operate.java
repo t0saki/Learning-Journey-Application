@@ -2,14 +2,12 @@ package Control;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Operate {
     public static double GPAhandler(String studentID, int type) {
         BaseHandler baseHandler = new BaseHandler();
         baseHandler.open("Data/Modules&Marks.csv");
         int index = baseHandler.getFirstRowIndexByHeaderAndVal("StudentId", studentID);
-        int headerlen = baseHandler.getHeaders().length;
         BaseHandler baseHandler1 = new BaseHandler();
         baseHandler1.open("Data/credits.csv");
         int linecount = baseHandler1.getLineCount();
@@ -212,7 +210,6 @@ public class Operate {
         BaseHandler analyser = new BaseHandler();
         analyser.open("Data/Analyse.csv");
         ArrayList<String> modules = Operate.getgoodmarks(studentID);
-        int goodModulesnum = modules.size();
         for (String module : modules) {
             if (analyser.getElement(1, analyser.CheckExist(module)).equals("1")) {
                 choice1 = true;

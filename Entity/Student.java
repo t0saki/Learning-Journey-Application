@@ -1,5 +1,11 @@
 package Entity;
 
+/**
+ * @author Ruitian Yang
+ * @author YuRong He
+ * @date 2023/05/25
+ *       the entity class of student
+ */
 public class Student {
    private String studentId;
    private String userName;

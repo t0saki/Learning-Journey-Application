@@ -30,8 +30,8 @@ public class Start extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new Login();
-                //System.out.println("Image clicked!");
-                //dispose();
+                // System.out.println("Image clicked!");
+                // dispose();
             }
         });
         // 将面板添加到背景图片标签上

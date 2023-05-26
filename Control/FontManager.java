@@ -4,7 +4,13 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-// This class is used to load custom fonts
+/**
+ * @author Ruitian Yang
+ * @author YuRong He
+ * @author Guo Yu
+ * @date 2023/05/25
+ *       class to load custom fonts
+ */
 public class FontManager {
     public static Font getCustomFont(String path, float fontSize) {
         try {
@@ -29,9 +35,11 @@ public class FontManager {
     public static Font getLatoBold(float fontSize) {
         return getCustomFont("Fonts\\Lato\\Lato-Bold.ttf", fontSize);
     }
-    public static Font getLatoBoldItalic(float fontSize) {
+
+    public static Font getIBSCartooning(float fontSize) {
         return getCustomFont("Fonts\\Lato\\IBS Cartooning.ttf", fontSize);
     }
+
     public static Font getLatoRegular(float fontSize) {
         return getCustomFont("Fonts\\Lato\\Lato-Regular.ttf", fontSize);
     }

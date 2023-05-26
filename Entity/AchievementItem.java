@@ -8,18 +8,19 @@ import java.awt.*;
 /**
  * @author XiangzheKong
  * @date 2023/05/25
- * the item panel showed on the screen
- * indicating an achievement
+ *       the item panel showed on the screen
+ *       indicating an achievement
  */
 public class AchievementItem extends ClickableItem {
     BaseHandler baseHandler;
-    public AchievementItem(String studentID,int index){
+
+    public AchievementItem(String studentID, int index) {
         // call super constructor
         super();
-        baseHandler=new BaseHandler();
-        baseHandler.open("Data/Achievements/" +studentID+".csv");
-        JLabel content=new JLabel();
-        String str=baseHandler.getElement("Achievements",index);
+        baseHandler = new BaseHandler();
+        baseHandler.open("Data/Achievements/" + studentID + ".csv");
+        JLabel content = new JLabel();
+        String str = baseHandler.getElement("Achievements", index);
         content.setText(str);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(600, 100));
@@ -39,7 +40,7 @@ public class AchievementItem extends ClickableItem {
         super.paintComponent(g);
         // Create a gradient paint
         GradientPaint gradient = new GradientPaint(
-                0, 0, new Color(255,192,203), getWidth(), getHeight(), Color.white);
+                0, 0, new Color(255, 192, 203), getWidth(), getHeight(), Color.white);
 
         // Create a graphics2D object from the graphics object
         Graphics2D g2d = (Graphics2D) g;

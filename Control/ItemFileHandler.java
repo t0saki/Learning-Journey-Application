@@ -7,10 +7,10 @@ import java.util.List;
 /**
  * @author XiangzheKong
  * @date 2023/05/25
- * The Handler for items such as
- * achievements,skills,activities,roles and portfolios
+ *       The Handler for items such as
+ *       achievements,skills,activities,roles and portfolios
  */
-public class ItemFileHandler extends BaseHandler{
+public class ItemFileHandler extends BaseHandler {
     @Override
     public int ChangeItem(String header, String entity, String content, String path) {
         try {
@@ -20,6 +20,7 @@ public class ItemFileHandler extends BaseHandler{
             int row = CheckExist(entity);
             if (row < 0) {
                 System.out.println("Item does not exist!");
+                reader.close();
                 return 1;
             }
 

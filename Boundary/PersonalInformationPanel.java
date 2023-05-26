@@ -7,11 +7,11 @@ import Control.*;
 import java.io.*;
 
 /**
- * @author RuitianYang
+ * @author Ruitian Yang
  * @date 2023/05/25
  *       the personal information panel
  */
-// attribution of beautiful avatar images:
+// attribution:
 // href="https://www.freepik.com/free-vector/set-people-avatars-male-female-characters-faces_22535547.htm#query=png%20avatars&position=4&from_view=keyword&track=ais">Image
 // by upklyak</a> on Freepik
 public class PersonalInformationPanel extends JPanel {
