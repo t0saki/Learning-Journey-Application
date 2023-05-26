@@ -28,7 +28,7 @@ public class ModuleItem extends ClickableItem implements BaseItem{
 
         JLabel label1 = new JLabel();
         JLabel label2 = new JLabel();
-        moduleName = getModuleName(col);
+        moduleName = getItemName(col);
         Mark = getModuleMark(studentID, moduleName);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(150, 100));
