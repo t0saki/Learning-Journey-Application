@@ -85,7 +85,7 @@ public class RoleInfo extends JPanel {
         // stringBuilder.append("</body></html>");
 
         JLabel titlelable = new JLabel("<html><center>Personal Role</center></html>");
-        titlelable.setFont(FontManager.getIBSCartooning(110));
+        titlelable.setFont(FontManager.getIBSCartooning(100));
         titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
         userPanel.add(titlelable);
         titlepanel.add(userPanel);

@@ -38,7 +38,7 @@ public class Plan extends JPanel {
         JPanel userpanel=new JPanel();
         userpanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         JLabel titlelable = new JLabel("<html><center>Personal Plan</center></html>");
-        titlelable.setFont(FontManager.getIBSCartooning(110));
+        titlelable.setFont(FontManager.getIBSCartooning(100));
         titlelable.setBorder(BorderFactory.createEmptyBorder(30, 0, 0, 0));
         userpanel.add(titlelable);
 
