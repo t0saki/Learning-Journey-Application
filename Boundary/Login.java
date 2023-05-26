@@ -21,7 +21,7 @@ public class Login extends JFrame implements ActionListener {
     private JPasswordField passwordField;
     private MyButton loginButton;
     private MyButton registerButton;
-    private Boolean fastDebug = true; // TODO: disable fastDebug when release
+    private Boolean fastDebug = false; // TODO: disable fastDebug when release
 
     // Just show a simple login screen
 
@@ -59,9 +59,9 @@ public class Login extends JFrame implements ActionListener {
         JPanel b4 = new JPanel();
         JPanel b5 = new JPanel();
 
-        // Create a new JPasswordField
-        usernameField = new JTextField(20);
-        passwordField = new JPasswordField(20);
+        usernameField = new HintTextField("User Name", 20);
+        passwordField = new HintPasswordField("Password", 20);
+
         usernameField.setMargin(new Insets(0, 10, 0, 0));
         passwordField.setMargin(new Insets(0, 10, 0, 0));
 
