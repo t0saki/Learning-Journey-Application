@@ -30,6 +30,9 @@ public class Operate {
             case 1:// Standard calculation method
                 for (int i = 0; i < linecount; i++) {
                     double mark = Double.parseDouble(line[i]);
+                    if(i==0){
+                        mark=0;
+                    }
                     int credit = Integer.parseInt(baseHandler1.getElement("credits", i));
                     total_credit += credit;
                     GPA += mark * credit;
